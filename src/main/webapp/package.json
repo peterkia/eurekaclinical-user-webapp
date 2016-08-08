@@ -1,0 +1,41 @@
+{
+  "name": "user",
+  "version": "1.0.0",
+  "description": "Eureka! Clinical User",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "bower": "^1.5.3",
+    "event-stream": "^3.3.1",
+    "gulp": "^3.9.0",
+    "gulp-angular-templatecache": "^2.0.0",
+    "gulp-babel": "^5.2.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-if": "^1.2.5",
+    "gulp-jasmine": "^2.0.1",
+    "gulp-jshint": "^1.11.2",
+    "gulp-less": "^3.0.3",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-clean-css": "^2.0.6",
+    "gulp-uglify": "^1.4.1",
+    "gulp-rev": "^7.0.0",
+    "jasmine-core": "^2.3.4",
+    "karma-jasmine": "^0.3.6",
+    "karma-mocha-reporter": "^1.1.1",
+    "karma-spec-reporter": "0.0.20",
+    "map-stream": "0.0.6",
+    "proxy-middleware": "^0.14.0",
+    "url": "^0.11.0",
+    "wiredep": "^2.2.2"
+  },
+  "dependencies": {
+    "opn": "^3.0.2"
+  }
+}

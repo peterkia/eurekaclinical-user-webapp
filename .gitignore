@@ -1,0 +1,11 @@
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.next
+release.properties
+src/main/webapp/node
+src/main/webapp/node_modules
+src/main/webapp/build
+src/main/webapp/bower_components
+src/main/webapp/npm-debug.log
+src/main/webapp/dist
