@@ -69,43 +69,18 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a href="${pageContext.request.contextPath}/" class="navbar-brand">
+			<a href="https://localhost:8443/eureka-webapp/" class="navbar-brand">
 				<span class="brand-text">Eureka!</span>
 			</a>
 		</div>
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right menu-text">
-				<c:if test="${userIsActivated}">
-					<li>
-						<a href="${pageContext.request.contextPath}/protected/cohorthome">
-							<i class="fa fa-pencil"></i>
-							Cohorts
-						</a>
-					</li>
-					<li>
-						<a href="${pageContext.request.contextPath}/protected/editorhome">
-							<i class="fa fa-pencil"></i>
-							Phenotypes
-						</a>
-					</li>
-					<li>
-						<a href="${pageContext.request.contextPath}/protected/jobs">
-							<i class="fa fa-cog"></i>
-							Jobs
-						</a>
-					</li>
-				</c:if>
-				<li>
-					<a href="${pageContext.request.contextPath}/#/help">
-						<i class="fa fa-question-circle"></i>
-						Help
-					</a>
-				</li>
+
 				<c:choose>
 					<c:when test="${userIsActivated}">
 					<c:set var="firstAndLastName" value="${user.firstName} ${user.lastName}"/>
 						<li>
-							<a href="${pageContext.request.contextPath}/logout" 
+							<a href="https://localhost:8443/eureka-webapp/logout" 
 							   class="dropdown-toggle" data-toggle="dropdown" 
 							   role="button" aria-expanded="false">
 								<i class="fa fa-user"></i>
@@ -126,7 +101,7 @@
 								<li>
 									<a href="user_acct">
 										<i class="fa fa-user"></i>
-										Account Settings
+										Account Settings(2222)
 									</a>
 								</li>
 								<c:if test="${myfn:isUserInRole(pageContext.request, 'admin')}">
@@ -137,7 +112,7 @@
 										</a>
 									</li>
 								</c:if>
-								<li><a href="${pageContext.request.contextPath}/logout" class="idletimeout-logout">
+								<li><a href="https://localhost:8443/eureka-webapp/logout" class="idletimeout-logout">
 									<i class="fa fa-sign-out"></i>
 									Logout
 								</a></li>
@@ -147,7 +122,7 @@
 					</c:when>
 					<c:otherwise>
 						<li>
-							<a href="${pageContext.request.contextPath}/protected/login">
+							<a href="https://localhost:8443/eureka-webapp/protected/login">
 								<i class="fa fa-sign-in"></i>
 								Login
 							</a>

@@ -43,7 +43,7 @@
 			<c:set var="authenticationMethod" value="LOCAL"/>
 		</c:otherwise>
 	</c:choose>
-	<c:if test="${applicationScope.webappProperties.demoMode or applicationScope.webappProperties.ephiProhibited}">
+	<c:if test="${applicationScope.UserWebappProperties.demoMode or applicationScope.UserWebappProperties.ephiProhibited}">
 		<div class="alert alert-warning">
 				<strong>Disclaimer: Loading real patient data into the system is strictly prohibited!</strong>
 		</div>
@@ -149,7 +149,7 @@
 		</div>
 	</div>
 	</c:if>
-	<c:if test="${applicationScope.webappProperties.demoMode}">
+	<c:if test="${applicationScope.UserWebappProperties.demoMode}">
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="form-group">

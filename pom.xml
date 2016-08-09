@@ -3,7 +3,7 @@
     <groupId>org.eurekaclinical</groupId>    
     <artifactId>user-webapp</artifactId>
     <packaging>war</packaging>
-    <version>1-Alpha-15</version>
+    <version>1-Alpha-20</version>
     <name>Eureka! Clinical User Webapp</name>
     <description>Eureka! Clinical User Webapp is the implementation of Eureka! Clinical User 
         web interface that is used by Eureka! Clinical multiple projects
@@ -210,7 +210,7 @@
         <dependency>
                 <groupId>org.eurekaclinical</groupId>
                 <artifactId>user-common</artifactId>
-                <version>1-Alpha-11</version>
+                <version>1-Alpha-14</version>
         </dependency>       
 		<dependency>
 			<groupId>junit</groupId>

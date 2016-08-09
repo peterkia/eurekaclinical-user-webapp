@@ -28,6 +28,11 @@ import org.eurekaclinical.user.servlet.filter.PasswordExpiredFilter;
 import java.util.HashMap;
 import java.util.Map;
 import org.eurekaclinical.common.config.AbstractServletModule;
+import org.eurekaclinical.user.servlet.oauth.GitHubRegistrationOAuthCallbackServlet;
+import org.eurekaclinical.user.servlet.oauth.GlobusRegistrationOAuthCallbackServlet;
+import org.eurekaclinical.user.servlet.oauth.GoogleRegistrationOAuthCallbackServlet;
+import org.eurekaclinical.user.servlet.oauth.TwitterRegistrationOAuthCallbackServlet;
+import org.eurekaclinical.common.servlet.LogoutServlet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 /**
@@ -50,7 +55,7 @@ class ServletModule extends AbstractServletModule {
 
 	public ServletModule(UserWebappProperties inProperties) {
 		super(inProperties, CONTAINER_PATH, CONTAINER_PROTECTED_PATH,
-				LOGOUT_PATH);
+				/*LOGOUT_PATH*/"/*");
 		this.properties = inProperties;
 	}
         
@@ -68,8 +73,7 @@ class ServletModule extends AbstractServletModule {
 		filterRegex(FILTER_PATH).through(RolesFilter.class);
 	}
 
-	private void setupPasswordExpiredFilter() {
-            /*
+	private void setupPasswordExpiredFilter() {/*
 		bind(PasswordExpiredFilter.class).in(Singleton.class);
 		Map<String, String> params = new HashMap<>();
 		params.put("redirect-url", PASSWORD_EXPIRED_REDIRECT_URL);
@@ -78,8 +82,7 @@ class ServletModule extends AbstractServletModule {
 			this.printParams(params);
 		}
 		filter(CONTAINER_PROTECTED_PATH).through(
-				PasswordExpiredFilter.class, params);
-            */
+				PasswordExpiredFilter.class, params);*/
 	}
 
 	@Override
@@ -92,6 +95,9 @@ class ServletModule extends AbstractServletModule {
         
 	@Override
 	protected void setupServlets() {
+                bind(LogoutServlet.class).in(Singleton.class);
+		serve(LOGOUT_PATH).with(LogoutServlet.class);
+            
 		bind(ChooseAccountTypeServlet.class).in(Singleton.class);
 		serve("/chooseaccounttype").with(ChooseAccountTypeServlet.class);   
                 
@@ -101,13 +107,13 @@ class ServletModule extends AbstractServletModule {
 		bind(UserAcctManagerServlet.class).in(Singleton.class);
 		serve("/protected/user_acct").with(UserAcctManagerServlet.class);    
                 
-		/*bind(VerifyUserServlet.class).in(Singleton.class);
-		serve("/verify").with(VerifyUserServlet.class);  */             
+		bind(VerifyUserServlet.class).in(Singleton.class);
+		serve("/verify").with(VerifyUserServlet.class);              
                 
 		bind(AdminManagerServlet.class).in(Singleton.class);
 		serve("/protected/admin").with(AdminManagerServlet.class);
                 
-		/*bind(GitHubRegistrationOAuthCallbackServlet.class).in(Singleton.class);
+		bind(GitHubRegistrationOAuthCallbackServlet.class).in(Singleton.class);
 		serve("/registrationoauthgithubcallback").with(
 				GitHubRegistrationOAuthCallbackServlet.class);
 
@@ -121,7 +127,7 @@ class ServletModule extends AbstractServletModule {
 
 		bind(GlobusRegistrationOAuthCallbackServlet.class).in(Singleton.class);
 		serve("/registrationoauthglobuscallback").with(
-				GlobusRegistrationOAuthCallbackServlet.class);  */
+				GlobusRegistrationOAuthCallbackServlet.class);  
                 
         }
 

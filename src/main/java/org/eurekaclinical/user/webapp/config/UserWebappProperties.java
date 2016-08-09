@@ -32,6 +32,12 @@ public class UserWebappProperties extends AbstractProperties {
 	public String getUserServiceUrl() {
 		return this.getValue("user.services.url");
 	}   
+	public boolean isEphiProhibited() {
+		return Boolean.parseBoolean(getValue("user.webapp.ephiprohibited"));
+	}
+	public boolean isDemoMode() {
+		return Boolean.parseBoolean(getValue("user.webapp.demomode"));
+	}        
 	@Override
 	public String getProxyCallbackServer() {
 		return this.getValue("user.webapp.callbackserver");
