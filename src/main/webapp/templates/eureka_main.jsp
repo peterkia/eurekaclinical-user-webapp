@@ -80,7 +80,7 @@
 					<c:when test="${userIsActivated}">
 					<c:set var="firstAndLastName" value="${user.firstName} ${user.lastName}"/>
 						<li>
-							<a href="logout" 
+							<a href="${pageContext.request.contextPath}/logout" 
 							   class="dropdown-toggle" data-toggle="dropdown" 
 							   role="button" aria-expanded="false">
 								<i class="fa fa-user"></i>
@@ -112,7 +112,7 @@
 										</a>
 									</li>
 								</c:if>
-								<li><a href="logout" class="idletimeout-logout">
+								<li><a href="${pageContext.request.contextPath}/logout" class="idletimeout-logout">
 									<i class="fa fa-sign-out"></i>
 									Logout
 								</a></li>
