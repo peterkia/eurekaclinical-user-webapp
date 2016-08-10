@@ -80,7 +80,7 @@
 					<c:when test="${userIsActivated}">
 					<c:set var="firstAndLastName" value="${user.firstName} ${user.lastName}"/>
 						<li>
-							<a href="https://localhost:8443/eureka-webapp/logout" 
+							<a href="logout" 
 							   class="dropdown-toggle" data-toggle="dropdown" 
 							   role="button" aria-expanded="false">
 								<i class="fa fa-user"></i>
@@ -112,7 +112,7 @@
 										</a>
 									</li>
 								</c:if>
-								<li><a href="https://localhost:8443/eureka-webapp/logout" class="idletimeout-logout">
+								<li><a href="logout" class="idletimeout-logout">
 									<i class="fa fa-sign-out"></i>
 									Logout
 								</a></li>
