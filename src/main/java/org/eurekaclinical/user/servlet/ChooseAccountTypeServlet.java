@@ -115,7 +115,7 @@ public class ChooseAccountTypeServlet extends HttpServlet {
                         resp.sendRedirect(req.getContextPath() + "/register.jsp");
                         
                         LOGGER.info("Host = " + req.getServerName()+"  Port = " + req.getServerPort()+" Scheme = "
-                                +req.getScheme()+" Servlet Context"+req.getServletContext()+" Context Path"+req.getContextPath());
+                                +req.getScheme()+" Servlet Context="+req.getServletContext()+" Context Path="+req.getContextPath());
                         String httpsString = req.getContextPath();
                         LOGGER.info("httpString is: "+httpsString+ " Index of / is: "+ httpsString.indexOf("/"));
                         LOGGER.info("user webapp url: "+this.properties.getUserWebappUrl());

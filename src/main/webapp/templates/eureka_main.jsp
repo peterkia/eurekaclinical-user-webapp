@@ -101,7 +101,7 @@
 								<li>
 									<a href="user_acct">
 										<i class="fa fa-user"></i>
-										Account Settings(2222)
+										Account Settings
 									</a>
 								</li>
 								<c:if test="${myfn:isUserInRole(pageContext.request, 'admin')}">

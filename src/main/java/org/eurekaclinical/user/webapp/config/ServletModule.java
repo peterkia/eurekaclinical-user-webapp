@@ -24,7 +24,6 @@ import org.eurekaclinical.user.servlet.*;
 import org.eurekaclinical.user.servlet.filter.MessagesFilter;
 import org.eurekaclinical.user.servlet.filter.UserFilter;
 import org.eurekaclinical.user.servlet.filter.RolesFilter;
-import org.eurekaclinical.user.servlet.filter.PasswordExpiredFilter;
 import java.util.HashMap;
 import java.util.Map;
 import org.eurekaclinical.common.config.AbstractServletModule;
@@ -46,9 +45,7 @@ class ServletModule extends AbstractServletModule {
         
 	private static final String CONTAINER_PATH = "/site/*";
 	private static final String CONTAINER_PROTECTED_PATH = "/protected/*";
-	private static final String FILTER_PATH = "^/(?!(assets|bower_components)).*";
-	private static final String PASSWORD_EXPIRED_REDIRECT_URL = "/protected/password_expiration.jsp";
-	private static final String PASSWORD_SAVE_PATH = "protected/user_acct"; 
+	private static final String FILTER_PATH = "^/(?!(assets|bower_components)).*"; 
 	private static final String LOGOUT_PATH = "/logout";
 
 	private final UserWebappProperties properties;
@@ -73,24 +70,11 @@ class ServletModule extends AbstractServletModule {
 		filterRegex(FILTER_PATH).through(RolesFilter.class);
 	}
 
-	private void setupPasswordExpiredFilter() {/*
-		bind(PasswordExpiredFilter.class).in(Singleton.class);
-		Map<String, String> params = new HashMap<>();
-		params.put("redirect-url", PASSWORD_EXPIRED_REDIRECT_URL);
-		params.put("save-url", PASSWORD_SAVE_PATH);
-		if (LOGGER.isDebugEnabled()) {
-			this.printParams(params);
-		}
-		filter(CONTAINER_PROTECTED_PATH).through(
-				PasswordExpiredFilter.class, params);*/
-	}
-
 	@Override
 	protected void setupFilters() {
 		this.setupMessageFilter();
 		this.setupUserFilter();
 		this.setupRolesFilter();
-		this.setupPasswordExpiredFilter();
 	}
         
 	@Override
