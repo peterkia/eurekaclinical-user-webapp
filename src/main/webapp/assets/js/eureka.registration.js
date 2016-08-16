@@ -161,7 +161,7 @@ window.eureka.registration = new function () {
                                         } else if (xhr.status == "400"){
                                                 $('#passwordErrorMessage').html("Please review your profile and complete all required fields.");
                                         } else {
-                                                $('#passwordErrorMessage').html("An internal error has occurred. "+xhr.status);
+                                                $('#passwordErrorMessage').html("An internal error has occurred. Please contact the technical team for further assistance.");
                                         }
                                       
 				}
