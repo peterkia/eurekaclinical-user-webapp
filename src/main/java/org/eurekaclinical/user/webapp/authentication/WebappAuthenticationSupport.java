@@ -1,10 +1,8 @@
-package org.eurekaclinical.user.webapp.authentication;
-
 /*
  * #%L
- * Eureka WebApp
+ * Eureka! Clinical User Webapp
  * %%
- * Copyright (C) 2012 - 2014 Emory University
+ * Copyright (C) 2016 Emory University
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +17,7 @@ package org.eurekaclinical.user.webapp.authentication;
  * limitations under the License.
  * #L%
  */
+package org.eurekaclinical.user.webapp.authentication;
 
 import org.eurekaclinical.user.common.authentication.AbstractUserSupport;
 import org.eurekaclinical.eureka.client.comm.User;

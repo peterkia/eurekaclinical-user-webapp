@@ -1,10 +1,8 @@
-package org.eurekaclinical.user.servlet.filter;
-
 /*
  * #%L
- * Eureka WebApp
+ * Eureka! Clinical User Webapp
  * %%
- * Copyright (C) 2012 - 2014 Emory University
+ * Copyright (C) 2016 Emory University
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +17,7 @@ package org.eurekaclinical.user.servlet.filter;
  * limitations under the License.
  * #L%
  */
-
+package org.eurekaclinical.user.servlet.filter;
 /**
  * A naive algorithm for splitting a person's name. It simply splits a full
  * name by whitespace.

@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.eurekaclinical.user.webapp.config;
-
-/*-
+/*
  * #%L
- * Eureka! Clinical User
+ * Eureka! Clinical User Webapp
  * %%
  * Copyright (C) 2016 Emory University
  * %%

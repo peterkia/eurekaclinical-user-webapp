@@ -1,8 +1,8 @@
 <%--
   #%L
-  Eureka WebApp
+  Eureka! Clinical User Webapp
   %%
-  Copyright (C) 2012 - 2013 Emory University
+  Copyright (C) 2016 Emory University
   %%
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   #L%
---%>
+  --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="/WEB-INF/tlds/template.tld" prefix="template" %>
 <%@ taglib uri="/WEB-INF/tlds/function.tld" prefix="myfn" %>
