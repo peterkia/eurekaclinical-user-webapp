@@ -160,7 +160,7 @@
 				<version>1.0</version>
 				<configuration>
 					<workingDirectory>src/main/webapp</workingDirectory>
-					<installDirectory>target</installDirectory>
+					<installDirectory>${user.home}/.user-webapp/dev</installDirectory>
 				</configuration>
 				<executions>
 					<execution>
