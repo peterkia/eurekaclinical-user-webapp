@@ -26,4 +26,7 @@ package org.eurekaclinical.user.webapp.config;
 public final class RequestAttributes {
 	public static final String USER = "user";
 	public static final String USER_IS_ACTIVATED = "userIsActivated";
+	public static final String Eureka_Webapp_URL = "eurekaWebappURL";
+	public static final String Eureka_Services_URL = "eurekaServicesURL";        
+
 }

@@ -64,9 +64,15 @@ public class UserFilter implements Filter {
 
 	@Override
 	public void doFilter(ServletRequest inRequest, ServletResponse inResponse, FilterChain inFilterChain) throws IOException, ServletException {
+            
 		HttpServletRequest servletRequest = (HttpServletRequest) inRequest;
 		HttpServletResponse servletResponse = (HttpServletResponse) inResponse;
+                
 		String remoteUser = servletRequest.getRemoteUser();
+                
+		inRequest.setAttribute(RequestAttributes.Eureka_Webapp_URL, this.properties.getEurekaWebappUrl());    
+		inRequest.setAttribute(RequestAttributes.Eureka_Services_URL, this.properties.getEurekaServicesUrl());  
+                
 		if (!StringUtils.isEmpty(remoteUser)) {
 			try {
 				HttpSession session = servletRequest.getSession(false);

@@ -245,6 +245,7 @@
 		src="${pageContext.request.contextPath}/assets/js/jquery.validate.js"></script>
 <script type="text/javascript"
 		src="${pageContext.request.contextPath}/assets/js/eureka.registration.js"></script>
+<script>var ctx = "${eurekaWebappURL}/protected/login"</script>                
 <script type="text/javascript">
 	$(document).ready(function () {
 		eureka.registration.setup($('#signupForm'), $('#agreementAnchor'), $('#agreementModal'));

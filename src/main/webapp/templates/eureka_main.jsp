@@ -69,7 +69,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a href="https://localhost:8443/eureka-webapp/" class="navbar-brand">
+			<a href="${eurekaWebappURL}" class="navbar-brand">
 				<span class="brand-text">Eureka!</span>
 			</a>
 		</div>
@@ -122,7 +122,7 @@
 					</c:when>
 					<c:otherwise>
 						<li>
-							<a href="https://localhost:8443/eureka-webapp/protected/login">
+							<a href="${eurekaWebappURL}/protected/login">
 								<i class="fa fa-sign-in"></i>
 								Login
 							</a>

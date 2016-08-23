@@ -224,7 +224,7 @@
 		</c:if>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery.validate.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/eureka.account.js"></script>
-                <script>var ctx = "https://localhost:8443/eureka-webapp/#/index"</script>
+		<script>var ctx = "${eurekaWebappURL}/#/index"</script>
 		<script type="text/javascript">
 			$(document).ready(function () {
                                 

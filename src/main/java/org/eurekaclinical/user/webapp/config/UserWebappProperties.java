@@ -32,6 +32,12 @@ public class UserWebappProperties extends AbstractProperties {
 	public String getUserServiceUrl() {
 		return this.getValue("user.services.url");
 	}   
+	public String getEurekaWebappUrl() {
+		return this.getValue("eureka.webapp.url");
+	}        
+	public String getEurekaServicesUrl() {
+		return this.getValue("eureka.services.url");
+	}         
 	public boolean isEphiProhibited() {
 		return Boolean.parseBoolean(getValue("user.webapp.ephiprohibited"));
 	}
