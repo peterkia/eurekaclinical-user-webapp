@@ -143,14 +143,15 @@
                         </div>                                                    
                         <div class="row">
                                 <div class="col-sm-6">
-                                        <div class="form-group">                                                
+                                        <div class="form-group">   
+                                                <input type="submit" value="Save Changes" id="saveEditBtn" class="btn btn-primary text-center"/>     
+                                                <button id="cancelBtn" class="btn btn-primary text-center">Cancel</button>                                                  
                                                 <c:if test="${user['class'].name == 'org.eurekaclinical.eureka.client.comm.LocalUser'}">                        
                                                         <button id="changePasswordBtn" class="btn btn-primary text-center">Change Password</button>
-                                                </c:if>                                                
-                                                <button id="cancelBtn" class="btn btn-primary text-center">Cancel</button>     
+                                                </c:if>      
                                                 <input type="hidden" name="id" id="id" value="${user.id}" /> 
                                                 <input type="hidden" name="action" value="saveinfo"/>                                                        
-                                                <input type="submit" value="Save Changes" id="saveEditBtn" class="btn btn-primary text-center"/>  
+
                                         </div>
                                 </div>
                         </div>                            
@@ -163,61 +164,51 @@
                                  aria-hidden="true">
                                 <div class="modal-dialog">
                                         <div class="modal-content">
-                                                <form id="userCredentialForm" class="form-horizontal" action="#" method="post"
-                                                          role="form">
                                                         <div class="modal-header">
                                                                 <h4 id="newPasswordModalLabel" class="modal-title">
                                                                         Change Password
                                                                 </h4>
                                                         </div>
-                                                        <div class="modal-body">
-                                                            
-                                                                <div class="form-group">
-                                                                    <label class="col-sm-3 control-label" for="oldPassword">Old Password:</label>                                                                
-                                                                </div>
-                                                                <div class="form-group">
-                                                                        <div class="col-sm-7">                                                                 
-                                                                                <input type="password" name="oldPassword" id="oldPassword"
-                                                                                           class="form-control"/>
+                                                        <form id="userCredentialForm" class="form-horizontal" action="#" method="post" role="form">
+                                                                <div class="modal-body">
+                                                                        <div class="col-sm-9">
+                                                                                <div class="form-group">
+                                                                                        <label for="oldPassword" class="control-label">Old Password</label>
+                                                                                        <input id="oldPassword" name="oldPassword" type="password" class="form-control" 
+                                                                                        />
+                                                                                        <span class="help-inline"></span>
+                                                                                </div>
                                                                         </div>
-                                                                        <span class="col-sm-5 help-inline"></span>
-                                                                </div>   
-                                                                
-                                                                <div class="form-group">
-                                                                        <label class="col-sm-3 control-label" for="newPassword">New Password:</label>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                        <div class="col-sm-7">                                                                        
-                                                                                <input type="password" name="newPassword" id="newPassword"
-                                                                                           class="form-control"/>
-                                                                        </div>
-                                                                        <span class="col-sm-5 help-inline"></span>
-                                                                </div>  
-                                                            
-                                                          
-                                                                <div class="form-group">
-                                                                        <label class="col-sm-4 control-label" for="verifyPassword">Re-enter New Password:</label>  
-                                                                </div>
-                                                                <div class="form-group">
-                                                                        <div class="col-sm-7">                                                                      
-                                                                                <input type="password" name="verifyPassword" id="verifyPassword"
-                                                                                           class="form-control col-sm-4"/>
-                                                                        </div>
-                                                                        <span class="col-sm-5 help-inline"></span>
-                                                                </div>
 
-                                                            
-                                                                <div class="row">
-                                                                        <div id="passwordChangeNotificationMsg" class="col-sm-10 default-hidden">
+                                                                        <div class="col-sm-9">
+                                                                                <div class="form-group">
+                                                                                        <label for="newPassword" class="control-label" >New Password</label>
+                                                                                        <input id="newPassword" name="newPassword" type="password" class="form-control"
+                                                                                        />
+                                                                                        <span class="help-inline"></span>
+                                                                                </div>
+                                                                        </div>
+
+                                                                        <div class="col-sm-9">
+                                                                                <div class="form-group">
+                                                                                        <label for="verifyPassword" class="control-label">Re-enter New Password</label>
+                                                                                        <input id="verifyPassword" name="verifyPassword" type="password" class="form-control" 
+                                                                                        />
+                                                                                        <span class="help-inline"></span>
+                                                                                </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                                <div id="passwordChangeNotificationMsg" class="col-sm-10 default-hidden">
+                                                                                </div>
                                                                         </div>
                                                                 </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                                <input type="hidden" name="action" value="savepassword"/>
-                                                                <input type="submit" value="Save Password" id="savePasswordBtn" class="btn btn-primary"/>
-                                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                                                        </div>
-                                                </form>
+                                                                <div class="modal-footer">
+                                                                        <input type="hidden" name="action" value="savepassword"/>
+                                                                        <input type="submit" value="Save Password" id="savePasswordBtn" class="btn btn-primary"/>
+                                                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                                                </div>
+                                                        </form>
                                         </div>
                                 </div>
                         </div>
