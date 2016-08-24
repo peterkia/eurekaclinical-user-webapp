@@ -160,7 +160,7 @@
 				<version>1.0</version>
 				<configuration>
 					<workingDirectory>src/main/webapp</workingDirectory>
-					<installDirectory>${user.home}/.user-webapp/dev</installDirectory>
+					<installDirectory>${user.home}/.eurekaclinical/dev</installDirectory>
 				</configuration>
 				<executions>
 					<execution>
