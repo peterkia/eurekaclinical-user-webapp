@@ -30,7 +30,7 @@ public class UserWebappProperties extends AbstractProperties {
 		return this.getValue("user.webapp.url");
 	}        
 	public String getUserServiceUrl() {
-		return this.getValue("user.services.url");
+		return this.getValue("user.service.url");
 	}   
 	public String getEurekaWebappUrl() {
 		return this.getValue("eureka.webapp.url");
