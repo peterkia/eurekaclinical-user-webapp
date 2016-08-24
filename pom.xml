@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.eurekaclinical</groupId>    
-    <artifactId>user-webapp</artifactId>
+    <artifactId>eurekaclinical-user-webapp</artifactId>
     <packaging>war</packaging>
     <version>1.0-Alpha-2</version>
     <name>Eureka! Clinical User Webapp</name>
@@ -39,7 +39,7 @@
     </issueManagement>
 
     <build>
-            <finalName>user-webapp</finalName>
+            <finalName>eurekaclinical-user-webapp</finalName>
             <plugins>
                     <plugin>
                             <groupId>org.jasig.maven</groupId>
@@ -209,7 +209,7 @@
         </dependency>         
         <dependency>
                 <groupId>org.eurekaclinical</groupId>
-                <artifactId>user-common</artifactId>
+                <artifactId>eurekaclinical-user-common</artifactId>
                 <version>1.0-Alpha-2</version>
         </dependency>       
 		<dependency>
