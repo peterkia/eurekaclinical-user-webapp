@@ -17,10 +17,10 @@
  * limitations under the License.
  * #L%
  */
-package org.eurekaclinical.user.servlet.oauth;
+package org.eurekaclinical.user.webapp.servlet.oauth;
 
 import org.eurekaclinical.eureka.client.comm.authentication.AuthenticationMethod;
-import org.eurekaclinical.user.servlet.filter.PersonNameSplitter;
+import org.eurekaclinical.user.webapp.servlet.filter.PersonNameSplitter;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

@@ -17,21 +17,16 @@
  * limitations under the License.
  * #L%
  */
-package org.eurekaclinical.user.servlet.oauth;
+package org.eurekaclinical.user.webapp.servlet.worker;
 
-import com.google.inject.Inject;
-import org.eurekaclinical.scribeupext.profile.GlobusProfile;
-import org.eurekaclinical.scribeupext.provider.GlobusProvider;
+import java.io.IOException;
 
-/**
- *
- * @author miaoai
- */
-public class GlobusRegistrationOAuthCallbackServlet extends AbstractOAuthRegistrationCallbackServlet<GlobusProfile> {
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-	@Inject
-	public GlobusRegistrationOAuthCallbackServlet(GlobusProvider inProvider) {
-		super(inProvider);
-	}
+public interface ServletWorker {
 	
+	void execute(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException;
 }

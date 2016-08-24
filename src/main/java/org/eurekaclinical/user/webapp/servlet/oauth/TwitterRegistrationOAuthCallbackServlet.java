@@ -17,20 +17,20 @@
  * limitations under the License.
  * #L%
  */
-package org.eurekaclinical.user.servlet.oauth;
+package org.eurekaclinical.user.webapp.servlet.oauth;
 
 import com.google.inject.Inject;
-import org.eurekaclinical.scribeupext.profile.GoogleProfile;
-import org.eurekaclinical.scribeupext.provider.Google2Provider;
+import org.eurekaclinical.scribeupext.profile.TwitterProfile;
+import org.eurekaclinical.scribeupext.provider.SSLTwitterProvider;
 
 /**
  *
  * @author miaoai
  */
-public class GoogleRegistrationOAuthCallbackServlet extends AbstractOAuthRegistrationCallbackServlet<GoogleProfile> {
+public class TwitterRegistrationOAuthCallbackServlet extends AbstractOAuthRegistrationCallbackServlet<TwitterProfile> {
 
 	@Inject
-	public GoogleRegistrationOAuthCallbackServlet(Google2Provider inProvider) {
+	public TwitterRegistrationOAuthCallbackServlet(SSLTwitterProvider inProvider) {
 		super(inProvider);
 	}
 	

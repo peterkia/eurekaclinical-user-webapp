@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package org.eurekaclinical.user.servlet;
+package org.eurekaclinical.user.webapp.servlet;
 
 import org.eurekaclinical.eureka.client.comm.authentication.AuthenticationMethod;
 import java.io.IOException;

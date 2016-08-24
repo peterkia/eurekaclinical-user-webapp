@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package org.eurekaclinical.user.servlet.oauth;
+package org.eurekaclinical.user.webapp.servlet.oauth;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

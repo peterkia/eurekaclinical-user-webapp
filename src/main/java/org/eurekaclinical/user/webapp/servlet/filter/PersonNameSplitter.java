@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package org.eurekaclinical.user.servlet.filter;
+package org.eurekaclinical.user.webapp.servlet.filter;
 /**
  * A naive algorithm for splitting a person's name. It simply splits a full
  * name by whitespace.

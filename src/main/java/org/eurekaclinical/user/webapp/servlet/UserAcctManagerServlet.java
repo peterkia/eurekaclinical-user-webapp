@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package org.eurekaclinical.user.servlet;
+package org.eurekaclinical.user.webapp.servlet;
 
 import java.io.IOException;
 
@@ -32,10 +32,10 @@ import org.slf4j.LoggerFactory;
 import com.google.inject.Inject;
 
 import org.eurekaclinical.user.common.comm.clients.ServicesClient;
-import org.eurekaclinical.user.servlet.worker.ServletWorker;
-import org.eurekaclinical.user.servlet.worker.useracct.ListUserAcctWorker;
-import org.eurekaclinical.user.servlet.worker.useracct.SaveUserAcctInfoWorker;
-import org.eurekaclinical.user.servlet.worker.useracct.SaveUserAcctWorker;
+import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
+import org.eurekaclinical.user.webapp.servlet.worker.useracct.ListUserAcctWorker;
+import org.eurekaclinical.user.webapp.servlet.worker.useracct.SaveUserAcctInfoWorker;
+import org.eurekaclinical.user.webapp.servlet.worker.useracct.SaveUserAcctWorker;
 /**
  *
  * @author miaoai

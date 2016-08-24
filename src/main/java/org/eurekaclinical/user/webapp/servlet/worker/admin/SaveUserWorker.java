@@ -17,9 +17,10 @@
  * limitations under the License.
  * #L%
  */
-package org.eurekaclinical.user.servlet.worker.admin;
+package org.eurekaclinical.user.webapp.servlet.worker.admin;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -27,16 +28,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.eurekaclinical.eureka.client.comm.User;
-import org.eurekaclinical.common.comm.clients.ClientException;
 import org.eurekaclinical.user.common.comm.clients.ServicesClient;
-import org.eurekaclinical.user.servlet.worker.ServletWorker;
-import org.eurekaclinical.common.comm.Role;
+import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
+import org.eurekaclinical.common.comm.clients.ClientException;
 
-public class EditUserWorker implements ServletWorker {
+public class SaveUserWorker implements ServletWorker {
 
 	private final ServicesClient servicesClient;
 
-	public EditUserWorker(ServicesClient inServicesClient) {
+	public SaveUserWorker(ServicesClient inServicesClient) {
 		this.servicesClient = inServicesClient;
 	}
 
@@ -45,18 +45,34 @@ public class EditUserWorker implements ServletWorker {
 			throws ServletException, IOException {
 
 		String id = req.getParameter("id");
-		try {
-			User me = this.servicesClient.getMe();
-			User user = this.servicesClient.getUserById(Long.valueOf(id)); 
-			List<Role> roles = this.servicesClient.getRoles();
+		String activeStatus = req.getParameter("active");
+		boolean isActivated = false;
 
-			req.setAttribute("me", me);
-			req.setAttribute("roles", roles);
-			req.setAttribute("currentUser", user);
-			req.getRequestDispatcher("/protected/edit_user.jsp").forward(req,
-					resp);
-		} catch (ClientException ex) {
-			throw new ServletException("Error getting user information", ex);
+		if (activeStatus != null) {
+			isActivated = true;
+
 		}
+		try {
+			User user = this.servicesClient.getUserById(Long.valueOf(id));
+			String[] roles = req.getParameterValues("role");
+			List<Long> userRoles = new ArrayList<>();
+			if (roles != null) {
+				for (String roleId : roles) {
+					try {
+						userRoles.add(Long.valueOf(roleId));
+					} catch (NumberFormatException nfe) {
+						throw new ServletException(nfe);
+					}
+				}
+			}
+			user.setRoles(userRoles);
+			user.setActive(isActivated);
+
+			this.servicesClient.updateUser(user,Long.valueOf(id));
+		} catch (ClientException e) {
+			throw new ServletException("Error saving user", e);
+		}
+
+		resp.sendRedirect(req.getContextPath() + "/protected/admin?action=list");
 	}
 }

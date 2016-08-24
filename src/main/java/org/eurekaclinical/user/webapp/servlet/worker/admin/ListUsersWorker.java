@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package org.eurekaclinical.user.servlet.worker.admin;
+package org.eurekaclinical.user.webapp.servlet.worker.admin;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -33,7 +33,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.eurekaclinical.eureka.client.comm.User;
 import org.eurekaclinical.common.comm.clients.ClientException;
 import org.eurekaclinical.user.common.comm.clients.ServicesClient;
-import org.eurekaclinical.user.servlet.worker.ServletWorker;
+import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
 import org.eurekaclinical.common.comm.Role;
 
 public class ListUsersWorker implements ServletWorker {

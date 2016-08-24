@@ -19,18 +19,22 @@
  */
 package org.eurekaclinical.user.webapp.config;
 
+import org.eurekaclinical.user.webapp.servlet.UserAcctManagerServlet;
+import org.eurekaclinical.user.webapp.servlet.VerifyUserServlet;
+import org.eurekaclinical.user.webapp.servlet.ChooseAccountTypeServlet;
+import org.eurekaclinical.user.webapp.servlet.RegisterUserServlet;
+import org.eurekaclinical.user.webapp.servlet.AdminManagerServlet;
 import com.google.inject.Singleton;
-import org.eurekaclinical.user.servlet.*;
-import org.eurekaclinical.user.servlet.filter.MessagesFilter;
-import org.eurekaclinical.user.servlet.filter.UserFilter;
-import org.eurekaclinical.user.servlet.filter.RolesFilter;
+import org.eurekaclinical.user.webapp.servlet.filter.MessagesFilter;
+import org.eurekaclinical.user.webapp.servlet.filter.UserFilter;
+import org.eurekaclinical.user.webapp.servlet.filter.RolesFilter;
 import java.util.HashMap;
 import java.util.Map;
 import org.eurekaclinical.common.config.AbstractServletModule;
-import org.eurekaclinical.user.servlet.oauth.GitHubRegistrationOAuthCallbackServlet;
-import org.eurekaclinical.user.servlet.oauth.GlobusRegistrationOAuthCallbackServlet;
-import org.eurekaclinical.user.servlet.oauth.GoogleRegistrationOAuthCallbackServlet;
-import org.eurekaclinical.user.servlet.oauth.TwitterRegistrationOAuthCallbackServlet;
+import org.eurekaclinical.user.webapp.servlet.oauth.GitHubRegistrationOAuthCallbackServlet;
+import org.eurekaclinical.user.webapp.servlet.oauth.GlobusRegistrationOAuthCallbackServlet;
+import org.eurekaclinical.user.webapp.servlet.oauth.GoogleRegistrationOAuthCallbackServlet;
+import org.eurekaclinical.user.webapp.servlet.oauth.TwitterRegistrationOAuthCallbackServlet;
 import org.eurekaclinical.common.servlet.LogoutServlet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

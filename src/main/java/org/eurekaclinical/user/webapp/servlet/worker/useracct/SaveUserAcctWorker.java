@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package org.eurekaclinical.user.servlet.worker.useracct;
+package org.eurekaclinical.user.webapp.servlet.worker.useracct;
 
 import java.io.IOException;
 import java.util.ResourceBundle;
@@ -34,7 +34,7 @@ import com.sun.jersey.api.client.ClientResponse;
 
 import org.eurekaclinical.common.comm.clients.ClientException;
 import org.eurekaclinical.user.common.comm.clients.ServicesClient;
-import org.eurekaclinical.user.servlet.worker.ServletWorker;
+import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
 import org.eurekaclinical.user.webapp.config.UserWebappProperties;
 
 public class SaveUserAcctWorker implements ServletWorker {

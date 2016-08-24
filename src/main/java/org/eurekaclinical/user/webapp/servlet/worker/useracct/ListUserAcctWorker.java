@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package org.eurekaclinical.user.servlet.worker.useracct;
+package org.eurekaclinical.user.webapp.servlet.worker.useracct;
 
 import org.eurekaclinical.eureka.client.comm.LocalUser;
 import java.io.IOException;
@@ -29,7 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.eurekaclinical.eureka.client.comm.User;
 import org.eurekaclinical.user.common.comm.clients.ServicesClient;
-import org.eurekaclinical.user.servlet.worker.ServletWorker;
+import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
 import org.eurekaclinical.user.webapp.authentication.WebappAuthenticationSupport;
 import org.eurekaclinical.common.comm.clients.ClientException;
 

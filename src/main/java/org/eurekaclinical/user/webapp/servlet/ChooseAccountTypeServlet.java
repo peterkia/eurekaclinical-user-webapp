@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package org.eurekaclinical.user.servlet;
+package org.eurekaclinical.user.webapp.servlet;
 
 import com.google.inject.Inject;
 import org.eurekaclinical.user.webapp.config.UserWebappProperties;

@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package org.eurekaclinical.user.servlet.filter;
+package org.eurekaclinical.user.webapp.servlet.filter;
 
 import com.google.inject.Inject;
 import org.eurekaclinical.eureka.client.comm.User;

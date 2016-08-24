@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package org.eurekaclinical.user.servlet;
+package org.eurekaclinical.user.webapp.servlet;
 
 import java.io.IOException;
 
@@ -29,10 +29,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.inject.Inject;
 
 import org.eurekaclinical.user.common.comm.clients.ServicesClient;
-import org.eurekaclinical.user.servlet.worker.ServletWorker;
-import org.eurekaclinical.user.servlet.worker.admin.EditUserWorker;
-import org.eurekaclinical.user.servlet.worker.admin.ListUsersWorker;
-import org.eurekaclinical.user.servlet.worker.admin.SaveUserWorker;
+import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
+import org.eurekaclinical.user.webapp.servlet.worker.admin.EditUserWorker;
+import org.eurekaclinical.user.webapp.servlet.worker.admin.ListUsersWorker;
+import org.eurekaclinical.user.webapp.servlet.worker.admin.SaveUserWorker;
 
 public class AdminManagerServlet extends HttpServlet {
 
