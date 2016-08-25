@@ -19,19 +19,15 @@
  */
 package org.eurekaclinical.user.webapp.servlet.filter;
 
-import com.google.inject.Inject;
-import org.eurekaclinical.eureka.client.comm.User;
-import org.eurekaclinical.common.comm.clients.ClientException;
-import org.eurekaclinical.user.common.comm.clients.ServicesClient;
-import org.eurekaclinical.user.webapp.config.RequestAttributes;
-import java.io.IOException;
-import java.security.Principal;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import javax.inject.Singleton;
+
+import java.io.IOException;
+import java.security.Principal;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -40,9 +36,21 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import org.eurekaclinical.common.comm.Role;
+
+import javax.inject.Singleton;
+
+import com.google.inject.Inject;
+
 import org.eurekaclinical.standardapis.filter.RolesRequestWrapper;
 
+import org.eurekaclinical.common.comm.Role;
+import org.eurekaclinical.common.comm.clients.ClientException;
+
+import org.eurekaclinical.user.client.comm.User;
+
+import org.eurekaclinical.user.common.comm.clients.ServicesClient;
+
+import org.eurekaclinical.user.webapp.config.RequestAttributes;
 /**
  *
  * @author miaoai

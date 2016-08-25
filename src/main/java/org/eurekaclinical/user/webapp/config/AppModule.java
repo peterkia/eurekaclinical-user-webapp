@@ -20,19 +20,21 @@ package org.eurekaclinical.user.webapp.config;
  */
 
 import com.google.inject.AbstractModule;
+
+import org.eurekaclinical.standardapis.props.EurekaClinicalProperties;
+
+import org.eurekaclinical.scribeupext.provider.GitHubProvider;
+import org.eurekaclinical.scribeupext.provider.GlobusProvider;
+import org.eurekaclinical.scribeupext.provider.Google2Provider;
+import org.eurekaclinical.scribeupext.provider.SSLTwitterProvider;
+
 import org.eurekaclinical.user.common.comm.clients.ServicesClient;
+
 import org.eurekaclinical.user.webapp.provider.ScribeExtGitHubProvider;
 import org.eurekaclinical.user.webapp.provider.ScribeExtGlobusProvider;
 import org.eurekaclinical.user.webapp.provider.ScribeExtGoogleProvider;
 import org.eurekaclinical.user.webapp.provider.ScribeExtTwitterProvider;
 import org.eurekaclinical.user.webapp.provider.ServicesClientProvider;
-import org.eurekaclinical.scribeupext.provider.GitHubProvider;
-import org.eurekaclinical.scribeupext.provider.GlobusProvider;
-import org.eurekaclinical.scribeupext.provider.Google2Provider;
-import org.eurekaclinical.scribeupext.provider.SSLTwitterProvider;
-import org.eurekaclinical.standardapis.props.EurekaClinicalProperties;
-
-
 /**
  * Configure all the web related binding for Guice.
  * 

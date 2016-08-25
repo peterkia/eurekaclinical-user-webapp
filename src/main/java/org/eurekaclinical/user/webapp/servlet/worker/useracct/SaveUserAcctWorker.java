@@ -36,7 +36,10 @@ import org.eurekaclinical.common.comm.clients.ClientException;
 import org.eurekaclinical.user.common.comm.clients.ServicesClient;
 import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
 import org.eurekaclinical.user.webapp.config.UserWebappProperties;
-
+/**
+ *
+ * @author miaoai
+ */
 public class SaveUserAcctWorker implements ServletWorker {
 
 	private static Logger LOGGER = LoggerFactory.getLogger(SaveUserAcctWorker.class);

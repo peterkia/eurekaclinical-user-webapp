@@ -24,6 +24,9 @@ import java.io.IOException;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.lang3.StringUtils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,14 +34,14 @@ import org.slf4j.LoggerFactory;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-import org.eurekaclinical.eureka.client.comm.User;
 import org.eurekaclinical.common.comm.clients.ClientException;
+
+import org.eurekaclinical.user.client.comm.User;
+
 import org.eurekaclinical.user.common.comm.clients.ServicesClient;
+
 import org.eurekaclinical.user.webapp.config.RequestAttributes;
 import org.eurekaclinical.user.webapp.config.UserWebappProperties;
-import javax.servlet.http.HttpSession;
-import org.apache.commons.lang3.StringUtils;
-
 /**
  *
  * @author miaoai

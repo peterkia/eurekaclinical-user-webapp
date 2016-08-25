@@ -19,7 +19,6 @@
  */
 package org.eurekaclinical.user.webapp.servlet.worker.useracct;
 
-import org.eurekaclinical.eureka.client.comm.LocalUser;
 import java.io.IOException;
 import java.util.Date;
 
@@ -27,12 +26,18 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.eurekaclinical.eureka.client.comm.User;
+import org.eurekaclinical.user.client.comm.User;
+import org.eurekaclinical.user.client.comm.LocalUser;
+
 import org.eurekaclinical.user.common.comm.clients.ServicesClient;
-import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
-import org.eurekaclinical.user.webapp.authentication.WebappAuthenticationSupport;
 import org.eurekaclinical.common.comm.clients.ClientException;
 
+import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
+import org.eurekaclinical.user.webapp.authentication.WebappAuthenticationSupport;
+/**
+ *
+ * @author miaoai
+ */
 public class ListUserAcctWorker implements ServletWorker {
 
 	private final ServicesClient client;

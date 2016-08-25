@@ -20,7 +20,6 @@
 package org.eurekaclinical.user.webapp.config;
 
 import org.eurekaclinical.user.common.props.AbstractProperties;
-
 /**
  *
  * @author miaoai

@@ -19,7 +19,7 @@
  */
 package org.eurekaclinical.user.webapp.servlet;
 
-import org.eurekaclinical.eureka.client.comm.authentication.AuthenticationMethod;
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -30,17 +30,26 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.inject.Inject;
-import com.sun.jersey.api.client.ClientResponse.Status;
-import org.eurekaclinical.eureka.client.comm.LdapUserRequest;
-import org.eurekaclinical.eureka.client.comm.LocalUserRequest;
-import org.eurekaclinical.eureka.client.comm.OAuthUserRequest;
-import org.eurekaclinical.eureka.client.comm.UserRequest;
-import org.eurekaclinical.common.comm.clients.ClientException;
-import org.eurekaclinical.user.common.comm.clients.ServicesClient;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
+import com.google.inject.Inject;
+import com.sun.jersey.api.client.ClientResponse.Status;
+
+
+import org.eurekaclinical.common.comm.clients.ClientException;
+
+import org.eurekaclinical.user.client.comm.LdapUserRequest;
+import org.eurekaclinical.user.client.comm.LocalUserRequest;
+import org.eurekaclinical.user.client.comm.OAuthUserRequest;
+import org.eurekaclinical.user.client.comm.UserRequest;
+import org.eurekaclinical.user.client.comm.authentication.AuthenticationMethod;
+
+import org.eurekaclinical.user.common.comm.clients.ServicesClient;
+/**
+ *
+ * @author miaoai
+ */
 public class RegisterUserServlet extends HttpServlet {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(RegisterUserServlet.class);

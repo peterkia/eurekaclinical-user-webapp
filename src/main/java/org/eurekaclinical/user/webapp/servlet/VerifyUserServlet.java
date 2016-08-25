@@ -29,13 +29,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.inject.Inject;
 
 import org.eurekaclinical.common.comm.clients.ClientException;
-import org.eurekaclinical.user.common.comm.clients.ServicesClient;
 
+import org.eurekaclinical.user.common.comm.clients.ServicesClient;
 /**
  * Servlet to handle user verification requests.
- *
- * @author sagrava
- * @author hrathod
+ * 
+ * @author miaoai
  *
  */
 public class VerifyUserServlet extends HttpServlet {

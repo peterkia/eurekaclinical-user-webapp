@@ -22,10 +22,9 @@ package org.eurekaclinical.user.webapp.taglib;
 import java.io.IOException;
 import javax.servlet.jsp.tagext.TagSupport;
 import org.codehaus.jackson.map.ObjectMapper;
-
 /**
  *
- * @author Andrew Post
+ * @author miaoai
  */
 public class JsonTag extends TagSupport {
 

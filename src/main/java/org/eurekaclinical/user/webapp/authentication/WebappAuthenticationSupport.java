@@ -19,17 +19,19 @@
  */
 package org.eurekaclinical.user.webapp.authentication;
 
-import org.eurekaclinical.user.common.authentication.AbstractUserSupport;
-import org.eurekaclinical.eureka.client.comm.User;
-import org.eurekaclinical.common.comm.clients.ClientException;
-import org.eurekaclinical.user.common.comm.clients.ServicesClient;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.eurekaclinical.common.comm.clients.ClientException;
+
+import org.eurekaclinical.user.client.comm.User;
+
+import org.eurekaclinical.user.common.comm.clients.ServicesClient;
+import org.eurekaclinical.user.common.authentication.AbstractUserSupport;
 /**
  *
- * @author Andrew Post
+ * @author miaoai
  */
 public final class WebappAuthenticationSupport extends AbstractUserSupport {
 	

@@ -20,20 +20,24 @@
 package org.eurekaclinical.user.webapp.servlet;
 
 import com.google.inject.Inject;
-import org.eurekaclinical.user.webapp.config.UserWebappProperties;
+
 import java.io.IOException;
+
+import org.slf4j.LoggerFactory;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.scribe.up.session.HttpUserSession;
+
 import org.eurekaclinical.scribeupext.provider.GitHubProvider;
 import org.eurekaclinical.scribeupext.provider.GlobusProvider;
 import org.eurekaclinical.scribeupext.provider.Google2Provider;
 import org.eurekaclinical.scribeupext.provider.SSLTwitterProvider;
-import org.scribe.up.session.HttpUserSession;
-import org.slf4j.LoggerFactory;
 
+import org.eurekaclinical.user.webapp.config.UserWebappProperties;
 /**
  *
  * @author miaoai

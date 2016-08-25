@@ -19,17 +19,20 @@
  */
 package org.eurekaclinical.user.webapp.servlet.oauth;
 
-import org.eurekaclinical.eureka.client.comm.authentication.AuthenticationMethod;
-import org.eurekaclinical.user.webapp.servlet.filter.PersonNameSplitter;
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.eurekaclinical.scribeupext.profile.EurekaProfile;
+
 import org.scribe.up.credential.OAuthCredential;
 import org.scribe.up.provider.OAuthProvider;
 import org.scribe.up.session.HttpUserSession;
 
+import org.eurekaclinical.scribeupext.profile.EurekaProfile;
+
+import org.eurekaclinical.user.client.comm.authentication.AuthenticationMethod;
+import org.eurekaclinical.user.webapp.servlet.filter.PersonNameSplitter;
 /**
  *
  * @author miaoai

@@ -21,9 +21,10 @@ package org.eurekaclinical.user.webapp.provider;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-import org.eurekaclinical.user.webapp.config.UserWebappProperties;
+
 import org.eurekaclinical.scribeupext.provider.GitHubProvider;
 
+import org.eurekaclinical.user.webapp.config.UserWebappProperties;
 /**
  *
  * @author miaoai

@@ -23,9 +23,10 @@ package org.eurekaclinical.user.webapp.config;
 import com.google.inject.Injector;
 import com.google.inject.Module;
 import com.google.inject.servlet.GuiceServletContextListener;
-import javax.servlet.ServletContextEvent;
-import org.eurekaclinical.common.config.InjectorSupport;
 
+import javax.servlet.ServletContextEvent;
+
+import org.eurekaclinical.common.config.InjectorSupport;
 /**
  *
  * @author miaoai

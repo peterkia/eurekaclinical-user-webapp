@@ -19,10 +19,11 @@
  */
 package org.eurekaclinical.user.webapp.servlet.filter;
 
-import com.google.inject.Singleton;
 import java.io.IOException;
+
 import java.util.Locale;
 import java.util.ResourceBundle;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -30,9 +31,11 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.inject.Singleton;
 /**
  *
  * @author miaoai

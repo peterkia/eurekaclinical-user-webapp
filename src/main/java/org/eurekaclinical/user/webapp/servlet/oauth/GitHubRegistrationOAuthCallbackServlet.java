@@ -20,9 +20,9 @@
 package org.eurekaclinical.user.webapp.servlet.oauth;
 
 import com.google.inject.Inject;
+
 import org.eurekaclinical.scribeupext.profile.GitHubProfile;
 import org.eurekaclinical.scribeupext.provider.GitHubProvider;
-
 /**
  *
  * @author miaoai

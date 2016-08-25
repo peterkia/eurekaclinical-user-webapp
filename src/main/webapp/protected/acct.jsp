@@ -146,7 +146,7 @@
                                         <div class="form-group">   
                                                 <input type="submit" value="Save Changes" id="saveEditBtn" class="btn btn-primary text-center"/>     
                                                 <button id="cancelBtn" class="btn btn-primary text-center">Cancel</button>                                                  
-                                                <c:if test="${user['class'].name == 'org.eurekaclinical.eureka.client.comm.LocalUser'}">                        
+                                                <c:if test="${user['class'].name == 'org.eurekaclinical.user.client.comm.LocalUser'}">                        
                                                         <button id="changePasswordBtn" class="btn btn-primary text-center">Change Password</button>
                                                 </c:if>      
                                                 <input type="hidden" name="id" id="id" value="${user.id}" /> 
@@ -159,7 +159,7 @@
 		<div id="infoNotificationSuccess" class="default-hidden alert alert-success">
                         <p><strong>Your changes has been saved successfully.</strong></p>
 		</div>                                        
-		<c:if test="${user['class'].name == 'org.eurekaclinical.eureka.client.comm.LocalUser'}">
+		<c:if test="${user['class'].name == 'org.eurekaclinical.user.client.comm.LocalUser'}">
                         <div id="newPasswordModal" class="modal fade" role="dialog" aria-labelledby="newPasswordModalLabel"
                                  aria-hidden="true">
                                 <div class="modal-dialog">

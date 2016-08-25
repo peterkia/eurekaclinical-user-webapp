@@ -134,7 +134,7 @@
 				</label>
 				<div class="form-control-static">
 					<c:choose>
-						<c:when test="${currentUser['class'].name == 'org.eurekaclinical.eureka.client.comm.LocalUser'}">
+						<c:when test="${currentUser['class'].name == 'org.eurekaclinical.user.client.comm.LocalUser'}">
 							<c:choose>
 								<c:when test="${currentUser.verified == true}">
 									Verified<span class="status"></span><br />

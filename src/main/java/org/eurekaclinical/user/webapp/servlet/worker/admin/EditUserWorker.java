@@ -26,12 +26,18 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.eurekaclinical.eureka.client.comm.User;
 import org.eurekaclinical.common.comm.clients.ClientException;
-import org.eurekaclinical.user.common.comm.clients.ServicesClient;
-import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
 import org.eurekaclinical.common.comm.Role;
 
+import org.eurekaclinical.user.client.comm.User;
+
+import org.eurekaclinical.user.common.comm.clients.ServicesClient;
+
+import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
+/**
+ *
+ * @author miaoai
+ */
 public class EditUserWorker implements ServletWorker {
 
 	private final ServicesClient servicesClient;

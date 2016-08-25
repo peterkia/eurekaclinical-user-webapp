@@ -35,10 +35,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Singleton;
-import org.eurekaclinical.eureka.client.comm.LocalUser;
-import org.eurekaclinical.eureka.client.comm.User;
-import org.eurekaclinical.user.webapp.config.RequestAttributes;
 
+import org.eurekaclinical.user.client.comm.LocalUser;
+import org.eurekaclinical.user.client.comm.User;
+
+import org.eurekaclinical.user.webapp.config.RequestAttributes;
 /**
  * @author miaoai
  */

@@ -20,13 +20,16 @@
  */
 package org.eurekaclinical.user.webapp.provider;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
+
 import org.eurekaclinical.user.common.comm.clients.ServicesClient;
+
 import org.eurekaclinical.user.webapp.config.UserWebappProperties;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 /**
  *
  * @author miaoai
