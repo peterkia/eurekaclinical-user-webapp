@@ -31,8 +31,7 @@ import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 
-import org.eurekaclinical.user.common.comm.clients.ServicesClient;
-
+import org.eurekaclinical.user.webapp.clients.ServicesClient;
 import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
 import org.eurekaclinical.user.webapp.servlet.worker.useracct.ListUserAcctWorker;
 import org.eurekaclinical.user.webapp.servlet.worker.useracct.SaveUserAcctInfoWorker;

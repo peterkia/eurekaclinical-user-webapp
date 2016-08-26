@@ -31,8 +31,7 @@ import org.eurekaclinical.common.comm.Role;
 
 import org.eurekaclinical.user.client.comm.User;
 
-import org.eurekaclinical.user.common.comm.clients.ServicesClient;
-
+import org.eurekaclinical.user.webapp.clients.ServicesClient;
 import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
 /**
  *

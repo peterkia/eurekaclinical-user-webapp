@@ -29,8 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.inject.Inject;
 
-import org.eurekaclinical.user.common.comm.clients.ServicesClient;
-
+import org.eurekaclinical.user.webapp.clients.ServicesClient;
 import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
 import org.eurekaclinical.user.webapp.servlet.worker.admin.EditUserWorker;
 import org.eurekaclinical.user.webapp.servlet.worker.admin.ListUsersWorker;

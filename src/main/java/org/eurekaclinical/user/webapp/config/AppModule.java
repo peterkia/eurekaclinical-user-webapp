@@ -28,8 +28,7 @@ import org.eurekaclinical.scribeupext.provider.GlobusProvider;
 import org.eurekaclinical.scribeupext.provider.Google2Provider;
 import org.eurekaclinical.scribeupext.provider.SSLTwitterProvider;
 
-import org.eurekaclinical.user.common.comm.clients.ServicesClient;
-
+import org.eurekaclinical.user.webapp.clients.ServicesClient;
 import org.eurekaclinical.user.webapp.provider.ScribeExtGitHubProvider;
 import org.eurekaclinical.user.webapp.provider.ScribeExtGlobusProvider;
 import org.eurekaclinical.user.webapp.provider.ScribeExtGoogleProvider;

@@ -45,7 +45,7 @@ import org.eurekaclinical.user.client.comm.OAuthUserRequest;
 import org.eurekaclinical.user.client.comm.UserRequest;
 import org.eurekaclinical.user.client.comm.authentication.AuthenticationMethod;
 
-import org.eurekaclinical.user.common.comm.clients.ServicesClient;
+import org.eurekaclinical.user.webapp.clients.ServicesClient;
 /**
  *
  * @author miaoai

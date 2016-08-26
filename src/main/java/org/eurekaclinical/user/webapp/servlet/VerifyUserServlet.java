@@ -30,7 +30,7 @@ import com.google.inject.Inject;
 
 import org.eurekaclinical.common.comm.clients.ClientException;
 
-import org.eurekaclinical.user.common.comm.clients.ServicesClient;
+import org.eurekaclinical.user.webapp.clients.ServicesClient;
 /**
  * Servlet to handle user verification requests.
  * 
