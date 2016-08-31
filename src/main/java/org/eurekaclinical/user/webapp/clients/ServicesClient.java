@@ -29,11 +29,11 @@ import org.eurekaclinical.common.comm.Role;
 import org.eurekaclinical.common.comm.clients.ClientException;
 
 import org.eurekaclinical.user.client.EurekaclinicalUserClient;
+
 import org.eurekaclinical.user.client.comm.PasswordChangeRequest;
 import org.eurekaclinical.user.client.comm.User;
 import org.eurekaclinical.user.client.comm.UserRequest;
-
-import org.eurekaclinical.user.common.entity.OAuthProvider;
+import org.eurekaclinical.user.client.comm.OAuthProvider;
 /**
  *
  * @author miaoai
