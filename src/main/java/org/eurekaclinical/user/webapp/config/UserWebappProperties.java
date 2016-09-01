@@ -104,5 +104,10 @@ public class UserWebappProperties extends AbstractProperties {
 	public String getTwitterOAuthSecret() {
 		return getValue("user.webapp.twitteroauthsecret");
 	}        
+
+	@Override
+	public String getUrl() {
+        	return getValue("user.webapp.url");
+	}
         
 }

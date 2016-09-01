@@ -1,4 +1,3 @@
-package org.eurekaclinical.user.webapp.config;
 /*
  * #%L
  * Eureka! Clinical User Webapp
@@ -18,15 +17,19 @@ package org.eurekaclinical.user.webapp.config;
  * limitations under the License.
  * #L%
  */
+package org.eurekaclinical.user.webapp.config;
 
+/**
+ *
+ * @author miaoai
+ */
 import com.google.inject.AbstractModule;
-
-import org.eurekaclinical.standardapis.props.EurekaClinicalProperties;
 
 import org.eurekaclinical.scribeupext.provider.GitHubProvider;
 import org.eurekaclinical.scribeupext.provider.GlobusProvider;
 import org.eurekaclinical.scribeupext.provider.Google2Provider;
 import org.eurekaclinical.scribeupext.provider.SSLTwitterProvider;
+import org.eurekaclinical.standardapis.props.CasEurekaClinicalProperties;
 
 import org.eurekaclinical.user.webapp.clients.ServicesClient;
 import org.eurekaclinical.user.webapp.provider.ScribeExtGitHubProvider;
@@ -50,7 +53,7 @@ public class AppModule extends AbstractModule  {
 	@Override
 	protected void configure() {
 		bind(UserWebappProperties.class).toInstance(this.userWebappProperties);
-                bind(EurekaClinicalProperties.class).toInstance(this.userWebappProperties);
+                bind(CasEurekaClinicalProperties.class).toInstance(this.userWebappProperties);
 		bind(ServicesClient.class).toProvider(ServicesClientProvider.class);
 		bind(GitHubProvider.class).toProvider(ScribeExtGitHubProvider.class);
 		bind(GlobusProvider.class).toProvider(ScribeExtGlobusProvider.class);
