@@ -31,12 +31,12 @@ import org.eurekaclinical.scribeupext.provider.Google2Provider;
 import org.eurekaclinical.scribeupext.provider.SSLTwitterProvider;
 import org.eurekaclinical.standardapis.props.CasEurekaClinicalProperties;
 
-import org.eurekaclinical.user.webapp.clients.ServicesClient;
+import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserServiceClient;
 import org.eurekaclinical.user.webapp.provider.ScribeExtGitHubProvider;
 import org.eurekaclinical.user.webapp.provider.ScribeExtGlobusProvider;
 import org.eurekaclinical.user.webapp.provider.ScribeExtGoogleProvider;
 import org.eurekaclinical.user.webapp.provider.ScribeExtTwitterProvider;
-import org.eurekaclinical.user.webapp.provider.ServicesClientProvider;
+import org.eurekaclinical.user.webapp.provider.EurekaclinicalUserWebappClientProvider;
 /**
  * Configure all the web related binding for Guice.
  * 
@@ -54,7 +54,7 @@ public class AppModule extends AbstractModule  {
 	protected void configure() {
 		bind(UserWebappProperties.class).toInstance(this.userWebappProperties);
                 bind(CasEurekaClinicalProperties.class).toInstance(this.userWebappProperties);
-		bind(ServicesClient.class).toProvider(ServicesClientProvider.class);
+		bind(EurekaclinicalUserServiceClient.class).toProvider(EurekaclinicalUserWebappClientProvider.class);
 		bind(GitHubProvider.class).toProvider(ScribeExtGitHubProvider.class);
 		bind(GlobusProvider.class).toProvider(ScribeExtGlobusProvider.class);
 		bind(Google2Provider.class).toProvider(ScribeExtGoogleProvider.class);

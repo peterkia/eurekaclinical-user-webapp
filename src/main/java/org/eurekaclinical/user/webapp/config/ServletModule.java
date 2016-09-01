@@ -88,8 +88,8 @@ class ServletModule extends AbstractServletModule {
 	@Override
 	protected void setupServlets() {
                 bind(LogoutServlet.class).in(Singleton.class);
-		serve(LOGOUT_PATH).with(LogoutServlet.class);
-
+		serve(LOGOUT_PATH).with(LogoutServlet.class);              
+                
 		serve("/destroy-session").with(DestroySessionServlet.class);                
                 
 		bind(ChooseAccountTypeServlet.class).in(Singleton.class);

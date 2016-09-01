@@ -35,7 +35,7 @@ import org.eurekaclinical.common.comm.Role;
 
 import org.eurekaclinical.user.client.comm.User;
 
-import org.eurekaclinical.user.webapp.clients.ServicesClient;
+import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserServiceClient;
 import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
 /**
  *
@@ -43,9 +43,9 @@ import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
  */
 public class ListUsersWorker implements ServletWorker {
 
-	private final ServicesClient servicesClient;
+	private final EurekaclinicalUserServiceClient servicesClient;
 
-	public ListUsersWorker (ServicesClient inServicesClient) {
+	public ListUsersWorker (EurekaclinicalUserServiceClient inServicesClient) {
 		this.servicesClient = inServicesClient;
 	}
 	@Override

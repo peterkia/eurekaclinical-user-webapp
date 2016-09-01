@@ -31,7 +31,7 @@ import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 
-import org.eurekaclinical.user.webapp.clients.ServicesClient;
+import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserServiceClient;
 import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
 import org.eurekaclinical.user.webapp.servlet.worker.useracct.ListUserAcctWorker;
 import org.eurekaclinical.user.webapp.servlet.worker.useracct.SaveUserAcctInfoWorker;
@@ -44,10 +44,10 @@ public class UserAcctManagerServlet extends HttpServlet {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger
 			(UserAcctManagerServlet.class);
-	private final ServicesClient servicesClient;
+	private final EurekaclinicalUserServiceClient servicesClient;
 
 	@Inject
-	public UserAcctManagerServlet (ServicesClient inClient) {
+	public UserAcctManagerServlet (EurekaclinicalUserServiceClient inClient) {
 		this.servicesClient = inClient;
 	}
 

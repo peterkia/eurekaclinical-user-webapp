@@ -38,7 +38,7 @@ import org.eurekaclinical.common.comm.clients.ClientException;
 
 import org.eurekaclinical.user.client.comm.User;
 
-import org.eurekaclinical.user.webapp.clients.ServicesClient;
+import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserServiceClient;
 import org.eurekaclinical.user.webapp.config.RequestAttributes;
 import org.eurekaclinical.user.webapp.config.UserWebappProperties;
 /**
@@ -51,11 +51,11 @@ public class UserFilter implements Filter {
 	private static final Logger LOGGER
 			= LoggerFactory.getLogger(UserFilter.class);
 
-	private final ServicesClient servicesClient;
+	private final EurekaclinicalUserServiceClient servicesClient;
 	private final UserWebappProperties properties;
 
 	@Inject
-	public UserFilter(ServicesClient inServicesClient, UserWebappProperties inProperties) {
+	public UserFilter(EurekaclinicalUserServiceClient inServicesClient, UserWebappProperties inProperties) {
 		this.servicesClient = inServicesClient;
 		this.properties = inProperties;
 	}

@@ -31,7 +31,7 @@ import org.eurekaclinical.common.comm.clients.ClientException;
 
 import org.eurekaclinical.user.client.comm.User;
 
-import org.eurekaclinical.user.webapp.clients.ServicesClient;
+import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserServiceClient;
 import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
 /**
  *
@@ -39,9 +39,9 @@ import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
  */
 public class SaveUserWorker implements ServletWorker {
 
-	private final ServicesClient servicesClient;
+	private final EurekaclinicalUserServiceClient servicesClient;
 
-	public SaveUserWorker(ServicesClient inServicesClient) {
+	public SaveUserWorker(EurekaclinicalUserServiceClient inServicesClient) {
 		this.servicesClient = inServicesClient;
 	}
 

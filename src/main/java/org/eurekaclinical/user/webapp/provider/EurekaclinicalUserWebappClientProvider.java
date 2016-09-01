@@ -27,27 +27,27 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
 
-import org.eurekaclinical.user.webapp.clients.ServicesClient;
+import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserServiceClient;
 import org.eurekaclinical.user.webapp.config.UserWebappProperties;
 /**
  *
  * @author miaoai
  */
 @Singleton
-public class ServicesClientProvider implements Provider<ServicesClient> {
+public class EurekaclinicalUserWebappClientProvider implements Provider<EurekaclinicalUserServiceClient> {
     
 	private static final Logger LOGGER = LoggerFactory
-			.getLogger(ServicesClientProvider.class);
-        private final ServicesClient client;
+			.getLogger(EurekaclinicalUserWebappClientProvider.class);
+        private final EurekaclinicalUserServiceClient client;
 
 	@Inject
-	public ServicesClientProvider(UserWebappProperties inProperties) {
+	public EurekaclinicalUserWebappClientProvider(UserWebappProperties inProperties) {
 		LOGGER.info("user service url = {}", inProperties.getUserServiceUrl());
-		this.client = new ServicesClient(inProperties.getUserServiceUrl());
+		this.client = new EurekaclinicalUserServiceClient(inProperties.getUserServiceUrl());
 	}
 
 	@Override
-	public ServicesClient get() {
+	public EurekaclinicalUserServiceClient get() {
 		return this.client;
 	}    
 }
