@@ -28,6 +28,7 @@ import org.slf4j.LoggerFactory;
 import com.google.inject.Singleton;
 
 import org.eurekaclinical.common.config.AbstractServletModule;
+import org.eurekaclinical.common.servlet.DestroySessionServlet;
 import org.eurekaclinical.common.servlet.LogoutServlet;
 
 import org.eurekaclinical.user.webapp.servlet.UserAcctManagerServlet;
@@ -88,7 +89,9 @@ class ServletModule extends AbstractServletModule {
 	protected void setupServlets() {
                 bind(LogoutServlet.class).in(Singleton.class);
 		serve(LOGOUT_PATH).with(LogoutServlet.class);
-            
+
+		serve("/destroy-session").with(DestroySessionServlet.class);                
+                
 		bind(ChooseAccountTypeServlet.class).in(Singleton.class);
 		serve("/chooseaccounttype").with(ChooseAccountTypeServlet.class);   
                 
