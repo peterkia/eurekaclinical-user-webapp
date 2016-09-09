@@ -48,7 +48,7 @@ import org.eurekaclinical.common.comm.clients.ClientException;
 
 import org.eurekaclinical.user.client.comm.User;
 
-import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserServiceClient;
+import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserInternalClient;
 import org.eurekaclinical.user.webapp.config.RequestAttributes;
 /**
  *
@@ -57,10 +57,10 @@ import org.eurekaclinical.user.webapp.config.RequestAttributes;
 @Singleton
 public class RolesFilter implements Filter {
 
-	private final EurekaclinicalUserServiceClient client;
+	private final EurekaclinicalUserInternalClient client;
 
 	@Inject
-	public RolesFilter(EurekaclinicalUserServiceClient inClient) {
+	public RolesFilter(EurekaclinicalUserInternalClient inClient) {
 		this.client = inClient;
 	}
 

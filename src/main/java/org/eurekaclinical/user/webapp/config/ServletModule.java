@@ -30,6 +30,7 @@ import com.google.inject.Singleton;
 import org.eurekaclinical.common.config.AbstractServletModule;
 import org.eurekaclinical.common.servlet.DestroySessionServlet;
 import org.eurekaclinical.common.servlet.LogoutServlet;
+import org.eurekaclinical.common.servlet.ProxyServlet;
 
 import org.eurekaclinical.user.webapp.servlet.UserAcctManagerServlet;
 import org.eurekaclinical.user.webapp.servlet.VerifyUserServlet;
@@ -88,7 +89,9 @@ class ServletModule extends AbstractServletModule {
 	@Override
 	protected void setupServlets() {
                 bind(LogoutServlet.class).in(Singleton.class);
-		serve(LOGOUT_PATH).with(LogoutServlet.class);              
+		serve(LOGOUT_PATH).with(LogoutServlet.class);  
+                
+		serve("/proxy-resource/*").with(ProxyServlet.class);
                 
 		serve("/destroy-session").with(DestroySessionServlet.class);                
                 

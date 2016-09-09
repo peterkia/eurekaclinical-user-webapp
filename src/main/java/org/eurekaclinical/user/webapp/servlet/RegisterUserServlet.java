@@ -45,7 +45,7 @@ import org.eurekaclinical.user.client.comm.OAuthUserRequest;
 import org.eurekaclinical.user.client.comm.UserRequest;
 import org.eurekaclinical.user.client.comm.authentication.AuthenticationMethod;
 
-import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserServiceClient;
+import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserInternalClient;
 /**
  *
  * @author miaoai
@@ -54,10 +54,10 @@ public class RegisterUserServlet extends HttpServlet {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(RegisterUserServlet.class);
 	private static final ResourceBundle messages = ResourceBundle.getBundle("Messages");
-	private final EurekaclinicalUserServiceClient servicesClient;
+	private final EurekaclinicalUserInternalClient servicesClient;
 
 	@Inject
-	public RegisterUserServlet(EurekaclinicalUserServiceClient inClient) {
+	public RegisterUserServlet(EurekaclinicalUserInternalClient inClient) {
 		this.servicesClient = inClient;
 	}
 

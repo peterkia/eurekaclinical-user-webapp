@@ -27,14 +27,14 @@ import org.eurekaclinical.common.comm.clients.ClientException;
 
 import org.eurekaclinical.user.client.comm.User;
 import org.eurekaclinical.user.common.authentication.AbstractUserSupport;
-import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserServiceClient;
+import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserInternalClient;
 /**
  *
  * @author miaoai
  */
 public final class WebappAuthenticationSupport extends AbstractUserSupport {
 	
-	public WebappAuthenticationSupport(EurekaclinicalUserServiceClient inServicesClient) {
+	public WebappAuthenticationSupport(EurekaclinicalUserInternalClient inServicesClient) {
 	}
 	
 	public User getMe(HttpServletRequest req) throws ClientException {

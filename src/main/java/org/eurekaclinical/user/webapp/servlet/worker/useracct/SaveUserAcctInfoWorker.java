@@ -34,7 +34,7 @@ import org.eurekaclinical.common.comm.clients.ClientException;
 
 import org.eurekaclinical.user.client.comm.User;
 
-import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserServiceClient;
+import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserInternalClient;
 import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
 import org.eurekaclinical.user.webapp.config.UserWebappProperties;
 /**
@@ -46,10 +46,10 @@ public class SaveUserAcctInfoWorker implements ServletWorker {
 	private static Logger LOGGER = LoggerFactory.getLogger(SaveUserAcctInfoWorker.class);
 	
 	private final ResourceBundle messages;
-	private final EurekaclinicalUserServiceClient servicesClient;
+	private final EurekaclinicalUserInternalClient servicesClient;
 	private final UserWebappProperties properties;
 
-	public SaveUserAcctInfoWorker(ServletContext ctx, EurekaclinicalUserServiceClient inClient) {
+	public SaveUserAcctInfoWorker(ServletContext ctx, EurekaclinicalUserInternalClient inClient) {
 		String localizationContextName = ctx.getInitParameter("javax.servlet.jsp.jstl.fmt.localizationContext");
 		this.messages = ResourceBundle.getBundle(localizationContextName);
 		this.servicesClient = inClient;

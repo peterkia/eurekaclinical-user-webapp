@@ -31,7 +31,7 @@ import org.eurekaclinical.common.comm.clients.ClientException;
 import org.eurekaclinical.user.client.comm.User;
 import org.eurekaclinical.user.client.comm.LocalUser;
 
-import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserServiceClient;
+import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserInternalClient;
 import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
 import org.eurekaclinical.user.webapp.authentication.WebappAuthenticationSupport;
 /**
@@ -40,10 +40,10 @@ import org.eurekaclinical.user.webapp.authentication.WebappAuthenticationSupport
  */
 public class ListUserAcctWorker implements ServletWorker {
 
-	private final EurekaclinicalUserServiceClient client;
+	private final EurekaclinicalUserInternalClient client;
 	private final WebappAuthenticationSupport authenticationSupport;
 
-	public ListUserAcctWorker(EurekaclinicalUserServiceClient inClient) {
+	public ListUserAcctWorker(EurekaclinicalUserInternalClient inClient) {
 		this.client = inClient;
 		this.authenticationSupport = new WebappAuthenticationSupport(this.client);
 	}

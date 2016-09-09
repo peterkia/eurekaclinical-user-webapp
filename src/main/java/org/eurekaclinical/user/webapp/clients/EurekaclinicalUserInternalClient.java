@@ -1,6 +1,6 @@
 /*-
  * #%L
- * Eureka! Clinical User Common
+ * Eureka! Clinical User Webapp
  * %%
  * Copyright (C) 2016 Emory University
  * %%
@@ -27,7 +27,7 @@ import com.sun.jersey.api.client.GenericType;
 
 import org.eurekaclinical.common.comm.Role;
 import org.eurekaclinical.common.comm.clients.ClientException;
-import org.eurekaclinical.user.client.EurekaclinicalUserClient;
+import org.eurekaclinical.common.comm.clients.EurekaClinicalClient;
 
 
 import org.eurekaclinical.user.client.comm.PasswordChangeRequest;
@@ -35,11 +35,12 @@ import org.eurekaclinical.user.client.comm.User;
 import org.eurekaclinical.user.client.comm.UserRequest;
 import org.eurekaclinical.user.client.comm.OAuthProvider;
 /**
- *
+ * EurekaclinicalUserInternalClient is an internal client that should be used only by user-webapp
+ * 
  * @author miaoai
  */
-public class EurekaclinicalUserServiceClient extends EurekaclinicalUserClient {
-	private static final Logger LOGGER = LoggerFactory.getLogger(EurekaclinicalUserServiceClient.class);    
+public class EurekaclinicalUserInternalClient extends EurekaClinicalClient {
+	private static final Logger LOGGER = LoggerFactory.getLogger(EurekaclinicalUserInternalClient.class);    
     
 	private static final GenericType<List<User>> UserList = new GenericType<List<User>>() {
 	};
@@ -48,8 +49,8 @@ public class EurekaclinicalUserServiceClient extends EurekaclinicalUserClient {
        
 	private final String userServiceUrl;
 
-	public EurekaclinicalUserServiceClient(String inUserServiceUrl) {
-		super();
+	public EurekaclinicalUserInternalClient(String inUserServiceUrl) {
+		super(null);
 		LOGGER.debug("Using eurekaclinical user service URL {}", inUserServiceUrl);
 		this.userServiceUrl = inUserServiceUrl;
 	}
