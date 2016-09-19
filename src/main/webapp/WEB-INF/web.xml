@@ -42,7 +42,18 @@ see implementation details http://jersey.java.net/nonav/documentation/latest/jax
 		<filter-name>guiceFilter</filter-name>
 		<filter-class>com.google.inject.servlet.GuiceFilter</filter-class>
 	</filter>
-
+	<context-param>
+		<param-name>eureka-organization-name</param-name>
+		<param-value>${project.organization.name}</param-value>
+	</context-param>
+	<context-param>
+		<param-name>inception-year</param-name>
+		<param-value>${project.inceptionYear}</param-value>
+	</context-param>
+	<context-param>
+		<param-name>current-year</param-name>
+		<param-value>${currentYear}</param-value>
+	</context-param>        
 	<filter-mapping>
 		<filter-name>guiceFilter</filter-name>
 		<url-pattern>/*</url-pattern>
