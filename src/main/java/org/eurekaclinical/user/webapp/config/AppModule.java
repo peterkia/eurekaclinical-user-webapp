@@ -26,7 +26,6 @@ package org.eurekaclinical.user.webapp.config;
 import com.google.inject.AbstractModule;
 
 import org.eurekaclinical.common.comm.clients.RouterTable;
-import org.eurekaclinical.user.client.EurekaclinicalUserClient;
 import org.eurekaclinical.user.webapp.clients.ServiceClientRouterTable;
 
 import org.eurekaclinical.scribeupext.provider.GitHubProvider;
@@ -34,6 +33,7 @@ import org.eurekaclinical.scribeupext.provider.GlobusProvider;
 import org.eurekaclinical.scribeupext.provider.Google2Provider;
 import org.eurekaclinical.scribeupext.provider.SSLTwitterProvider;
 import org.eurekaclinical.standardapis.props.CasEurekaClinicalProperties;
+import org.eurekaclinical.user.client.EurekaClinicalUserClient;
 
 import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserInternalClient;
 import org.eurekaclinical.user.webapp.provider.ScribeExtGitHubProvider;
@@ -48,20 +48,20 @@ import org.eurekaclinical.user.webapp.provider.EurekaclinicalUserInternalClientP
  */
 public class AppModule extends AbstractModule  {
 	private final UserWebappProperties userWebappProperties;    
-        private final EurekaclinicalUserClient proxyClient;
+        private final EurekaClinicalUserClient proxyClient;
         
 	/**
 	 * Inject userServiceUrl to EurekaclinicalUserClient
 	 */        
 	AppModule(UserWebappProperties userWebappProperties) {
 		this.userWebappProperties = userWebappProperties;    
-                this.proxyClient =  new EurekaclinicalUserClient(this.userWebappProperties.getUserServiceUrl());
+                this.proxyClient =  new EurekaClinicalUserClient(this.userWebappProperties.getUserServiceUrl());
 	} 
     
 	@Override
 	protected void configure() {
 		bind(RouterTable.class).to(ServiceClientRouterTable.class);
-		bind(EurekaclinicalUserClient.class).toInstance(this.proxyClient);   
+		bind(EurekaClinicalUserClient.class).toInstance(this.proxyClient);   
 
 		bind(EurekaclinicalUserInternalClient.class).toProvider(EurekaclinicalUserInternalClientProvider.class);
 
