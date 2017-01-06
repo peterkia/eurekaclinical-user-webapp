@@ -3,7 +3,7 @@
     <groupId>org.eurekaclinical</groupId>    
     <artifactId>eurekaclinical-user-webapp</artifactId>
     <packaging>war</packaging>
-    <version>1.0-Alpha-2</version>
+    <version>1.0-Alpha-3-SNAPSHOT</version>
     <name>Eureka! Clinical User Webapp</name>
     <description>Eureka! Clinical User Webapp is the implementation of Eureka! Clinical User 
         web interface that is used by Eureka! Clinical multiple projects
@@ -13,7 +13,7 @@
     <parent>
         <groupId>org.eurekaclinical</groupId>
         <artifactId>eurekaclinical-parent-standard-deps</artifactId>
-        <version>1-Alpha-6</version>
+        <version>1</version>
     </parent>        
         
     <properties>
@@ -288,14 +288,14 @@
                                                         <webapp>
                                                             <groupId>org.eurekaclinical</groupId>
                                                             <artifactId>cas-server</artifactId>
-                                                            <version>3.0-Alpha-3</version>
+                                                            <version>3.0-Alpha-4</version>
                                                             <type>war</type>
                                                             <asWebapp>true</asWebapp>
                                                         </webapp>
                                                         <webapp>
                                                             <groupId>org.eurekaclinical</groupId>
                                                             <artifactId>eurekaclinical-user-service</artifactId>
-                                                            <version>1.0-Alpha-2</version>
+                                                            <version>1.0-Alpha-3</version>
                                                             <type>war</type>
                                                             <asWebapp>true</asWebapp>
                                                         </webapp>
@@ -313,7 +313,7 @@
         <dependency>
                 <groupId>org.eurekaclinical</groupId>
                 <artifactId>eurekaclinical-user-common</artifactId>
-                <version>1.0-Alpha-2</version>
+                <version>1.0-Alpha-4</version>
         </dependency>       
         <dependency>
                 <groupId>junit</groupId>
@@ -409,12 +409,12 @@
         <dependency>
                 <groupId>org.eurekaclinical</groupId>
                 <artifactId>scribe-up-ext</artifactId>
-                <version>1.0-Alpha-5-SNAPSHOT</version>
+                <version>1.0</version>
         </dependency>
         <dependency>
                 <groupId>org.eurekaclinical</groupId>
                 <artifactId>javautil</artifactId>
-                <version>3.0-Alpha-7</version>
+                <version>3.0</version>
                 <type>jar</type>
         </dependency>
     </dependencies>        
