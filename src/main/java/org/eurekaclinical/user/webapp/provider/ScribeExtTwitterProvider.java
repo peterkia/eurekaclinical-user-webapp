@@ -37,7 +37,7 @@ public class ScribeExtTwitterProvider implements Provider<SSLTwitterProvider> {
 		this.twitterProvider = new SSLTwitterProvider();
 		this.twitterProvider.setKey(inProperties.getTwitterOAuthKey());
 		this.twitterProvider.setSecret(inProperties.getTwitterOAuthSecret());
-		this.twitterProvider.setCallbackUrl(inProperties.getApplicationUrl() + "registrationoauthtwittercallback");
+		this.twitterProvider.setCallbackUrl(inProperties.getUrl() + "registrationoauthtwittercallback");
 	}
 	
 	@Override

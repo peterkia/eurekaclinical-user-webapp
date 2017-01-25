@@ -37,7 +37,7 @@ public class ScribeExtGoogleProvider implements Provider<Google2Provider> {
 		this.googleProvider = new Google2Provider();
 		this.googleProvider.setKey(inProperties.getGoogleOAuthKey());
 		this.googleProvider.setSecret(inProperties.getGoogleOAuthSecret());
-		this.googleProvider.setCallbackUrl(inProperties.getApplicationUrl() + "registrationoauthgooglecallback");
+		this.googleProvider.setCallbackUrl(inProperties.getUrl() + "registrationoauthgooglecallback");
 	}
 	
 	@Override

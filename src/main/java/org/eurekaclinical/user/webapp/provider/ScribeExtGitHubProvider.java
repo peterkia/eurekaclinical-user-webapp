@@ -37,7 +37,7 @@ public class ScribeExtGitHubProvider implements Provider<GitHubProvider> {
 		this.gitHubProvider = new GitHubProvider();
 		this.gitHubProvider.setKey(inProperties.getGitHubOAuthKey());
 		this.gitHubProvider.setSecret(inProperties.getGitHubOAuthSecret());
-		this.gitHubProvider.setCallbackUrl(inProperties.getApplicationUrl() + "registrationoauthgithubcallback");
+		this.gitHubProvider.setCallbackUrl(inProperties.getUrl() + "registrationoauthgithubcallback");
 	}
 
 	@Override

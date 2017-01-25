@@ -37,7 +37,7 @@ public class ScribeExtGlobusProvider implements Provider<GlobusProvider> {
 		this.globusProvider = new GlobusProvider();
 		this.globusProvider.setKey(inProperties.getGlobusOAuthKey());
 		this.globusProvider.setSecret(inProperties.getGlobusOAuthSecret());
-		this.globusProvider.setCallbackUrl(inProperties.getApplicationUrl() + "registrationoauthglobuscallback");
+		this.globusProvider.setCallbackUrl(inProperties.getUrl() + "registrationoauthglobuscallback");
 	}
 
 	@Override
