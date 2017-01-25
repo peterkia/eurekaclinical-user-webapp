@@ -33,8 +33,8 @@ import org.slf4j.LoggerFactory;
 import com.sun.jersey.api.client.ClientResponse;
 
 import org.eurekaclinical.common.comm.clients.ClientException;
+import org.eurekaclinical.user.client.EurekaClinicalUserProxyClient;
 
-import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserInternalClient;
 import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
 import org.eurekaclinical.user.webapp.config.UserWebappProperties;
 /**
@@ -46,10 +46,10 @@ public class SaveUserAcctWorker implements ServletWorker {
 	private static Logger LOGGER = LoggerFactory.getLogger(SaveUserAcctWorker.class);
 	
 	private final ResourceBundle messages;
-	private final EurekaclinicalUserInternalClient servicesClient;
+	private final EurekaClinicalUserProxyClient servicesClient;
 	private final UserWebappProperties properties;
 
-	public SaveUserAcctWorker(ServletContext ctx, EurekaclinicalUserInternalClient inClient) {
+	public SaveUserAcctWorker(ServletContext ctx, EurekaClinicalUserProxyClient inClient) {
 		String localizationContextName = ctx.getInitParameter("javax.servlet.jsp.jstl.fmt.localizationContext");
 		this.messages = ResourceBundle.getBundle(localizationContextName);
 		this.servicesClient = inClient;

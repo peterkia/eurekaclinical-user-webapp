@@ -28,10 +28,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.eurekaclinical.common.comm.clients.ClientException;
 import org.eurekaclinical.common.comm.Role;
+import org.eurekaclinical.user.client.EurekaClinicalUserProxyClient;
 
 import org.eurekaclinical.user.client.comm.User;
 
-import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserInternalClient;
 import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
 /**
  *
@@ -39,9 +39,9 @@ import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
  */
 public class EditUserWorker implements ServletWorker {
 
-	private final EurekaclinicalUserInternalClient servicesClient;
+	private final EurekaClinicalUserProxyClient servicesClient;
 
-	public EditUserWorker(EurekaclinicalUserInternalClient inServicesClient) {
+	public EditUserWorker(EurekaClinicalUserProxyClient inServicesClient) {
 		this.servicesClient = inServicesClient;
 	}
 

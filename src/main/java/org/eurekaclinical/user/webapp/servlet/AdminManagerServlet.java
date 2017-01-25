@@ -28,8 +28,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.inject.Inject;
+import org.eurekaclinical.user.client.EurekaClinicalUserProxyClient;
 
-import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserInternalClient;
 import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
 import org.eurekaclinical.user.webapp.servlet.worker.admin.EditUserWorker;
 import org.eurekaclinical.user.webapp.servlet.worker.admin.ListUsersWorker;
@@ -40,10 +40,10 @@ import org.eurekaclinical.user.webapp.servlet.worker.admin.SaveUserWorker;
  */
 public class AdminManagerServlet extends HttpServlet {
 
-	private final EurekaclinicalUserInternalClient servicesClient;
+	private final EurekaClinicalUserProxyClient servicesClient;
 
 	@Inject
-	public AdminManagerServlet (EurekaclinicalUserInternalClient inClient) {
+	public AdminManagerServlet (EurekaClinicalUserProxyClient inClient) {
 		this.servicesClient = inClient;
 	}
 

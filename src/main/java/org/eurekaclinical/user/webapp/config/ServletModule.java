@@ -26,6 +26,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Singleton;
+import org.eurekaclinical.common.config.AbstractAuthorizingServletModule;
 
 import org.eurekaclinical.common.config.AbstractServletModule;
 import org.eurekaclinical.common.servlet.DestroySessionServlet;
@@ -39,7 +40,6 @@ import org.eurekaclinical.user.webapp.servlet.RegisterUserServlet;
 import org.eurekaclinical.user.webapp.servlet.AdminManagerServlet;
 import org.eurekaclinical.user.webapp.servlet.filter.MessagesFilter;
 import org.eurekaclinical.user.webapp.servlet.filter.UserFilter;
-import org.eurekaclinical.user.webapp.servlet.filter.RolesFilter;
 import org.eurekaclinical.user.webapp.servlet.oauth.GitHubRegistrationOAuthCallbackServlet;
 import org.eurekaclinical.user.webapp.servlet.oauth.GlobusRegistrationOAuthCallbackServlet;
 import org.eurekaclinical.user.webapp.servlet.oauth.GoogleRegistrationOAuthCallbackServlet;
@@ -48,11 +48,8 @@ import org.eurekaclinical.user.webapp.servlet.oauth.TwitterRegistrationOAuthCall
  *
  * @author miaoai
  */
-class ServletModule extends AbstractServletModule {
+class ServletModule extends AbstractAuthorizingServletModule {
 
-	private static final Logger LOGGER = LoggerFactory
-			.getLogger(ServletModule.class);
-        
 	private static final String CONTAINER_PATH = "/site/*";
 	private static final String CONTAINER_PROTECTED_PATH = "/protected/*";
 	private static final String FILTER_PATH = "^/(?!(assets|bower_components)).*"; 
@@ -75,15 +72,10 @@ class ServletModule extends AbstractServletModule {
 		filterRegex(FILTER_PATH).through(UserFilter.class);
 	}
 	
-	private void setupRolesFilter() {
-		filterRegex(FILTER_PATH).through(RolesFilter.class);
-	}
-
 	@Override
 	protected void setupFilters() {
 		this.setupMessageFilter();
 		this.setupUserFilter();
-		this.setupRolesFilter();
 	}
         
 	@Override

@@ -27,14 +27,13 @@ import org.eurekaclinical.common.comm.clients.ClientException;
 
 import org.eurekaclinical.user.client.comm.User;
 import org.eurekaclinical.user.common.authentication.AbstractUserSupport;
-import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserInternalClient;
 /**
  *
  * @author miaoai
  */
 public final class WebappAuthenticationSupport extends AbstractUserSupport {
 	
-	public WebappAuthenticationSupport(EurekaclinicalUserInternalClient inServicesClient) {
+	public WebappAuthenticationSupport() {
 	}
 	
 	public User getMe(HttpServletRequest req) throws ClientException {
@@ -43,6 +42,6 @@ public final class WebappAuthenticationSupport extends AbstractUserSupport {
 
 	public void needsToLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		req.getSession().invalidate();
-		resp.sendRedirect("/eureka-webapp/protected/login");
+		resp.sendRedirect(req.getContextPath() + "/protected/login");
 	}
 }

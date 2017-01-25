@@ -38,6 +38,7 @@ import com.sun.jersey.api.client.ClientResponse.Status;
 
 
 import org.eurekaclinical.common.comm.clients.ClientException;
+import org.eurekaclinical.user.client.EurekaClinicalUserProxyClient;
 
 import org.eurekaclinical.user.client.comm.LdapUserRequest;
 import org.eurekaclinical.user.client.comm.LocalUserRequest;
@@ -45,7 +46,6 @@ import org.eurekaclinical.user.client.comm.OAuthUserRequest;
 import org.eurekaclinical.user.client.comm.UserRequest;
 import org.eurekaclinical.user.client.comm.authentication.AuthenticationMethod;
 
-import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserInternalClient;
 /**
  *
  * @author miaoai
@@ -54,10 +54,10 @@ public class RegisterUserServlet extends HttpServlet {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(RegisterUserServlet.class);
 	private static final ResourceBundle messages = ResourceBundle.getBundle("Messages");
-	private final EurekaclinicalUserInternalClient servicesClient;
+	private final EurekaClinicalUserProxyClient servicesClient;
 
 	@Inject
-	public RegisterUserServlet(EurekaclinicalUserInternalClient inClient) {
+	public RegisterUserServlet(EurekaClinicalUserProxyClient inClient) {
 		this.servicesClient = inClient;
 	}
 

@@ -296,7 +296,7 @@
 								<webapp>
 									<groupId>org.eurekaclinical</groupId>
 									<artifactId>eurekaclinical-user-service</artifactId>
-									<version>1.0-Alpha-4</version>
+									<version>1.0-Alpha-5</version>
 									<type>war</type>
 									<asWebapp>true</asWebapp>
 								</webapp>
@@ -314,7 +314,7 @@
 		<dependency>
 			<groupId>org.eurekaclinical</groupId>
 			<artifactId>eurekaclinical-user-common</artifactId>
-			<version>1.0-Alpha-5</version>
+			<version>1.0-Alpha-6</version>
 		</dependency>       
 		<dependency>
 			<groupId>junit</groupId>

@@ -29,8 +29,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.inject.Inject;
 
 import org.eurekaclinical.common.comm.clients.ClientException;
+import org.eurekaclinical.user.client.EurekaClinicalUserProxyClient;
 
-import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserInternalClient;
 /**
  * Servlet to handle user verification requests.
  * 
@@ -43,10 +43,10 @@ public class VerifyUserServlet extends HttpServlet {
 	 * Used for serialization/deserialization.
 	 */
 	private static final long serialVersionUID = -737043484641381552L;
-	private final EurekaclinicalUserInternalClient servicesClient;
+	private final EurekaClinicalUserProxyClient servicesClient;
 
 	@Inject
-	public VerifyUserServlet (EurekaclinicalUserInternalClient inClient) {
+	public VerifyUserServlet (EurekaClinicalUserProxyClient inClient) {
 		this.servicesClient = inClient;
 	}
 

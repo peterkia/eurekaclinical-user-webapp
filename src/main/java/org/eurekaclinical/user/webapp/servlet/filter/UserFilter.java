@@ -35,10 +35,10 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
 import org.eurekaclinical.common.comm.clients.ClientException;
+import org.eurekaclinical.user.client.EurekaClinicalUserProxyClient;
 
 import org.eurekaclinical.user.client.comm.User;
 
-import org.eurekaclinical.user.webapp.clients.EurekaclinicalUserInternalClient;
 import org.eurekaclinical.user.webapp.config.RequestAttributes;
 import org.eurekaclinical.user.webapp.config.UserWebappProperties;
 /**
@@ -51,11 +51,11 @@ public class UserFilter implements Filter {
 	private static final Logger LOGGER
 			= LoggerFactory.getLogger(UserFilter.class);
 
-	private final EurekaclinicalUserInternalClient servicesClient;
+	private final EurekaClinicalUserProxyClient servicesClient;
 	private final UserWebappProperties properties;
 
 	@Inject
-	public UserFilter(EurekaclinicalUserInternalClient inServicesClient, UserWebappProperties inProperties) {
+	public UserFilter(EurekaClinicalUserProxyClient inServicesClient, UserWebappProperties inProperties) {
 		this.servicesClient = inServicesClient;
 		this.properties = inProperties;
 	}
