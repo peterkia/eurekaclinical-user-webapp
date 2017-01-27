@@ -28,7 +28,6 @@ import org.slf4j.LoggerFactory;
 import com.google.inject.Singleton;
 import org.eurekaclinical.common.config.AbstractAuthorizingServletModule;
 
-import org.eurekaclinical.common.config.AbstractServletModule;
 import org.eurekaclinical.common.servlet.DestroySessionServlet;
 import org.eurekaclinical.common.servlet.LogoutServlet;
 import org.eurekaclinical.common.servlet.ProxyServlet;
@@ -76,6 +75,7 @@ class ServletModule extends AbstractAuthorizingServletModule {
 	protected void setupFilters() {
 		this.setupMessageFilter();
 		this.setupUserFilter();
+		super.setupFilters();
 	}
         
 	@Override

@@ -24,6 +24,7 @@ package org.eurekaclinical.user.webapp.config;
  * @author miaoai
  */
 import com.google.inject.AbstractModule;
+import org.eurekaclinical.common.comm.clients.AuthorizingEurekaClinicalProxyClient;
 
 import org.eurekaclinical.common.comm.clients.RouterTable;
 import org.eurekaclinical.user.webapp.clients.ServiceClientRouterTable;
@@ -61,6 +62,7 @@ public class AppModule extends AbstractModule {
 	@Override
 	protected void configure() {
 		bind(RouterTable.class).to(ServiceClientRouterTable.class);
+		bind(AuthorizingEurekaClinicalProxyClient.class).toInstance(this.proxyClient);
 		bind(EurekaClinicalUserProxyClient.class).toInstance(this.proxyClient);
 		bind(UserWebappProperties.class).toInstance(this.userWebappProperties);
 		bind(CasEurekaClinicalProperties.class).toInstance(this.userWebappProperties);
