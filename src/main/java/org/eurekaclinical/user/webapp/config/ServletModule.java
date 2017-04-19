@@ -22,9 +22,6 @@ package org.eurekaclinical.user.webapp.config;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.google.inject.Singleton;
 import org.eurekaclinical.common.config.AbstractAuthorizingServletModule;
 
