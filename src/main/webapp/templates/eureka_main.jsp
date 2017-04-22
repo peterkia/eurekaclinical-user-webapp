@@ -42,9 +42,8 @@
 	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,400italic,600italic,700italic"
 		  rel="stylesheet" type="text/css">
 	<link rel="stylesheet"
-		  href="${pageContext.request.contextPath}/bower_components/bootstrap/dist/css/bootstrap.css"/>
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/bower_components/font-awesome/css/font-awesome.css">
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/bower_components/angular-material/angular-material.css" />
+		  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/bootstrap-social-20150401.css">
 	<link rel="stylesheet"
 		  href="${pageContext.request.contextPath}/assets/css/eureka.css"/>
@@ -53,8 +52,8 @@
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
-	<script src="${pageContext.request.contextPath}/bower_components/jquery/dist/jquery.js" type="text/javascript"></script>
-	<script src="${pageContext.request.contextPath}/bower_components/bootstrap/dist/js/bootstrap.js" type="text/javascript"></script>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/eureka.bootbar.js" type="text/javascript"></script>
 	<title>Eureka! Clinical Analytics</title>
 </head>
