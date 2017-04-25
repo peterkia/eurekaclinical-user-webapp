@@ -20,7 +20,7 @@ web interface that is used by Eureka! Clinical multiple projects
 		<tomcat.port>8080</tomcat.port>
 		<tomcat.httpsPort>8443</tomcat.httpsPort>        
 		<maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
-		<eureka.build.timestamp>${maven.build.timestamp}</eureka.build.timestamp>
+		<ec.build.timestamp>${maven.build.timestamp}</ec.build.timestamp>
 		<jstl-version>1.2</jstl-version>
 		<jsp-api-version>2.0</jsp-api-version>
 		<ec-user-common-version>1.0-Alpha-10</ec-user-common-version>
@@ -63,10 +63,9 @@ web interface that is used by Eureka! Clinical multiple projects
 					</execution>
 				</executions>                              
 				<configuration>
-					<!--<suffix>${maven.build.timestamp}</suffix>-->
+					<suffix>${maven.build.timestamp}</suffix>
 					<includes>
 						<include>assets/js/eureka.*.js</include>
-						<include>assets/css/eureka.css</include>
 					</includes>
 				</configuration>
 			</plugin>      

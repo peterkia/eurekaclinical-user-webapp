@@ -45,8 +45,7 @@
 		  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/bootstrap-social-20150401.css">
-	<link rel="stylesheet"
-		  href="${pageContext.request.contextPath}/assets/css/eureka.css"/>
+	<link rel="stylesheet" href="https://assets.eurekaclinical.org/v1.0/css/eurekaclinical.css"/>
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -139,8 +138,8 @@
 	Copyright &copy; ${initParam['inception-year']}&ndash;${initParam['current-year']} ${initParam['eureka-organization-name']}. All rights reserved.
 </div>
 <c:if test="${userIsActivated}">
-	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/eureka.util.js"></script>
-	<script src="${pageContext.request.contextPath}/assets/js/eureka.idletimeout.js" type="text/javascript"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/eureka.util${initParam['ec-build-timestamp']}.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/eureka.idletimeout${initParam['ec-build-timestamp']}.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(document).ready(function (){
 		$(document).idleTimeout({

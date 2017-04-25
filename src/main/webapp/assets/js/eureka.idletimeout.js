@@ -1,6 +1,6 @@
 /*-
  * #%L
- * Eureka! Clinical User Webapp
+ * Eureka! Clinical Assets
  * %%
  * Copyright (C) 2016 Emory University
  * %%

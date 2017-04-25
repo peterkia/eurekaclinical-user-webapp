@@ -53,7 +53,11 @@ see implementation details http://jersey.java.net/nonav/documentation/latest/jax
 	<context-param>
 		<param-name>current-year</param-name>
 		<param-value>${currentYear}</param-value>
-	</context-param>        
+	</context-param>
+	<context-param>
+		<param-name>ec-build-timestamp</param-name>
+		<param-value>${ec.build.timestamp}</param-value>
+	</context-param>
 	<filter-mapping>
 		<filter-name>guiceFilter</filter-name>
 		<url-pattern>/*</url-pattern>
