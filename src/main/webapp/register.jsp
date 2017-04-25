@@ -242,7 +242,7 @@
 	</div>
 </div>
 <script type="text/javascript"
-		src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
 <script type="text/javascript"
 		src="${pageContext.request.contextPath}/assets/js/eureka.registration${initParam['ec-build-timestamp']}.js"></script>
 <script>var ctx = "${eurekaWebappURL}/protected/login"</script>                
