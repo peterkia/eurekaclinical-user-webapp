@@ -23,8 +23,8 @@ web interface that is used by Eureka! Clinical multiple projects
 		<ec.build.timestamp>${maven.build.timestamp}</ec.build.timestamp>
 		<jstl-version>1.2</jstl-version>
 		<jsp-api-version>2.0</jsp-api-version>
-		<ec-user-common-version>1.0-Alpha-10</ec-user-common-version>
-		<ec-user-service-version>1.0-Alpha-8</ec-user-service-version>
+		<ec-user-common-version>1.0-Alpha-11</ec-user-common-version>
+		<ec-user-service-version>1.0-Alpha-9</ec-user-service-version>
 	</properties>
 
 	<scm>

@@ -54,9 +54,9 @@ public class AppModule extends AbstractModule {
 	/**
 	 * Inject userServiceUrl to EurekaclinicalUserClient
 	 */
-	AppModule(UserWebappProperties userWebappProperties) {
+	AppModule(UserWebappProperties userWebappProperties, EurekaClinicalUserProxyClient inProxyClient) {
 		this.userWebappProperties = userWebappProperties;
-		this.proxyClient = new EurekaClinicalUserProxyClient(this.userWebappProperties.getUserServiceUrl());
+		this.proxyClient = inProxyClient;
 	}
 
 	@Override
