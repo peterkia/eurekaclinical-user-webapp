@@ -110,15 +110,8 @@ window.eureka.account = new function () {
                         var lastName = $('#lastName').val();
                         var organization = $('#organization').val(); 
                         var email = $('#email').val();
-                        var title;
-                        var department;
-                        if ($('#username').val() === 'superuser') {
-                                title = $('#title_superuser').val();
-                                department = $('#department_superuser').val();                             
-                        } else {
-                                title = $('#title').val();
-                                department = $('#department').val();                            
-                        }
+                        var title = $('#title').val();
+                        var department = $('#department').val(); 
                         
                         var dataString ='action=saveinfo' +
                                 '&id=' + id +

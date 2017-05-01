@@ -62,70 +62,26 @@
                                         </div>
                                 </div>
                         </div>
-                        <c:choose>  
-                                <c:when test="${user.username == 'superuser'}">
-                                        <div class="row">
-                                                <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                                <label for="title_superuser" class="control-label">Title</label>
-                                                                <input id="title_superuser" name="title_superuser" type="text"
-                                                                           class="form-control" 
-                                                                           <c:choose>
-                                                                                <c:when test="${user.title == 'undefined' || user.title == '' || user.title == 'null' }">
-                                                                                    value=""
-                                                                                </c:when>
-                                                                                <c:otherwise>
-                                                                                    value="${user.title}"
-                                                                                </c:otherwise>
-                                                                           </c:choose>
-                                                                />
-                                                                <span class="help-block default-hidden"></span>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <div class="row">
-                                                <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                                <label for="department_superuser" class="control-label">Department</label>
-                                                                <input id="department_superuser" name="department_superuser" type="text"
-                                                                           class="form-control"  
-                                                                           <c:choose>
-                                                                                <c:when test="${user.department == 'undefined' || user.department == '' || user.department == 'null' }">
-                                                                                    value=""
-                                                                                </c:when>
-                                                                                <c:otherwise>
-                                                                                    value="${user.department}"
-                                                                                </c:otherwise>
-                                                                           </c:choose>                                                                           
-                                                                />
-                                                                <span class="help-block default-hidden"></span>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </c:when>
-                                <c:otherwise> 
-                                        <div class="row">
-                                                <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                                <label for="title" class="control-label">Title</label>
-                                                                <input id="title" name="title" type="text"
-                                                                           class="form-control" value="${user.title}"/>
-                                                                <span class="help-block default-hidden"></span>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <div class="row">
-                                                <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                                <label for="department" class="control-label">Department</label>
-                                                                <input id="department" name="department" type="text"
-                                                                           class="form-control" value="${user.department}"/>
-                                                                <span class="help-block default-hidden"></span>
-                                                        </div>
-                                                </div>
-                                        </div>                                    
-                                </c:otherwise>    
-                        </c:choose>                        
+						<div class="row">
+								<div class="col-sm-6">
+										<div class="form-group">
+												<label for="title" class="control-label">Title</label>
+												<input id="title" name="title" type="text"
+														   class="form-control" value="${user.title}"/>
+												<span class="help-block default-hidden"></span>
+										</div>
+								</div>
+						</div>
+						<div class="row">
+								<div class="col-sm-6">
+										<div class="form-group">
+												<label for="department" class="control-label">Department</label>
+												<input id="department" name="department" type="text"
+														   class="form-control" value="${user.department}"/>
+												<span class="help-block default-hidden"></span>
+										</div>
+								</div>
+						</div>                                    
                         <div class="row">
                                 <div class="col-sm-6">
                                         <div class="form-group">
