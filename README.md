@@ -29,7 +29,7 @@ You can run this project in an embedded tomcat by executing `mvn tomcat7:run -Pt
 * [Javadoc for latest development release](http://javadoc.io/doc/org.eurekaclinical/eurekaclinical-user-webapp) [![Javadocs](http://javadoc.io/badge/org.eurekaclinical/eurekaclinical-user-webapp.svg)](http://javadoc.io/doc/org.eurekaclinical/eurekaclinical-user-webapp)
 
 ## Configuration
-This project is configured using a properties file located at `/etc/ec-user/application.properties`. It supports the following properties:
+This webapp is configured using a properties file located at `/etc/ec-user/application.properties`. It supports the following properties:
 * `eurekaclinical.userwebapp.callbackserver`: https://hostname:port
 * `eurekaclinical.userwebapp.url`: https://hostname:port/eurekaclinical-user-webapp
 * `eurekaclinical.userservice.url`: https://hostname.of.userservice:port/eurekaclinical-user-service
