@@ -32,19 +32,19 @@ You can run this project in an embedded tomcat by executing `mvn tomcat7:run -Pt
 This project is configured via a properties file located at `/etc/ec-user/application.properties`. It supports the following properties:
 * `eurekaclinical.userwebapp.callbackserver`: https://hostname:port
 * `eurekaclinical.userwebapp.url`: https://hostname:port/eurekaclinical-user-webapp
-* `eurekaclinical.userservice.url`: https://hostname.of.userservice:8443/eurekaclinical-user-service
+* `eurekaclinical.userservice.url`: https://hostname.of.userservice:port/eurekaclinical-user-service
 * `cas.url`: https://hostname:port/cas-server
-* `eurekaclinical.userwebapp.localregistrationenabled`: true
-* `eurekaclinical.userwebapp.githuboauthkey`: 
-* `eurekaclinical.userwebapp.githuboauthsecret`: 
-* `eurekaclinical.userwebapp.globusoauthkey`: 
-* `eurekaclinical.userwebapp.globusoauthsecret`: 
-* `eurekaclinical.userwebapp.googleoauthkey`: 
-* `eurekaclinical.userwebapp.googleoauthsecret`: 
-* `eurekaclinical.userwebapp.twitteroauthkey`: 
-* `eurekaclinical.userwebapp.twitteroauthsecret`: 
-* `eurekaclinical.userwebapp.demomode`: false
-* `eurekaclinical.userwebapp.ephiprohibited`: true
+* `eurekaclinical.userwebapp.localregistrationenabled`: true or false
+* `eurekaclinical.userwebapp.githuboauthkey`: the key, if GitHub OAuth is enabled.
+* `eurekaclinical.userwebapp.githuboauthsecret`:  the secret, if GitHub OAuth is enabled.
+* `eurekaclinical.userwebapp.globusoauthkey`:  the key, if Globus OAuth is enabled.
+* `eurekaclinical.userwebapp.globusoauthsecret`:  the secret, if Globus OAuth is enabled.
+* `eurekaclinical.userwebapp.googleoauthkey`:  the key, if Google OAuth is enabled.
+* `eurekaclinical.userwebapp.googleoauthsecret`:  the secret, if GitHub OAuth is enabled.
+* `eurekaclinical.userwebapp.twitteroauthkey`:  the key, if Twitter OAuth is enabled.
+* `eurekaclinical.userwebapp.twitteroauthsecret`:   the secret, if Twitter OAuth is enabled.
+* `eurekaclinical.userwebapp.demomode`: true or false depending on whether to act like a demonstration; default is false.
+* `eurekaclinical.userwebapp.ephiprohibited`: true or false depending on whether to display that managing ePHI is prohibited; default is true.
 
 
 A typical `cas.properties` file looks like the following:
