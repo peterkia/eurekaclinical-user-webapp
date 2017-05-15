@@ -38,11 +38,11 @@ This project is configured via a properties file located at `/etc/ec-user/applic
 * `eurekaclinical.userwebapp.githuboauthkey`: the key for registering using a GitHub OAuth account.
 * `eurekaclinical.userwebapp.githuboauthsecret`:  the secret for registering using a GitHub OAuth account.
 * `eurekaclinical.userwebapp.globusoauthkey`:  the key for registering using a GitHub OAuth account.
-* `eurekaclinical.userwebapp.globusoauthsecret`:  the secret for registrating for a Globus OAuth account.
-* `eurekaclinical.userwebapp.googleoauthkey`:  the key, if registration for Google OAuth accounts is enabled.
-* `eurekaclinical.userwebapp.googleoauthsecret`:  the secret, if GitHub OAuth is enabled.
-* `eurekaclinical.userwebapp.twitteroauthkey`:  the key, if Twitter OAuth is enabled.
-* `eurekaclinical.userwebapp.twitteroauthsecret`:   the secret, if Twitter OAuth is enabled.
+* `eurekaclinical.userwebapp.globusoauthsecret`:  the secret for registering using a Globus OAuth account.
+* `eurekaclinical.userwebapp.googleoauthkey`:  the key for registering using a Google OAuth account.
+* `eurekaclinical.userwebapp.googleoauthsecret`:  the secret for registering using a Google OAuth account.
+* `eurekaclinical.userwebapp.twitteroauthkey`:   the key for registering using a Twitter OAuth account.
+* `eurekaclinical.userwebapp.twitteroauthsecret`:  the secret for registering using a Google OAuth account.
 * `eurekaclinical.userwebapp.demomode`: true or false depending on whether to act like a demonstration; default is false.
 * `eurekaclinical.userwebapp.ephiprohibited`: true or false depending on whether to display that managing ePHI is prohibited; default is true.
 
