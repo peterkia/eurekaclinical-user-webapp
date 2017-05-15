@@ -34,12 +34,12 @@ This project is configured via a properties file located at `/etc/ec-user/applic
 * `eurekaclinical.userwebapp.url`: https://hostname:port/eurekaclinical-user-webapp
 * `eurekaclinical.userservice.url`: https://hostname.of.userservice:port/eurekaclinical-user-service
 * `cas.url`: https://hostname:port/cas-server
-* `eurekaclinical.userwebapp.localregistrationenabled`: true or false
-* `eurekaclinical.userwebapp.githuboauthkey`: the key, if GitHub OAuth is enabled.
-* `eurekaclinical.userwebapp.githuboauthsecret`:  the secret, if GitHub OAuth is enabled.
-* `eurekaclinical.userwebapp.globusoauthkey`:  the key, if Globus OAuth is enabled.
-* `eurekaclinical.userwebapp.globusoauthsecret`:  the secret, if Globus OAuth is enabled.
-* `eurekaclinical.userwebapp.googleoauthkey`:  the key, if Google OAuth is enabled.
+* `eurekaclinical.userwebapp.localregistrationenabled`: true or false to enable/disable registering for an account managed by this project; default is true.
+* `eurekaclinical.userwebapp.githuboauthkey`: the key for registering using a GitHub OAuth account.
+* `eurekaclinical.userwebapp.githuboauthsecret`:  the secret for registering using a GitHub OAuth account.
+* `eurekaclinical.userwebapp.globusoauthkey`:  the key for registering using a GitHub OAuth account.
+* `eurekaclinical.userwebapp.globusoauthsecret`:  the secret for registrating for a Globus OAuth account.
+* `eurekaclinical.userwebapp.googleoauthkey`:  the key, if registration for Google OAuth accounts is enabled.
 * `eurekaclinical.userwebapp.googleoauthsecret`:  the secret, if GitHub OAuth is enabled.
 * `eurekaclinical.userwebapp.twitteroauthkey`:  the key, if Twitter OAuth is enabled.
 * `eurekaclinical.userwebapp.twitteroauthsecret`:   the secret, if Twitter OAuth is enabled.
