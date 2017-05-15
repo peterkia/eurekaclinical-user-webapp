@@ -33,7 +33,7 @@ This project is configured via a properties file located at `/etc/ec-user/applic
 * `eurekaclinical.userwebapp.callbackserver`: https://hostname:port
 * `eurekaclinical.userwebapp.url`: https://hostname:port/eurekaclinical-user-webapp
 * `eurekaclinical.userservice.url`: https://hostname.of.userservice:port/eurekaclinical-user-service
-* `cas.url`: https://hostname:port/cas-server
+* `cas.url`: https://hostname.of.cas.server:port/cas-server
 * `eurekaclinical.userwebapp.localregistrationenabled`: true or false to enable/disable registering for an account managed by this project; default is true.
 * `eurekaclinical.userwebapp.githuboauthkey`: the key for registering using a GitHub OAuth account.
 * `eurekaclinical.userwebapp.githuboauthsecret`:  the secret for registering using a GitHub OAuth account.
