@@ -27,7 +27,6 @@ You can run this project in an embedded tomcat by executing `mvn tomcat7:run -Pt
 
 ## Developer documentation
 * [Javadoc for latest development release](http://javadoc.io/doc/org.eurekaclinical/eurekaclinical-user-webapp) [![Javadocs](http://javadoc.io/badge/org.eurekaclinical/eurekaclinical-user-webapp.svg)](http://javadoc.io/doc/org.eurekaclinical/eurekaclinical-user-webapp)
-* [Javadoc for version 1.0](http://javadoc.io/doc/org.eurekaclinical/eurekaclinical-user-webapp/1.0)
 
 ## Getting help
 Feel free to contact us at help@eurekaclinical.org.
