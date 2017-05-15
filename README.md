@@ -46,18 +46,6 @@ This project is configured via a properties file located at `/etc/ec-user/applic
 * `eurekaclinical.userwebapp.demomode`: true or false depending on whether to act like a demonstration; default is false.
 * `eurekaclinical.userwebapp.ephiprohibited`: true or false depending on whether to display that managing ePHI is prohibited; default is true.
 
-
-A typical `cas.properties` file looks like the following:
-```
-server.name=https://hostname.running.cas
-server.prefix=${server.name}/cas-server
-host.name=hostname.running.cas
-eureka.authHandlers=jdbc
-
-# Whitelist the services that may access this CAS server.
-cas.services.filter=https://(hostname1\\.edu|hostname2\\.edu|localhost).*
-```
-
 ## Getting help
 Feel free to contact us at help@eurekaclinical.org.
 
