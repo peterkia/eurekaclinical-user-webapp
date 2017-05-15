@@ -28,6 +28,36 @@ You can run this project in an embedded tomcat by executing `mvn tomcat7:run -Pt
 ## Developer documentation
 * [Javadoc for latest development release](http://javadoc.io/doc/org.eurekaclinical/eurekaclinical-user-webapp) [![Javadocs](http://javadoc.io/badge/org.eurekaclinical/eurekaclinical-user-webapp.svg)](http://javadoc.io/doc/org.eurekaclinical/eurekaclinical-user-webapp)
 
+## Configuration
+This project is configured via a properties file located at `/etc/ec-user/application.properties`. It supports the following properties:
+* `eurekaclinical.userwebapp.callbackserver`: https://hostname:port
+* `eurekaclinical.userwebapp.url`: https://hostname:port/eurekaclinical-user-webapp
+* `eurekaclinical.userservice.url`: https://hostname.of.userservice:8443/eurekaclinical-user-service
+* `cas.url`: https://hostname:port/cas-server
+* `eurekaclinical.userwebapp.localregistrationenabled`: true
+* `eurekaclinical.userwebapp.githuboauthkey`: 
+* `eurekaclinical.userwebapp.githuboauthsecret`: 
+* `eurekaclinical.userwebapp.globusoauthkey`: 
+* `eurekaclinical.userwebapp.globusoauthsecret`: 
+* `eurekaclinical.userwebapp.googleoauthkey`: 
+* `eurekaclinical.userwebapp.googleoauthsecret`: 
+* `eurekaclinical.userwebapp.twitteroauthkey`: 
+* `eurekaclinical.userwebapp.twitteroauthsecret`: 
+* `eurekaclinical.userwebapp.demomode`: false
+* `eurekaclinical.userwebapp.ephiprohibited`: true
+
+
+A typical `cas.properties` file looks like the following:
+```
+server.name=https://hostname.running.cas
+server.prefix=${server.name}/cas-server
+host.name=hostname.running.cas
+eureka.authHandlers=jdbc
+
+# Whitelist the services that may access this CAS server.
+cas.services.filter=https://(hostname1\\.edu|hostname2\\.edu|localhost).*
+```
+
 ## Getting help
 Feel free to contact us at help@eurekaclinical.org.
 
