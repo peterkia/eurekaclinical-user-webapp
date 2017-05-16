@@ -10,6 +10,17 @@ No final releases yet
 ## What does it do?
 It provides web pages for users to manage their user profiles and change their password. It also implements a proxy servlet and router for web clients to access the web services provided by eurekaclinical-user-service.
 
+## Build requirements
+* [Oracle Java JDK 8](http://www.oracle.com/technetwork/java/javase/overview/index.html)
+* [Maven 3.2.5 or greater](https://maven.apache.org)
+
+## Runtime requirements
+* [Oracle Java JRE 8](http://www.oracle.com/technetwork/java/javase/overview/index.html)
+* [Tomcat 7](https://tomcat.apache.org)
+* Also running
+  * The [eurekaclinical-user-service](https://github.com/eurekaclinical/eurekaclinical-user-service) war
+  * The [cas-server](https://github.com/eurekaclinical/cas) war
+  
 ## Building it
 The project uses the maven build tool. Typically, you build it by invoking `mvn clean install` at the command line. For simple file changes, not additions or deletions, you can usually use `mvn install`. See https://github.com/eurekaclinical/dev-wiki/wiki/Building-Eureka!-Clinical-projects for more details.
 
