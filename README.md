@@ -27,18 +27,7 @@ The project uses the maven build tool. Typically, you build it by invoking `mvn 
 ## Performing system tests
 You can run this project in an embedded tomcat by executing `mvn tomcat7:run -Ptomcat` after you have built it. It will be accessible in your web browser at https://localhost:8443/eurekaclinical-user-webapp/. Your username will be `superuser`.
 
-## Maven dependency
-```
-<dependency>
-    <groupId>org.eurekaclinical</groupId>
-    <artifactId>eurekaclinical-user-webapp</artifactId>
-    <version>version</version>
-</dependency>
-```
-
-## Developer documentation
-* [Javadoc for latest development release](http://javadoc.io/doc/org.eurekaclinical/eurekaclinical-user-webapp) [![Javadocs](http://javadoc.io/badge/org.eurekaclinical/eurekaclinical-user-webapp.svg)](http://javadoc.io/doc/org.eurekaclinical/eurekaclinical-user-webapp)
-
+## Installation
 ## Configuration
 This webapp is configured using a properties file located at `/etc/ec-user/application.properties`. It supports the following properties:
 * `eurekaclinical.userwebapp.callbackserver`: https://hostname:port
@@ -56,6 +45,26 @@ This webapp is configured using a properties file located at `/etc/ec-user/appli
 * `eurekaclinical.userwebapp.twitteroauthsecret`:  the secret for registering using a Google OAuth account.
 * `eurekaclinical.userwebapp.demomode`: true or false depending on whether to act like a demonstration; default is false.
 * `eurekaclinical.userwebapp.ephiprohibited`: true or false depending on whether to display that managing ePHI is prohibited; default is true.
+
+A Tomcat restart is required to detect any changes to the configuration file.
+
+### WAR installation
+1) Stop Tomcat
+2) Remove any old copies of the unpacked war from Tomcat's webapps directory
+3) Copy the warfile into the tomcat webapps directory, renaming it to remove the version
+4) Start tomcat
+
+## Maven dependency
+```
+<dependency>
+    <groupId>org.eurekaclinical</groupId>
+    <artifactId>eurekaclinical-user-webapp</artifactId>
+    <version>version</version>
+</dependency>
+```
+
+## Developer documentation
+* [Javadoc for latest development release](http://javadoc.io/doc/org.eurekaclinical/eurekaclinical-user-webapp) [![Javadocs](http://javadoc.io/badge/org.eurekaclinical/eurekaclinical-user-webapp.svg)](http://javadoc.io/doc/org.eurekaclinical/eurekaclinical-user-webapp)
 
 ## Getting help
 Feel free to contact us at help@eurekaclinical.org.
