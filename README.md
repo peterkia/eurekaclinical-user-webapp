@@ -28,7 +28,7 @@ The project uses the maven build tool. Typically, you build it by invoking `mvn 
 You can run this project in an embedded tomcat by executing `mvn tomcat7:run -Ptomcat` after you have built it. It will be accessible in your web browser at https://localhost:8443/eurekaclinical-user-webapp/. Your username will be `superuser`.
 
 ## Installation
-## Configuration
+### Configuration
 This webapp is configured using a properties file located at `/etc/ec-user/application.properties`. It supports the following properties:
 * `eurekaclinical.userwebapp.callbackserver`: https://hostname:port
 * `eurekaclinical.userwebapp.url`: https://hostname:port/eurekaclinical-user-webapp
