@@ -49,10 +49,10 @@ This webapp is configured using a properties file located at `/etc/ec-user/appli
 A Tomcat restart is required to detect any changes to the configuration file.
 
 ### WAR installation
-1) Stop Tomcat
-2) Remove any old copies of the unpacked war from Tomcat's webapps directory
+1) Stop Tomcat.
+2) Remove any old copies of the unpacked war from Tomcat's webapps directory.
 3) Copy the warfile into the Tomcat webapps directory, renaming it to remove the version. For example, rename `eurekaclinical-user-webapp-1.0.war` to `eurekaclinical-user-webapp.war`.
-4) Start tomcat
+4) Start Tomcat.
 
 ## Maven dependency
 ```
