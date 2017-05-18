@@ -20,7 +20,10 @@ No final releases yet
 * Also running
   * The [eurekaclinical-user-service](https://github.com/eurekaclinical/eurekaclinical-user-service) war
   * The [cas-server](https://github.com/eurekaclinical/cas) war
-  
+
+## Proxied REST APIs
+You can call all of [eurekaclinical-user-service](https://github.com/eurekaclinical/eurekaclinical-user-service)'s REST APIs through the proxy. Replace `/protected/api` with `/proxy-resource`. The point of doing this is for web clients -- you can deploy the webapp on the same server as web client, and deploy the service on a separate server.
+
 ## Building it
 The project uses the maven build tool. Typically, you build it by invoking `mvn clean install` at the command line. For simple file changes, not additions or deletions, you can usually use `mvn install`. See https://github.com/eurekaclinical/dev-wiki/wiki/Building-Eureka!-Clinical-projects for more details.
 
