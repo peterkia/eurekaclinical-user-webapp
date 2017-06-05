@@ -22,6 +22,7 @@ package org.eurekaclinical.user.webapp.servlet;
 import com.google.inject.Inject;
 
 import java.io.IOException;
+import javax.inject.Singleton;
 
 import org.slf4j.LoggerFactory;
 
@@ -42,8 +43,10 @@ import org.eurekaclinical.user.webapp.config.UserWebappProperties;
  *
  * @author miaoai
  */
+@Singleton
 public class ChooseAccountTypeServlet extends HttpServlet {
 	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(ChooseAccountTypeServlet.class);    
+	private static final long serialVersionUID = 1L;
 	private final UserWebappProperties properties;
 	private final Google2Provider googleProvider;
 	private final SSLTwitterProvider twitterProvider;

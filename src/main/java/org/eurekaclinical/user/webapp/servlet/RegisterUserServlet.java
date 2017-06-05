@@ -34,7 +34,9 @@ import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 import com.google.inject.Inject;
+import com.google.inject.Injector;
 import com.sun.jersey.api.client.ClientResponse.Status;
+import javax.inject.Singleton;
 
 
 import org.eurekaclinical.common.comm.clients.ClientException;
@@ -50,15 +52,17 @@ import org.eurekaclinical.user.client.comm.authentication.AuthenticationMethod;
  *
  * @author miaoai
  */
+@Singleton
 public class RegisterUserServlet extends HttpServlet {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(RegisterUserServlet.class);
 	private static final ResourceBundle messages = ResourceBundle.getBundle("Messages");
-	private final EurekaClinicalUserProxyClient servicesClient;
+	private static final long serialVersionUID = 1L;
+	private final Injector injector;
 
 	@Inject
-	public RegisterUserServlet(EurekaClinicalUserProxyClient inClient) {
-		this.servicesClient = inClient;
+	public RegisterUserServlet(Injector inInjector) {
+		this.injector = inInjector;
 	}
 
 	@Override
@@ -72,7 +76,7 @@ public class RegisterUserServlet extends HttpServlet {
 		} catch (IllegalArgumentException ex) {
 			throw new ServletException("Invalid authentication method: " + authenticationMethodStr);
 		}
-
+		EurekaClinicalUserProxyClient servicesClient = this.injector.getInstance(EurekaClinicalUserProxyClient.class);
 		try {
 			String username = req.getParameter("username");
 			String email = req.getParameter("email");
@@ -130,7 +134,7 @@ public class RegisterUserServlet extends HttpServlet {
 			userRequest.setDepartment(department);
 			userRequest.setFullName(fullName);
 
-			this.servicesClient.addUser(userRequest);
+			servicesClient.addUser(userRequest);
 			resp.setStatus(HttpServletResponse.SC_OK);
 		} catch (ClientException e) {
 			String msg = e.getMessage();
@@ -148,7 +152,6 @@ public class RegisterUserServlet extends HttpServlet {
                             		throw new ServletException();
 			}
 			resp.setContentType("text/plain");
-			LOGGER.debug("Error: {}", msg);
 			resp.setContentLength(msg.length());
 			resp.getWriter().write(msg);
 

@@ -32,6 +32,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
+import com.google.inject.Injector;
 import com.google.inject.Singleton;
 
 import org.eurekaclinical.common.comm.clients.ClientException;
@@ -51,12 +52,12 @@ public class UserFilter implements Filter {
 	private static final Logger LOGGER
 			= LoggerFactory.getLogger(UserFilter.class);
 
-	private final EurekaClinicalUserProxyClient servicesClient;
+	private final Injector injector;
 	private final UserWebappProperties properties;
 
 	@Inject
-	public UserFilter(EurekaClinicalUserProxyClient inServicesClient, UserWebappProperties inProperties) {
-		this.servicesClient = inServicesClient;
+	public UserFilter(Injector inInjector, UserWebappProperties inProperties) {
+		this.injector = inInjector;
 		this.properties = inProperties;
 	}
 
@@ -79,7 +80,8 @@ public class UserFilter implements Filter {
 			try {
 				HttpSession session = servletRequest.getSession(false);
 				if (session != null) {
-					User user = this.servicesClient.getMe();
+					EurekaClinicalUserProxyClient servicesClient = this.injector.getInstance(EurekaClinicalUserProxyClient.class);
+					User user = servicesClient.getMe();
 					if (!user.isActive()) {
 						session.invalidate();
 						sendForbiddenError(servletResponse, servletRequest, true);

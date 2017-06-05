@@ -27,6 +27,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.inject.Inject;
+import com.google.inject.Injector;
+import javax.inject.Singleton;
 
 import org.eurekaclinical.common.comm.clients.ClientException;
 import org.eurekaclinical.user.client.EurekaClinicalUserProxyClient;
@@ -37,17 +39,18 @@ import org.eurekaclinical.user.client.EurekaClinicalUserProxyClient;
  * @author miaoai
  *
  */
+@Singleton
 public class VerifyUserServlet extends HttpServlet {
 
 	/**
 	 * Used for serialization/deserialization.
 	 */
 	private static final long serialVersionUID = -737043484641381552L;
-	private final EurekaClinicalUserProxyClient servicesClient;
+	private final Injector injector;
 
 	@Inject
-	public VerifyUserServlet (EurekaClinicalUserProxyClient inClient) {
-		this.servicesClient = inClient;
+	public VerifyUserServlet(Injector inInjector) {
+		this.injector = inInjector;
 	}
 
 	@Override
@@ -61,9 +64,9 @@ public class VerifyUserServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String code = req.getParameter("code");
-
+		EurekaClinicalUserProxyClient servicesClient = this.injector.getInstance(EurekaClinicalUserProxyClient.class);
 		try {
-			this.servicesClient.verifyUser(code);
+			servicesClient.verifyUser(code);
 		} catch (ClientException e) {
 			throw new ServletException(e);
 		}

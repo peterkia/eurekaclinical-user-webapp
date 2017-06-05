@@ -46,15 +46,13 @@ import org.eurekaclinical.user.webapp.servlet.oauth.TwitterRegistrationOAuthCall
  */
 class ServletModule extends AbstractAuthorizingServletModule {
 
-	private static final String CONTAINER_PATH = "/site/*";
-	private static final String CONTAINER_PROTECTED_PATH = "/protected/*";
 	private static final String FILTER_PATH = "^/(?!(assets|bower_components)).*"; 
 	private static final String LOGOUT_PATH = "/logout";
 
 	private final UserWebappProperties properties;
 
 	public ServletModule(UserWebappProperties inProperties) {
-		super(inProperties, CONTAINER_PATH, CONTAINER_PROTECTED_PATH);
+		super(inProperties);
 		this.properties = inProperties;
 	}
         

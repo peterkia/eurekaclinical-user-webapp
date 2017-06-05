@@ -24,6 +24,7 @@ package org.eurekaclinical.user.webapp.config;
  * @author miaoai
  */
 import com.google.inject.AbstractModule;
+import com.google.inject.servlet.SessionScoped;
 import org.eurekaclinical.common.comm.clients.AuthorizingEurekaClinicalProxyClient;
 
 import org.eurekaclinical.common.comm.clients.RouterTable;
@@ -49,21 +50,22 @@ import org.eurekaclinical.user.webapp.provider.ScribeExtTwitterProvider;
 public class AppModule extends AbstractModule {
 
 	private final UserWebappProperties userWebappProperties;
-	private final EurekaClinicalUserProxyClient proxyClient;
+	private final EurekaClinicalUserProxyClientProvider proxyClientProvider;
 
 	/**
 	 * Inject userServiceUrl to EurekaclinicalUserClient
 	 */
-	AppModule(UserWebappProperties userWebappProperties, EurekaClinicalUserProxyClient inProxyClient) {
+	AppModule(UserWebappProperties userWebappProperties) {
 		this.userWebappProperties = userWebappProperties;
-		this.proxyClient = inProxyClient;
+		this.proxyClientProvider = new EurekaClinicalUserProxyClientProvider(
+				userWebappProperties.getUserServiceUrl());
 	}
 
 	@Override
 	protected void configure() {
 		bind(RouterTable.class).to(ServiceClientRouterTable.class);
-		bind(AuthorizingEurekaClinicalProxyClient.class).toInstance(this.proxyClient);
-		bind(EurekaClinicalUserProxyClient.class).toInstance(this.proxyClient);
+		bind(AuthorizingEurekaClinicalProxyClient.class).toProvider(this.proxyClientProvider).in(SessionScoped.class);
+		bind(EurekaClinicalUserProxyClient.class).toProvider(this.proxyClientProvider).in(SessionScoped.class);
 		bind(UserWebappProperties.class).toInstance(this.userWebappProperties);
 		bind(CasEurekaClinicalProperties.class).toInstance(this.userWebappProperties);
 

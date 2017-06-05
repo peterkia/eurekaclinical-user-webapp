@@ -28,6 +28,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.inject.Inject;
+import com.google.inject.Injector;
+import javax.inject.Singleton;
 import org.eurekaclinical.user.client.EurekaClinicalUserProxyClient;
 
 import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
@@ -38,13 +40,16 @@ import org.eurekaclinical.user.webapp.servlet.worker.admin.SaveUserWorker;
  *
  * @author miaoai
  */
+@Singleton
 public class AdminManagerServlet extends HttpServlet {
 
-	private final EurekaClinicalUserProxyClient servicesClient;
+	private static final long serialVersionUID = 1L;
+
+	private final Injector injector;
 
 	@Inject
-	public AdminManagerServlet (EurekaClinicalUserProxyClient inClient) {
-		this.servicesClient = inClient;
+	public AdminManagerServlet(Injector inInjector) {
+		this.injector = inInjector;
 	}
 
 	@Override
@@ -58,13 +63,14 @@ public class AdminManagerServlet extends HttpServlet {
 				resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 				resp.getWriter().write("The action parameter is required");
 			} else {
+				EurekaClinicalUserProxyClient servicesClient = this.injector.getInstance(EurekaClinicalUserProxyClient.class);
 				ServletWorker worker = null;
 				if (action.equals("list")) {
-					worker = new ListUsersWorker(this.servicesClient);
+					worker = new ListUsersWorker(servicesClient);
 				} else if (action.equals("edit")) {
-					worker = new EditUserWorker(this.servicesClient);
+					worker = new EditUserWorker(servicesClient);
 				} else if (action.equals("save")) {
-					worker = new SaveUserWorker(this.servicesClient);
+					worker = new SaveUserWorker(servicesClient);
 				}
 
 				if (null == worker) {
