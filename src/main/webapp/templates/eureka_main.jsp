@@ -45,7 +45,7 @@
 		  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
-	<link rel="stylesheet" href="https://assets.eurekaclinical.org/v1.1/css/eurekaclinical.css"/>
+	<link rel="stylesheet" href="https://assets.eurekaclinical.org/v2.0a1/css/eurekaclinical.css"/>
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -53,7 +53,7 @@
 	<![endif]-->
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="https://assets.eurekaclinical.org/v1.1/js/ec.bootbar.min.js" type="text/javascript"></script>
+	<script src="https://assets.eurekaclinical.org/v2.0a1/js/ec.bootbar.min.js" type="text/javascript"></script>
 	<title>Eureka! Clinical Analytics</title>
 </head>
 <body>
@@ -139,7 +139,7 @@
 </div>
 <c:if test="${userIsActivated}">
 	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/eureka.util${initParam['ec-build-timestamp']}.js"></script>
-	<script src="https://assets.eurekaclinical.org/v1.1/js/ec.idletimeout.min.js" type="text/javascript"></script>
+	<script src="https://assets.eurekaclinical.org/v2.0a1/js/ec.idletimeout.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(document).ready(function (){
 		$(document).idleTimeout({

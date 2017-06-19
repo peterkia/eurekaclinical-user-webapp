@@ -16,7 +16,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   #L%
-  --%>
+--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="/WEB-INF/tlds/template.tld" prefix="template" %>
 
@@ -24,14 +24,16 @@
 	<template:content name="content">
 		<c:choose>
 			<c:when test="${requestScope.error}">
-				${error}
+				<h1>Registration not verified!</h1>
+				<div class="alert alert-danger" role="alert">
+					<strong>Verification failed!</strong> ${error}
+				</div>
 			</c:when>
 			<c:otherwise>
-				<h3>
-					Your registration is now verified. Your account will be activated within the next 3 business days.
-					You will be notified by e-mail when activation has occurred.If you do not receive any e-mail,
-					please contact us at.</c:if>
-				</h3>
+				<h1>Registration verified!</h1>
+				<div class="alert alert-success" role="alert">
+					<string>Thank you for verifying your registration!</strong> Your account will be activated within the next 3 business days. You will be notified by e-mail when activation has occurred.
+				</div>
 			</c:otherwise>
 		</c:choose>
 	</template:content>

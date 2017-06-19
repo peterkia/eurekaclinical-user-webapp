@@ -16,7 +16,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   #L%
-  --%>
+--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="/WEB-INF/tlds/template.tld" prefix="template" %>
@@ -25,7 +25,7 @@
 <template:insert template="/templates/eureka_main.jsp">
 
 	<template:content name="content">
-		<h3>Administration </h3>
+		<h1>Administration</h1>
 		<p>
 			Click on a user's name to edit his/her role(s) and
 			other information

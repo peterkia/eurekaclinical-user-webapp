@@ -16,7 +16,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   #L%
-  --%>
+--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="/WEB-INF/tlds/template.tld" prefix="template" %>
 <%@ taglib uri="/WEB-INF/tlds/function.tld" prefix="myfn" %>
@@ -24,14 +24,14 @@
 
 <template:insert template="/templates/eureka_main.jsp">
 	<template:content name="content">
-		<h3>Edit User ${currentUser.username}</h3>
+		<h1>Edit User ${currentUser.username}</h1>
 		<form id="userform" action="admin" method="GET" id="editUserForm" role="form" class="">
 			<div class="form-group">
 				<label>
 					Name
 				</label>
 				<div class="form-control-static">
-						${currentUser.firstName} ${currentUser.lastName}
+					${currentUser.firstName} ${currentUser.lastName}
 				</div>
 			</div>
 			<div class="form-group">
@@ -39,7 +39,7 @@
 					Organization
 				</label>
 				<div class="form-control-static">
-						${currentUser.organization}
+					${currentUser.organization}
 				</div>
 			</div>
 			<div class="form-group">
@@ -47,7 +47,7 @@
 					Title
 				</label>
 				<div class="form-control-static">
-						${currentUser.title}
+					${currentUser.title}
 				</div>
 			</div>
 			<div class="form-group">
@@ -55,7 +55,7 @@
 					Department
 				</label>
 				<div class="form-control-static">
-						${currentUser.department}
+					${currentUser.department}
 				</div>
 			</div>
 			<div class="form-group">
@@ -63,7 +63,7 @@
 					Email
 				</label>
 				<div class="form-control-static">
-						${currentUser.email}
+					${currentUser.email}
 				</div>
 			</div>
 			<div class="form-group">
@@ -71,44 +71,44 @@
 					Role
 				</label>
 				<div class="form-control-static">
-                                        <c:set var="userHasResearcherRole" value="0"></c:set>                                    
+					<c:set var="userHasResearcherRole" value="0"></c:set>                                    
 					<c:set var="userHasAdminRole" value="0"></c:set>
 
-                                        <c:forEach var="userRole" items="${currentUser.roles}">
+					<c:forEach var="userRole" items="${currentUser.roles}">
 
-                                                <c:if test="${userRole == 1}">
-                                                        <c:set var="userHasResearcherRole" value="1"></c:set>
-                                                </c:if>                                                      
-                                                <c:if test="${userRole == 2}">
-                                                        <c:set var="userHasAdminRole" value="1"></c:set>
-                                                </c:if>
+						<c:if test="${userRole == 1}">
+							<c:set var="userHasResearcherRole" value="1"></c:set>
+						</c:if>                                                      
+						<c:if test="${userRole == 2}">
+							<c:set var="userHasAdminRole" value="1"></c:set>
+						</c:if>
 
-                                        </c:forEach>
-                                                
+					</c:forEach>
+
 					<c:forEach var="role" items="${roles}">
 						<c:if test="${role.name eq 'researcher'}">
-                                                                <input type="checkbox" name="role" value="${role.id}"
-                                                                        <c:choose>
-                                                                                <c:when test="${ userHasResearcherRole == 1}">
-                                                                                     checked="checked"
-                                                                                </c:when>
-                                                                        </c:choose>
-                                                                 />${role.name}                                                    
-                                                </c:if>
+							<input type="checkbox" name="role" value="${role.id}"
+								   <c:choose>
+									   <c:when test="${ userHasResearcherRole == 1}">
+										   checked="checked"
+									   </c:when>
+								   </c:choose>
+								   />${role.name}                                                    
+						</c:if>
 						<c:if test="${role.name eq 'admin'}">
-                                                                <input type="checkbox" name="role" value="${role.id}"
-                                                                        <c:choose>
-                                                                                <c:when test="${ userHasAdminRole == 1}">
-                                                                                     checked="checked"
-                                                                                </c:when>
-                                                                        </c:choose>
-                                                                        <c:choose>
-                                                                                <c:when test="${ (userHasAdminRole == 1) && (currentUser.username eq me.username )}">
-                                                                                     disabled="disabled"
-                                                                                </c:when>
-                                                                        </c:choose>
-                                                                 />${role.name}                                                    
-                                                </c:if>                                            
+							<input type="checkbox" name="role" value="${role.id}"
+								   <c:choose>
+									   <c:when test="${ userHasAdminRole == 1}">
+										   checked="checked"
+									   </c:when>
+								   </c:choose>
+								   <c:choose>
+									   <c:when test="${ (userHasAdminRole == 1) && (currentUser.username eq me.username )}">
+										   disabled="disabled"
+									   </c:when>
+								   </c:choose>
+								   />${role.name}                                                    
+						</c:if>                                            
 					</c:forEach>
 				</div>
 			</div>

@@ -35,11 +35,11 @@
 <div id="registerHeading">
 	<c:choose>
 		<c:when test="${not empty authenticationMethod}">
-			<h3>Register using your ${not empty accountTypeDisplayName ? accountTypeDisplayName : authenticationMethod} account</h3>
+			<h1>Register using your ${not empty accountTypeDisplayName ? accountTypeDisplayName : authenticationMethod} account</h1>
 			<p>Please review and complete your profile.</p>
 		</c:when>
 		<c:otherwise>
-			<h3>Register</h3>
+			<h1>Register</h1>
 			<c:set var="authenticationMethod" value="LOCAL"/>
 		</c:otherwise>
 	</c:choose>
