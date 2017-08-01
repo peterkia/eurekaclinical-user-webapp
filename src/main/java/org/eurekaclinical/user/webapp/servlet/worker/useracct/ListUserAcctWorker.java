@@ -33,7 +33,7 @@ import org.eurekaclinical.user.client.comm.User;
 import org.eurekaclinical.user.client.comm.LocalUser;
 
 import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
-import org.eurekaclinical.user.webapp.authentication.WebappAuthenticationSupport;
+
 /**
  *
  * @author miaoai
@@ -41,18 +41,16 @@ import org.eurekaclinical.user.webapp.authentication.WebappAuthenticationSupport
 public class ListUserAcctWorker implements ServletWorker {
 
 	private final EurekaClinicalUserProxyClient client;
-	private final WebappAuthenticationSupport authenticationSupport;
 
 	public ListUserAcctWorker(EurekaClinicalUserProxyClient inClient) {
 		this.client = inClient;
-		this.authenticationSupport = new WebappAuthenticationSupport();
 	}
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		try {
-			User user = this.authenticationSupport.getMe(req);
+			User user = this.client.getMe();
 			Date now = new Date();
 			Date expiration = user instanceof LocalUser ? ((LocalUser) user).getPasswordExpiration() : null;
 			String passwordExpiration;
@@ -66,14 +64,7 @@ public class ListUserAcctWorker implements ServletWorker {
 			req.setAttribute("user", user);
 			req.getRequestDispatcher("/protected/acct.jsp").forward(req, resp);
 		} catch (ClientException ex) {
-			switch (ex.getResponseStatus()) {
-				case UNAUTHORIZED:
-					this.authenticationSupport.needsToLogin(req, resp);
-					break;
-				default:
-					resp.setStatus(ex.getResponseStatus().getStatusCode());
-					resp.getWriter().write(ex.getMessage());
-			}
+			throw new ServletException(ex);
 		}
 	}
 }

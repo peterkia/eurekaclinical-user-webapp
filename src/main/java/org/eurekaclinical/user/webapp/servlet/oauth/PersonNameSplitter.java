@@ -1,4 +1,4 @@
-/*-
+/*
  * #%L
  * Eureka! Clinical User Webapp
  * %%
@@ -17,16 +17,37 @@
  * limitations under the License.
  * #L%
  */
-package org.eurekaclinical.user.webapp.config;
-
+package org.eurekaclinical.user.webapp.servlet.oauth;
 /**
- *
+ * A naive algorithm for splitting a person's name. It simply splits a full
+ * name by whitespace.
+ * 
  * @author miaoai
  */
-public final class RequestAttributes {
-	public static final String USER = "user";
-	public static final String USER_IS_ACTIVATED = "userIsActivated";
-	public static final String Eureka_Webapp_URL = "eurekaWebappURL";
-	public static final String Eureka_Services_URL = "eurekaServicesURL";        
+class PersonNameSplitter {
 
+	private final String fullName;
+	private String firstName;
+	private String lastName;
+
+	PersonNameSplitter(String fullName) {
+		this.fullName = fullName;
+		if (fullName != null) {
+			String[] fullNameSplit = this.fullName.split(" ", 2);
+			if (fullNameSplit.length >= 1) {
+				firstName = fullNameSplit[0];
+			}
+			if (fullNameSplit.length == 2) {
+				lastName = fullNameSplit[1];
+			}
+		}
+	}
+
+	String getFirstName() {
+		return this.firstName;
+	}
+
+	String getLastName() {
+		return this.lastName;
+	}
 }

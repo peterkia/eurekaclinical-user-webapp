@@ -34,8 +34,6 @@ import org.eurekaclinical.user.webapp.servlet.VerifyUserServlet;
 import org.eurekaclinical.user.webapp.servlet.ChooseAccountTypeServlet;
 import org.eurekaclinical.user.webapp.servlet.RegisterUserServlet;
 import org.eurekaclinical.user.webapp.servlet.AdminManagerServlet;
-import org.eurekaclinical.user.webapp.servlet.filter.MessagesFilter;
-import org.eurekaclinical.user.webapp.servlet.filter.UserFilter;
 import org.eurekaclinical.user.webapp.servlet.oauth.GitHubRegistrationOAuthCallbackServlet;
 import org.eurekaclinical.user.webapp.servlet.oauth.GlobusRegistrationOAuthCallbackServlet;
 import org.eurekaclinical.user.webapp.servlet.oauth.GoogleRegistrationOAuthCallbackServlet;
@@ -46,7 +44,6 @@ import org.eurekaclinical.user.webapp.servlet.oauth.TwitterRegistrationOAuthCall
  */
 class ServletModule extends AbstractAuthorizingServletModule {
 
-	private static final String FILTER_PATH = "^/(?!(assets|bower_components)).*"; 
 	private static final String LOGOUT_PATH = "/logout";
 
 	private final UserWebappProperties properties;
@@ -54,23 +51,6 @@ class ServletModule extends AbstractAuthorizingServletModule {
 	public ServletModule(UserWebappProperties inProperties) {
 		super(inProperties);
 		this.properties = inProperties;
-	}
-        
-	private void setupMessageFilter() {
-		bind(MessagesFilter.class).in(Singleton.class);
-		filterRegex(FILTER_PATH).through(MessagesFilter.class);
-	}
-
-	private void setupUserFilter() {
-		bind(UserFilter.class).in(Singleton.class);
-		filterRegex(FILTER_PATH).through(UserFilter.class);
-	}
-	
-	@Override
-	protected void setupFilters() {
-		this.setupMessageFilter();
-		this.setupUserFilter();
-		super.setupFilters();
 	}
         
 	@Override

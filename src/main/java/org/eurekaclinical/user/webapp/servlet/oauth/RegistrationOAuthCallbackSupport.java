@@ -32,7 +32,6 @@ import org.scribe.up.session.HttpUserSession;
 import org.eurekaclinical.scribeupext.profile.EurekaProfile;
 
 import org.eurekaclinical.user.client.comm.authentication.AuthenticationMethod;
-import org.eurekaclinical.user.webapp.servlet.filter.PersonNameSplitter;
 /**
  *
  * @author miaoai
