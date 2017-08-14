@@ -28,40 +28,41 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.eurekaclinical.common.comm.clients.ClientException;
 import org.eurekaclinical.common.comm.Role;
-import org.eurekaclinical.user.client.EurekaClinicalUserProxyClient;
+import org.eurekaclinical.user.client.EurekaClinicalUserClient;
 
 import org.eurekaclinical.user.client.comm.User;
 
 import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
+
 /**
  *
  * @author miaoai
  */
 public class EditUserWorker implements ServletWorker {
 
-	private final EurekaClinicalUserProxyClient servicesClient;
+    private final EurekaClinicalUserClient servicesClient;
 
-	public EditUserWorker(EurekaClinicalUserProxyClient inServicesClient) {
-		this.servicesClient = inServicesClient;
-	}
+    public EditUserWorker(EurekaClinicalUserClient inServicesClient) {
+        this.servicesClient = inServicesClient;
+    }
 
-	@Override
-	public void execute(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+    @Override
+    public void execute(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
 
-		String id = req.getParameter("id");
-		try {
-			User me = this.servicesClient.getMe();
-			User user = this.servicesClient.getUserById(Long.valueOf(id)); 
-			List<Role> roles = this.servicesClient.getRoles();
+        String id = req.getParameter("id");
+        try {
+            User me = this.servicesClient.getMe();
+            User user = this.servicesClient.getUserById(Long.valueOf(id));
+            List<Role> roles = this.servicesClient.getRoles();
 
-			req.setAttribute("me", me);
-			req.setAttribute("roles", roles);
-			req.setAttribute("currentUser", user);
-			req.getRequestDispatcher("/protected/edit_user.jsp").forward(req,
-					resp);
-		} catch (ClientException ex) {
-			throw new ServletException("Error getting user information", ex);
-		}
-	}
+            req.setAttribute("me", me);
+            req.setAttribute("roles", roles);
+            req.setAttribute("currentUser", user);
+            req.getRequestDispatcher("/protected/edit_user.jsp").forward(req,
+                    resp);
+        } catch (ClientException ex) {
+            throw new ServletException("Error getting user information", ex);
+        }
+    }
 }

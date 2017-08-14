@@ -32,7 +32,7 @@ import org.slf4j.LoggerFactory;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import javax.inject.Singleton;
-import org.eurekaclinical.user.client.EurekaClinicalUserProxyClient;
+import org.eurekaclinical.user.client.EurekaClinicalUserClient;
 
 import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
 import org.eurekaclinical.user.webapp.servlet.worker.useracct.ListUserAcctWorker;
@@ -46,38 +46,38 @@ import org.eurekaclinical.user.webapp.servlet.worker.useracct.SaveUserAcctWorker
 @Singleton
 public class UserAcctManagerServlet extends HttpServlet {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(UserAcctManagerServlet.class);
-	private static final long serialVersionUID = 1L;
-	private final Injector injector;
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserAcctManagerServlet.class);
+    private static final long serialVersionUID = 1L;
+    private final Injector injector;
 
-	@Inject
-	public UserAcctManagerServlet(Injector inInjector) {
-		this.injector = inInjector;
-	}
+    @Inject
+    public UserAcctManagerServlet(Injector inInjector) {
+        this.injector = inInjector;
+    }
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
 
-		doGet(req, resp);
-	}
+        doGet(req, resp);
+    }
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
 
-		String action = req.getParameter("action");
-		EurekaClinicalUserProxyClient servicesClient = this.injector.getInstance(EurekaClinicalUserProxyClient.class);
-		ServletWorker worker;
-		if (action != null && action.equals("savepassword")) {
-			LOGGER.info("Saving user password");
-			worker = new SaveUserAcctWorker(this.getServletContext(), servicesClient);
-		} else if (action != null && action.equals("saveinfo")) {
-			LOGGER.info("Saving user info");
-			worker = new SaveUserAcctInfoWorker(this.getServletContext(), servicesClient);
-		} else {
-			worker = new ListUserAcctWorker(servicesClient);
-		}
-		worker.execute(req, resp);
-	}
+        String action = req.getParameter("action");
+        EurekaClinicalUserClient servicesClient = this.injector.getInstance(EurekaClinicalUserClient.class);
+        ServletWorker worker;
+        if (action != null && action.equals("savepassword")) {
+            LOGGER.info("Saving user password");
+            worker = new SaveUserAcctWorker(this.getServletContext(), servicesClient);
+        } else if (action != null && action.equals("saveinfo")) {
+            LOGGER.info("Saving user info");
+            worker = new SaveUserAcctInfoWorker(this.getServletContext(), servicesClient);
+        } else {
+            worker = new ListUserAcctWorker(servicesClient);
+        }
+        worker.execute(req, resp);
+    }
 }

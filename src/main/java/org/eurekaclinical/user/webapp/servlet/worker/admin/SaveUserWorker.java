@@ -28,56 +28,57 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.eurekaclinical.common.comm.clients.ClientException;
-import org.eurekaclinical.user.client.EurekaClinicalUserProxyClient;
+import org.eurekaclinical.user.client.EurekaClinicalUserClient;
 
 import org.eurekaclinical.user.client.comm.User;
 
 import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
+
 /**
  *
  * @author miaoai
  */
 public class SaveUserWorker implements ServletWorker {
 
-	private final EurekaClinicalUserProxyClient servicesClient;
+    private final EurekaClinicalUserClient servicesClient;
 
-	public SaveUserWorker(EurekaClinicalUserProxyClient inServicesClient) {
-		this.servicesClient = inServicesClient;
-	}
+    public SaveUserWorker(EurekaClinicalUserClient inServicesClient) {
+        this.servicesClient = inServicesClient;
+    }
 
-	@Override
-	public void execute(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+    @Override
+    public void execute(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
 
-		String id = req.getParameter("id");
-		String activeStatus = req.getParameter("active");
-		boolean isActivated = false;
+        String id = req.getParameter("id");
+        String activeStatus = req.getParameter("active");
+        boolean isActivated = false;
 
-		if (activeStatus != null) {
-			isActivated = true;
+        if (activeStatus != null) {
+            isActivated = true;
 
-		}
-		try {
-			User user = this.servicesClient.getUserById(Long.valueOf(id));
-			String[] roles = req.getParameterValues("role");
-			List<Long> userRoles = new ArrayList<>();
-			if (roles != null) {
-				for (String roleId : roles) {
-					try {
-						userRoles.add(Long.valueOf(roleId));
-					} catch (NumberFormatException nfe) {
-						throw new ServletException(nfe);
-					}
-				}
-			}
-			user.setRoles(userRoles);
-			user.setActive(isActivated);
+        }
+        try {
+            User user = this.servicesClient.getUserById(Long.valueOf(id));
+            String[] roles = req.getParameterValues("role");
+            List<Long> userRoles = new ArrayList<>();
+            if (roles != null) {
+                for (String roleId : roles) {
+                    try {
+                        userRoles.add(Long.valueOf(roleId));
+                    } catch (NumberFormatException nfe) {
+                        throw new ServletException(nfe);
+                    }
+                }
+            }
+            user.setRoles(userRoles);
+            user.setActive(isActivated);
 
-			this.servicesClient.updateUser(user,Long.valueOf(id));
-		} catch (ClientException e) {
-			throw new ServletException("Error saving user", e);
-		}
+            this.servicesClient.updateUser(user, Long.valueOf(id));
+        } catch (ClientException e) {
+            throw new ServletException("Error saving user", e);
+        }
 
-		resp.sendRedirect(req.getContextPath() + "/protected/admin?action=list");
-	}
+        resp.sendRedirect(req.getContextPath() + "/protected/admin?action=list");
+    }
 }

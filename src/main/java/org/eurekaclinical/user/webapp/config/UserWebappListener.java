@@ -19,7 +19,6 @@ package org.eurekaclinical.user.webapp.config;
  * limitations under the License.
  * #L%
  */
-
 import com.google.inject.Injector;
 import com.google.inject.Module;
 import com.google.inject.servlet.GuiceServletContextListener;
@@ -27,43 +26,43 @@ import com.google.inject.servlet.GuiceServletContextListener;
 import javax.servlet.ServletContextEvent;
 
 import org.eurekaclinical.common.config.InjectorSupport;
+
 /**
  *
  * @author miaoai
  */
 public class UserWebappListener extends GuiceServletContextListener {
-    
-	 
-	private final UserWebappProperties userWebAppProperties;
-	private Injector injector;
 
-	public UserWebappListener() {
-		this.userWebAppProperties = new UserWebappProperties();
-	}
+    private final UserWebappProperties userWebAppProperties;
+    private Injector injector;
 
-	@Override
-	public void contextInitialized(ServletContextEvent servletContextEvent) {
-		super.contextInitialized(servletContextEvent);
-		servletContextEvent.getServletContext().addListener(this.injector.getInstance(ClientSessionListener.class));
-		servletContextEvent.getServletContext().setAttribute(
-				"userWebAppProperties", this.userWebAppProperties);
-	}
+    public UserWebappListener() {
+        this.userWebAppProperties = new UserWebappProperties();
+    }
 
-	@Override
-	public void contextDestroyed(ServletContextEvent servletContextEvent) {
-		super.contextDestroyed(servletContextEvent);
-		servletContextEvent.getServletContext().removeAttribute(
-				"userWebAppProperties");
-	}
+    @Override
+    public void contextInitialized(ServletContextEvent servletContextEvent) {
+        super.contextInitialized(servletContextEvent);
+        servletContextEvent.getServletContext().addListener(this.injector.getInstance(ClientSessionListener.class));
+        servletContextEvent.getServletContext().setAttribute(
+                "userWebAppProperties", this.userWebAppProperties);
+    }
 
-	@Override
-	protected Injector getInjector() {
-		this.injector = new InjectorSupport(
-				new Module[]{
-					new AppModule(this.userWebAppProperties),
-					new ServletModule(this.userWebAppProperties)
-				},
-				this.userWebAppProperties).getInjector();
-		return this.injector;
-	}    
+    @Override
+    public void contextDestroyed(ServletContextEvent servletContextEvent) {
+        super.contextDestroyed(servletContextEvent);
+        servletContextEvent.getServletContext().removeAttribute(
+                "userWebAppProperties");
+    }
+
+    @Override
+    protected Injector getInjector() {
+        this.injector = new InjectorSupport(
+                new Module[]{
+                    new AppModule(this.userWebAppProperties),
+                    new ServletModule(this.userWebAppProperties)
+                },
+                this.userWebAppProperties).getInjector();
+        return this.injector;
+    }
 }

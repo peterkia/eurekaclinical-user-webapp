@@ -32,61 +32,63 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.eurekaclinical.common.comm.clients.ClientException;
 import org.eurekaclinical.common.comm.Role;
-import org.eurekaclinical.user.client.EurekaClinicalUserProxyClient;
+import org.eurekaclinical.user.client.EurekaClinicalUserClient;
 
 import org.eurekaclinical.user.client.comm.User;
 
 import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
+
 /**
  *
  * @author miaoai
  */
 public class ListUsersWorker implements ServletWorker {
 
-	private final EurekaClinicalUserProxyClient servicesClient;
+    private final EurekaClinicalUserClient servicesClient;
 
-	public ListUsersWorker (EurekaClinicalUserProxyClient inServicesClient) {
-		this.servicesClient = inServicesClient;
-	}
-	@Override
-	public void execute(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+    public ListUsersWorker(EurekaClinicalUserClient inServicesClient) {
+        this.servicesClient = inServicesClient;
+    }
 
-		List<User> users;
-		try {
-			users = this.servicesClient.getUsers();
-		} catch (ClientException ex) {
-			throw new ServletException("Error getting user list", ex);
-		}
-		List<Role> roles;
-		try {
-			roles = this.servicesClient.getRoles();
-		} catch (ClientException ex) {
-			throw new ServletException("Error getting role list", ex);
-		}
-		Map<Long, Role> rolesMap = new HashMap<>();
-		for (Role role : roles) {
-			rolesMap.put(role.getId(), role);
-		}
+    @Override
+    public void execute(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
 
-		// Set sort order to show the inactive users first.
-		Collections.sort(users, new Comparator<User>() {
-			@Override
-			public int compare(User user1, User user2) {
-				int u1 = 0;
-				int u2 = 0;
-				if (user1.isActive()) {
-					u1 = 1;
-				}
-				if (user2.isActive()) {
-					u2 = 1;
-				}
+        List<User> users;
+        try {
+            users = this.servicesClient.getUsers();
+        } catch (ClientException ex) {
+            throw new ServletException("Error getting user list", ex);
+        }
+        List<Role> roles;
+        try {
+            roles = this.servicesClient.getRoles();
+        } catch (ClientException ex) {
+            throw new ServletException("Error getting role list", ex);
+        }
+        Map<Long, Role> rolesMap = new HashMap<>();
+        for (Role role : roles) {
+            rolesMap.put(role.getId(), role);
+        }
 
-				return u1 - u2;
-			}
-		});
-		req.setAttribute("users", users);
-		req.setAttribute("roles", rolesMap);
-		req.getRequestDispatcher("/protected/admin.jsp").forward(req, resp);
-	}
+        // Set sort order to show the inactive users first.
+        Collections.sort(users, new Comparator<User>() {
+            @Override
+            public int compare(User user1, User user2) {
+                int u1 = 0;
+                int u2 = 0;
+                if (user1.isActive()) {
+                    u1 = 1;
+                }
+                if (user2.isActive()) {
+                    u2 = 1;
+                }
+
+                return u1 - u2;
+            }
+        });
+        req.setAttribute("users", users);
+        req.setAttribute("roles", rolesMap);
+        req.getRequestDispatcher("/protected/admin.jsp").forward(req, resp);
+    }
 }

@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.eurekaclinical.common.comm.clients.ClientException;
-import org.eurekaclinical.user.client.EurekaClinicalUserProxyClient;
+import org.eurekaclinical.user.client.EurekaClinicalUserClient;
 
 import org.eurekaclinical.user.client.comm.User;
 import org.eurekaclinical.user.client.comm.LocalUser;
@@ -40,31 +40,31 @@ import org.eurekaclinical.user.webapp.servlet.worker.ServletWorker;
  */
 public class ListUserAcctWorker implements ServletWorker {
 
-	private final EurekaClinicalUserProxyClient client;
+    private final EurekaClinicalUserClient client;
 
-	public ListUserAcctWorker(EurekaClinicalUserProxyClient inClient) {
-		this.client = inClient;
-	}
+    public ListUserAcctWorker(EurekaClinicalUserClient inClient) {
+        this.client = inClient;
+    }
 
-	@Override
-	public void execute(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		try {
-			User user = this.client.getMe();
-			Date now = new Date();
-			Date expiration = user instanceof LocalUser ? ((LocalUser) user).getPasswordExpiration() : null;
-			String passwordExpiration;
-			if (expiration != null && now.after(expiration)) {
-				passwordExpiration = "Your password has expired. Please change it below.";
-			} else {
-				passwordExpiration = "";
-			}
-			req.setAttribute("passwordExpiration", passwordExpiration);
+    @Override
+    public void execute(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        try {
+            User user = this.client.getMe();
+            Date now = new Date();
+            Date expiration = user instanceof LocalUser ? ((LocalUser) user).getPasswordExpiration() : null;
+            String passwordExpiration;
+            if (expiration != null && now.after(expiration)) {
+                passwordExpiration = "Your password has expired. Please change it below.";
+            } else {
+                passwordExpiration = "";
+            }
+            req.setAttribute("passwordExpiration", passwordExpiration);
 
-			req.setAttribute("user", user);
-			req.getRequestDispatcher("/protected/acct.jsp").forward(req, resp);
-		} catch (ClientException ex) {
-			throw new ServletException(ex);
-		}
-	}
+            req.setAttribute("user", user);
+            req.getRequestDispatcher("/protected/acct.jsp").forward(req, resp);
+        } catch (ClientException ex) {
+            throw new ServletException(ex);
+        }
+    }
 }

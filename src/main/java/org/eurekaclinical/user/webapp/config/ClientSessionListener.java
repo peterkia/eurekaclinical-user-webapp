@@ -19,13 +19,12 @@ package org.eurekaclinical.user.webapp.config;
  * limitations under the License.
  * #L%
  */
-
 import com.google.inject.ConfigurationException;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
-import org.eurekaclinical.user.client.EurekaClinicalUserProxyClient;
+import org.eurekaclinical.user.client.EurekaClinicalUserClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,23 +33,24 @@ import org.slf4j.LoggerFactory;
  * @author Andrew Post
  */
 public class ClientSessionListener implements HttpSessionListener {
-	
-	private Logger LOGGER = LoggerFactory.getLogger(ClientSessionListener.class);
-	
-	@Inject
+
+    private Logger LOGGER = LoggerFactory.getLogger(ClientSessionListener.class);
+
+    @Inject
     private Injector injector;
 
-	@Override
-	public void sessionCreated(HttpSessionEvent hse) {
-		LOGGER.info("Creating session for " + hse.getSession().getServletContext().getContextPath());
-	}
+    @Override
+    public void sessionCreated(HttpSessionEvent hse) {
+        LOGGER.info("Creating session for " + hse.getSession().getServletContext().getContextPath());
+    }
 
-	@Override
-	public void sessionDestroyed(HttpSessionEvent hse) {
-		LOGGER.info("Destroying session for " + hse.getSession().getServletContext().getContextPath());
-		try {
-			this.injector.getInstance(EurekaClinicalUserProxyClient.class).close();
-		} catch (ConfigurationException ce) {}
-	}
-	
+    @Override
+    public void sessionDestroyed(HttpSessionEvent hse) {
+        LOGGER.info("Destroying session for " + hse.getSession().getServletContext().getContextPath());
+        try {
+            this.injector.getInstance(EurekaClinicalUserClient.class).close();
+        } catch (ConfigurationException ce) {
+        }
+    }
+
 }

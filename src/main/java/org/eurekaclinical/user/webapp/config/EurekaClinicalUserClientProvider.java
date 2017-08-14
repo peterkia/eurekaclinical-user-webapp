@@ -19,26 +19,24 @@ package org.eurekaclinical.user.webapp.config;
  * limitations under the License.
  * #L%
  */
-
 import com.google.inject.Provider;
-import org.eurekaclinical.user.client.EurekaClinicalUserProxyClient;
+import org.eurekaclinical.user.client.EurekaClinicalUserClient;
 
 /**
  *
  * @author Andrew Post
  */
-public class EurekaClinicalUserProxyClientProvider implements Provider<EurekaClinicalUserProxyClient> {
+public class EurekaClinicalUserClientProvider implements Provider<EurekaClinicalUserClient> {
 
-	private final String userServiceUrl;
+    private final String userServiceUrl;
 
-	public EurekaClinicalUserProxyClientProvider(String inUserServiceUrl) {
-		this.userServiceUrl = inUserServiceUrl;
-	}
-	
-	@Override
-	public EurekaClinicalUserProxyClient get() {
-		System.out.println("creating new user client");
-		return new EurekaClinicalUserProxyClient(this.userServiceUrl);
-	}
+    public EurekaClinicalUserClientProvider(String inUserServiceUrl) {
+        this.userServiceUrl = inUserServiceUrl;
+    }
+
+    @Override
+    public EurekaClinicalUserClient get() {
+        return new EurekaClinicalUserClient(this.userServiceUrl);
+    }
 
 }
