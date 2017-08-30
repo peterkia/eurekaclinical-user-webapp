@@ -22,6 +22,7 @@ package org.eurekaclinical.user.webapp.provider;
 
 import java.net.URI;
 import javax.inject.Provider;
+import javax.ws.rs.core.UriBuilder;
 import org.eurekaclinical.user.webapp.config.UserWebappProperties;
 import org.scribe.up.provider.BaseOAuthProvider;
 
@@ -64,7 +65,9 @@ public abstract class AbstractOAuthProvider<E extends BaseOAuthProvider> impleme
             E oAuthProvider = oAuthProviderCls.newInstance();
             oAuthProvider.setKey(getKey());
             oAuthProvider.setSecret(getSecret());
-            URI callbackUrl = this.properties.getURI().resolve(this.callbackPath);
+            URI callbackUrl = UriBuilder.fromUri(this.properties.getUrl())
+                    .path(this.callbackPath)
+                    .build();
             oAuthProvider.setCallbackUrl(callbackUrl.toString());
             return oAuthProvider;
         } catch (InstantiationException | IllegalAccessException ex) {
