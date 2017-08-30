@@ -104,14 +104,19 @@ public class UserWebappProperties extends CasEurekaClinicalProperties {
     public String getGoogleOAuthSecret() {
         return getValue("eurekaclinical.userwebapp.googleoauthsecret");
     }
-    
+
     public URI getURI() {
-        return URI.create(getValue("eurekaclinical.userwebapp.url"));
+        String url = getValue("eurekaclinical.userwebapp.url");
+        if (!url.endsWith("/")) {
+            return URI.create(url + "/");
+        } else {
+            return URI.create(url);
+        }
     }
-    
+
     @Override
     public String getUrl() {
         return getURI().toString();
     }
-    
+
 }
