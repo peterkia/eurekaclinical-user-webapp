@@ -33,9 +33,34 @@ import org.eurekaclinical.user.webapp.config.UserWebappProperties;
  */
 public class ScribeExtGlobusProvider extends AbstractOAuthProvider<GlobusProvider> {
 
+    /**
+     * Creates the injection provider for the Globus OAuth provider.
+     * 
+     * @param inProperties the user webapp properties.
+     */
     @Inject
     public ScribeExtGlobusProvider(UserWebappProperties inProperties) {
         super(inProperties, GlobusProvider.class, "registrationoauthglobuscallback");
+    }
+
+    /**
+     * Gets the Globus OAuth key.
+     * 
+     * @return the key string.
+     */
+    @Override
+    String getKey() {
+        return getProperties().getGlobusOAuthKey();
+    }
+
+    /**
+     * Gets the Globus OAuth secret.
+     * 
+     * @return the secret string.
+     */
+    @Override
+    String getSecret() {
+        return getProperties().getGlobusOAuthSecret();
     }
     
 }

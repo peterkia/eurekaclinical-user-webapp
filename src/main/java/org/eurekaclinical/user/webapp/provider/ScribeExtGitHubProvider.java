@@ -30,10 +30,35 @@ import org.eurekaclinical.user.webapp.config.UserWebappProperties;
  * @author miaoai, Andrew Post
  */
 public class ScribeExtGitHubProvider extends AbstractOAuthProvider<GitHubProvider> {
-
+    
+    /**
+     * Creates the injection provider for the GitHub OAuth provider.
+     * 
+     * @param inProperties the user webapp properties.
+     */
     @Inject
     public ScribeExtGitHubProvider(UserWebappProperties inProperties) {
         super(inProperties, GitHubProvider.class, "registrationoauthgithubcallback");
+    }
+
+    /**
+     * Gets the GitHub OAuth key.
+     * 
+     * @return the key string.
+     */
+    @Override
+    String getKey() {
+        return getProperties().getGitHubOAuthKey();
+    }
+
+    /**
+     * Gets the GitHub OAuth secret.
+     * 
+     * @return the secret string.
+     */
+    @Override
+    String getSecret() {
+        return getProperties().getGitHubOAuthSecret();
     }
 
 }

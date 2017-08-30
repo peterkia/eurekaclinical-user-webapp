@@ -62,8 +62,8 @@ public abstract class AbstractOAuthProvider<E extends BaseOAuthProvider> impleme
     public E get() {
         try {
             E oAuthProvider = oAuthProviderCls.newInstance();
-            oAuthProvider.setKey(this.properties.getGitHubOAuthKey());
-            oAuthProvider.setSecret(this.properties.getGitHubOAuthSecret());
+            oAuthProvider.setKey(getKey());
+            oAuthProvider.setSecret(getSecret());
             URI callbackUrl = this.properties.getURI().resolve(this.callbackPath);
             oAuthProvider.setCallbackUrl(callbackUrl.toString());
             return oAuthProvider;
@@ -71,5 +71,18 @@ public abstract class AbstractOAuthProvider<E extends BaseOAuthProvider> impleme
             throw new AssertionError("Can't create provider", ex);
         }
     }
+    
+    /**
+     * Get the user webapp properties data.
+     * 
+     * @return the user webapp properties. Guaranteed not null.
+     */
+    UserWebappProperties getProperties() {
+        return this.properties;
+    }
+    
+    abstract String getKey();
+    
+    abstract String getSecret();
 
 }

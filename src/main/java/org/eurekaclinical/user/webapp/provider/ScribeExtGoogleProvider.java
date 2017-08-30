@@ -31,9 +31,34 @@ import org.eurekaclinical.user.webapp.config.UserWebappProperties;
  */
 public class ScribeExtGoogleProvider extends AbstractOAuthProvider<Google2Provider> {
 
+    /**
+     * Creates the injection provider for the Google OAuth provider.
+     * 
+     * @param inProperties the user webapp properties.
+     */
     @Inject
     public ScribeExtGoogleProvider(UserWebappProperties inProperties) {
         super(inProperties, Google2Provider.class, "registrationoauthgooglecallback");
+    }
+
+    /**
+     * Gets the Google OAuth key.
+     * 
+     * @return the key string.
+     */
+    @Override
+    String getKey() {
+        return getProperties().getGoogleOAuthKey();
+    }
+
+    /**
+     * Gets the Google OAuth secret.
+     * 
+     * @return the secret string.
+     */
+    @Override
+    String getSecret() {
+        return getProperties().getGoogleOAuthSecret();
     }
 
 }
