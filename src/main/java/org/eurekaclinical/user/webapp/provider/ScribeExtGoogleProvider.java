@@ -19,21 +19,21 @@
  */
 package org.eurekaclinical.user.webapp.provider;
 
-import com.google.inject.Inject;
-
+import javax.inject.Inject;
 import org.eurekaclinical.scribeupext.provider.Google2Provider;
 
 import org.eurekaclinical.user.webapp.config.UserWebappProperties;
 
 /**
- *
- * @author miaoai
+ * A provider for injecting a scribe-up Google OAuth provider.
+ * 
+ * @author miaoai, Andrew Post
  */
 public class ScribeExtGoogleProvider extends AbstractOAuthProvider<Google2Provider> {
 
     @Inject
     public ScribeExtGoogleProvider(UserWebappProperties inProperties) {
-        super(inProperties, new Google2Provider(), "registrationoauthgooglecallback");
+        super(inProperties, Google2Provider.class, "registrationoauthgooglecallback");
     }
 
 }

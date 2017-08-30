@@ -20,32 +20,56 @@ package org.eurekaclinical.user.webapp.provider;
  * #L%
  */
 
-import com.google.inject.Provider;
 import java.net.URI;
+import javax.inject.Provider;
 import org.eurekaclinical.user.webapp.config.UserWebappProperties;
 import org.scribe.up.provider.BaseOAuthProvider;
 
 /**
- * Base class for implementing providers of OAuth registration.
+ * Base class for implementing injection providers for OAuth providers.
+ * 
  * @author Andrew Post
  * @param <E> the type of the provider to provide.
  */
 public abstract class AbstractOAuthProvider<E extends BaseOAuthProvider> implements Provider<E> {
 
-    private final E oAuthProvider;
+    private final Class<E> oAuthProviderCls;
+    private final UserWebappProperties properties;
+    private final String callbackPath;
     
-    protected AbstractOAuthProvider(UserWebappProperties inProperties, E inOAuthProvider, String inCallbackPath) {
-        this.oAuthProvider = inOAuthProvider;
-        this.oAuthProvider.setKey(inProperties.getGitHubOAuthKey());
-        this.oAuthProvider.setSecret(inProperties.getGitHubOAuthSecret());
-        URI url = URI.create(inProperties.getUrl());
-        URI callbackUrl = url.resolve(inCallbackPath);
-        this.oAuthProvider.setCallbackUrl(callbackUrl.toString());
+    /**
+     * Instantiates the injection provider with the webapp's properties, the
+     * class of the OAuth provider to create, and the callback path for the
+     * OAuth provider to us. The OAuth provider must have a zero-argument
+     * constructor that this class can call.
+     * 
+     * @param inProperties the user webapp's properties.
+     * @param inOAuthProviderCls the class of the OAuth provider to create.
+     * @param inCallbackPath the callback path to use.
+     */
+    AbstractOAuthProvider(UserWebappProperties inProperties, Class<E> inOAuthProviderCls, String inCallbackPath) {
+        this.oAuthProviderCls = inOAuthProviderCls;
+        this.properties = inProperties;
+        this.callbackPath = inCallbackPath;
     }
     
+    /**
+     * Creates and returns the OAuth provider.
+     * 
+     * @return a newly-created OAuth provider.
+     */
     @Override
     public E get() {
-        return this.oAuthProvider;
+        try {
+            E oAuthProvider = oAuthProviderCls.newInstance();
+            oAuthProvider.setKey(this.properties.getGitHubOAuthKey());
+            oAuthProvider.setSecret(this.properties.getGitHubOAuthSecret());
+            URI callbackUrl = this.properties.getURI().resolve(this.callbackPath);
+            oAuthProvider.setCallbackUrl(callbackUrl.toString());
+            return oAuthProvider;
+        } catch (InstantiationException | IllegalAccessException ex) {
+            throw new AssertionError("Can't create provider", ex);
+        }
     }
 
 }

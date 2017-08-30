@@ -19,21 +19,21 @@
  */
 package org.eurekaclinical.user.webapp.provider;
 
-import com.google.inject.Inject;
-
+import javax.inject.Inject;
 import org.eurekaclinical.scribeupext.provider.GitHubProvider;
 
 import org.eurekaclinical.user.webapp.config.UserWebappProperties;
 
 /**
- *
- * @author miaoai
+ * A provider for injecting a scribe-up GitHub OAuth provider.
+ * 
+ * @author miaoai, Andrew Post
  */
 public class ScribeExtGitHubProvider extends AbstractOAuthProvider<GitHubProvider> {
 
     @Inject
     public ScribeExtGitHubProvider(UserWebappProperties inProperties) {
-        super(inProperties, new GitHubProvider(), "registrationoauthgithubcallback");
+        super(inProperties, GitHubProvider.class, "registrationoauthgithubcallback");
     }
 
 }

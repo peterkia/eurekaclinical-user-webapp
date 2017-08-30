@@ -19,6 +19,7 @@
  */
 package org.eurekaclinical.user.webapp.config;
 
+import java.net.URI;
 import org.eurekaclinical.standardapis.props.CasEurekaClinicalProperties;
 
 /**
@@ -103,10 +104,14 @@ public class UserWebappProperties extends CasEurekaClinicalProperties {
     public String getGoogleOAuthSecret() {
         return getValue("eurekaclinical.userwebapp.googleoauthsecret");
     }
-
+    
+    public URI getURI() {
+        return URI.create(getValue("eurekaclinical.userwebapp.url"));
+    }
+    
     @Override
     public String getUrl() {
-        return getValue("eurekaclinical.userwebapp.url");
+        return getURI().toString();
     }
-
+    
 }

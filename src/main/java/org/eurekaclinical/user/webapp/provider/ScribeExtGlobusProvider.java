@@ -19,21 +19,23 @@
  */
 package org.eurekaclinical.user.webapp.provider;
 
-import com.google.inject.Inject;
-
+import javax.inject.Inject;
 import org.eurekaclinical.scribeupext.provider.GlobusProvider;
 
 import org.eurekaclinical.user.webapp.config.UserWebappProperties;
 
 /**
- *
- * @author miaoai
+ * A provider for injecting a scribe-up Globus OAuth provider. It is annotated
+ * as a singleton for now because the Eureka! Clinical property mechanism is
+ * read-only, but that may change in the future.
+ * 
+ * @author miaoai, Andrew Post
  */
 public class ScribeExtGlobusProvider extends AbstractOAuthProvider<GlobusProvider> {
 
     @Inject
     public ScribeExtGlobusProvider(UserWebappProperties inProperties) {
-        super(inProperties, new GlobusProvider(), "registrationoauthglobuscallback");
+        super(inProperties, GlobusProvider.class, "registrationoauthglobuscallback");
     }
-
+    
 }
