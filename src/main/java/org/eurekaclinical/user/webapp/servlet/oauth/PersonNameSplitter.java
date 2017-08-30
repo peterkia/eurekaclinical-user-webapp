@@ -18,36 +18,37 @@
  * #L%
  */
 package org.eurekaclinical.user.webapp.servlet.oauth;
+
 /**
- * A naive algorithm for splitting a person's name. It simply splits a full
- * name by whitespace.
- * 
+ * A naive algorithm for splitting a person's name. It simply splits a full name
+ * by whitespace.
+ *
  * @author miaoai
  */
 class PersonNameSplitter {
 
-	private final String fullName;
-	private String firstName;
-	private String lastName;
+    private final String fullName;
+    private String firstName;
+    private String lastName;
 
-	PersonNameSplitter(String fullName) {
-		this.fullName = fullName;
-		if (fullName != null) {
-			String[] fullNameSplit = this.fullName.split(" ", 2);
-			if (fullNameSplit.length >= 1) {
-				firstName = fullNameSplit[0];
-			}
-			if (fullNameSplit.length == 2) {
-				lastName = fullNameSplit[1];
-			}
-		}
-	}
+    PersonNameSplitter(String fullName) {
+        this.fullName = fullName;
+        if (fullName != null) {
+            String[] fullNameSplit = this.fullName.split(" ", 2);
+            if (fullNameSplit.length >= 1) {
+                firstName = fullNameSplit[0];
+            }
+            if (fullNameSplit.length == 2) {
+                lastName = fullNameSplit[1];
+            }
+        }
+    }
 
-	String getFirstName() {
-		return this.firstName;
-	}
+    String getFirstName() {
+        return this.firstName;
+    }
 
-	String getLastName() {
-		return this.lastName;
-	}
+    String getLastName() {
+        return this.lastName;
+    }
 }

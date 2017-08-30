@@ -20,28 +20,20 @@
 package org.eurekaclinical.user.webapp.provider;
 
 import com.google.inject.Inject;
-import com.google.inject.Provider;
 
 import org.eurekaclinical.scribeupext.provider.Google2Provider;
 
 import org.eurekaclinical.user.webapp.config.UserWebappProperties;
+
 /**
  *
  * @author miaoai
  */
-public class ScribeExtGoogleProvider implements Provider<Google2Provider> {
-	private final Google2Provider googleProvider;
+public class ScribeExtGoogleProvider extends AbstractOAuthProvider<Google2Provider> {
 
-	@Inject
-	public ScribeExtGoogleProvider(UserWebappProperties inProperties) {
-		this.googleProvider = new Google2Provider();
-		this.googleProvider.setKey(inProperties.getGoogleOAuthKey());
-		this.googleProvider.setSecret(inProperties.getGoogleOAuthSecret());
-		this.googleProvider.setCallbackUrl(inProperties.getUrl() + "registrationoauthgooglecallback");
-	}
-	
-	@Override
-	public Google2Provider get() {
-		return this.googleProvider;
-	}    
+    @Inject
+    public ScribeExtGoogleProvider(UserWebappProperties inProperties) {
+        super(inProperties, new Google2Provider(), "registrationoauthgooglecallback");
+    }
+
 }

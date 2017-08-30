@@ -27,45 +27,48 @@ import javax.servlet.jsp.tagext.TagSupport;
 import static javax.servlet.jsp.tagext.TagSupport.findAncestorWithClass;
 
 /**
- * 
+ *
  * PutTag from java documentation examples
  *
  */
 public class PutTag extends TagSupport {
-	private String name, content, direct = "false";
 
-	public void setName(String s) {
-		name = s;
-	}
+    private String name, content, direct = "false";
 
-	public void setContent(String s) {
-		content = s;
-	}
+    public void setName(String s) {
+        name = s;
+    }
 
-	public void setDirect(String s) {
-		direct = s;
-	}
+    public void setContent(String s) {
+        content = s;
+    }
 
-	public int doStartTag() throws JspException {
-		InsertTag parent =
-			(InsertTag) findAncestorWithClass
-				(this, org.eurekaclinical.rhsit.taglib.templates.InsertTag.class);
-		if (parent == null)
-			throw new JspException("PutTag.doStartTag(): "
-					+ "No InsertTag ancestor");
+    public void setDirect(String s) {
+        direct = s;
+    }
 
-		Stack template_stack = parent.getStack();
+    public int doStartTag() throws JspException {
+        InsertTag parent
+                = (InsertTag) findAncestorWithClass(this, org.eurekaclinical.rhsit.taglib.templates.InsertTag.class);
+        if (parent == null) {
+            throw new JspException("PutTag.doStartTag(): "
+                    + "No InsertTag ancestor");
+        }
 
-		if (template_stack == null)
-			throw new JspException("PutTag: no template stack");
+        Stack template_stack = parent.getStack();
 
-		Hashtable params = (Hashtable) template_stack.peek();
+        if (template_stack == null) {
+            throw new JspException("PutTag: no template stack");
+        }
 
-		if (params == null)
-			throw new JspException("PutTag: no hashtable");
+        Hashtable params = (Hashtable) template_stack.peek();
 
-		params.put(name, new PageParameter(content, direct));
+        if (params == null) {
+            throw new JspException("PutTag: no hashtable");
+        }
 
-		return SKIP_BODY;
-	}
+        params.put(name, new PageParameter(content, direct));
+
+        return SKIP_BODY;
+    }
 }

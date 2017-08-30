@@ -29,57 +29,57 @@ import static javax.servlet.jsp.tagext.Tag.SKIP_BODY;
 import static javax.servlet.jsp.tagext.TagSupport.findAncestorWithClass;
 
 /**
- * 
+ *
  * @author sagrava
- * 
- * Extension of Simple Tag Library from sun examples.  Allows capability to
- * specify content in between tags rather than hardcoding in an attribute 
- * from the PutTag.
- * 
+ *
+ * Extension of Simple Tag Library from sun examples. Allows capability to
+ * specify content in between tags rather than hardcoding in an attribute from
+ * the PutTag.
+ *
  * Usage: <pre>{@code <template:content name="some name">
  * 			content goes here
  * 		  </template:content>}</pre>
- * 
+ *
  */
 public class ContentTag extends BodyTagSupport {
-	private String name;
 
-	public void setName(String s) {
-		name = s;
-	}
+    private String name;
 
+    public void setName(String s) {
+        name = s;
+    }
 
+    @Override
+    public int doAfterBody() throws JspException {
+        BodyContent body = getBodyContent();
+        if (body == null) {
+            throw new JspException("ContentTag.doStartTag(): "
+                    + "No JSP body present under template:content");
+        }
 
-	@Override
-	public int doAfterBody() throws JspException {
-		BodyContent body = getBodyContent();
-		if (body == null)
-			throw new JspException("ContentTag.doStartTag(): "
-					+ "No JSP body present under template:content");
+        String htmlBody = body.getString();
+        InsertTag parent
+                = (InsertTag) findAncestorWithClass(this, org.eurekaclinical.rhsit.taglib.templates.InsertTag.class);
+        if (parent == null) {
+            throw new JspException("ContentTag.doStartTag(): "
+                    + "No InsertTag ancestor");
+        }
 
-		String htmlBody = body.getString();
-		InsertTag parent =
-			(InsertTag) findAncestorWithClass
-				(this, org.eurekaclinical.rhsit.taglib.templates.InsertTag.class);
-		if (parent == null)
-			throw new JspException("ContentTag.doStartTag(): "
-					+ "No InsertTag ancestor");
+        Stack template_stack = parent.getStack();
 
-		Stack template_stack = parent.getStack();
+        if (template_stack == null) {
+            throw new JspException("ContentTag: no template stack");
+        }
 
-		if (template_stack == null)
-			throw new JspException("ContentTag: no template stack");
+        Hashtable params = (Hashtable) template_stack.peek();
 
-		Hashtable params = (Hashtable) template_stack.peek();
+        if (params == null) {
+            throw new JspException("ContentTag: no hashtable");
+        }
 
-		if (params == null)
-			throw new JspException("ContentTag: no hashtable");
+        params.put(name, new PageParameter(htmlBody, "true"));
 
-		params.put(name, new PageParameter(htmlBody, "true"));
-
-
-		return (SKIP_BODY);
-	}
-
+        return (SKIP_BODY);
+    }
 
 }

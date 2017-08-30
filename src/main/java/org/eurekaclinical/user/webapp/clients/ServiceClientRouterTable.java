@@ -19,7 +19,6 @@ package org.eurekaclinical.user.webapp.clients;
  * limitations under the License.
  * #L%
  */
-
 import javax.inject.Inject;
 import org.eurekaclinical.common.comm.clients.Route;
 import org.eurekaclinical.common.comm.clients.RouterTable;
@@ -27,7 +26,7 @@ import org.eurekaclinical.user.client.EurekaClinicalUserClient;
 
 /**
  * EurekaclinicalUserClient is the external used client
- * 
+ *
  * @author miaoai
  */
 public class ServiceClientRouterTable implements RouterTable {
@@ -38,10 +37,10 @@ public class ServiceClientRouterTable implements RouterTable {
     public ServiceClientRouterTable(EurekaClinicalUserClient inClient) {
         this.client = inClient;
     }
-    
+
     @Override
     public Route[] load() {
         return new Route[]{new Route("/", "/api/protected/", this.client)};
     }
-    
+
 }

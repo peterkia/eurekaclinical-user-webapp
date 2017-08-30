@@ -23,15 +23,16 @@ import com.google.inject.Inject;
 
 import org.eurekaclinical.scribeupext.profile.GitHubProfile;
 import org.eurekaclinical.scribeupext.provider.GitHubProvider;
+
 /**
  *
  * @author miaoai
  */
 public class GitHubRegistrationOAuthCallbackServlet extends AbstractOAuthRegistrationCallbackServlet<GitHubProfile> {
 
-	@Inject
-	public GitHubRegistrationOAuthCallbackServlet(GitHubProvider inProvider) {
-		super(inProvider);
-	}
-	
+    @Inject
+    public GitHubRegistrationOAuthCallbackServlet(GitHubProvider inProvider) {
+        super(inProvider);
+    }
+
 }

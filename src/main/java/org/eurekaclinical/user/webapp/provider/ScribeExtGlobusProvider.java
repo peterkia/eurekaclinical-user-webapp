@@ -20,28 +20,20 @@
 package org.eurekaclinical.user.webapp.provider;
 
 import com.google.inject.Inject;
-import com.google.inject.Provider;
 
 import org.eurekaclinical.scribeupext.provider.GlobusProvider;
 
 import org.eurekaclinical.user.webapp.config.UserWebappProperties;
+
 /**
  *
  * @author miaoai
  */
-public class ScribeExtGlobusProvider implements Provider<GlobusProvider> {
-	private final GlobusProvider globusProvider;
-	
-	@Inject
-	public ScribeExtGlobusProvider(UserWebappProperties inProperties) {
-		this.globusProvider = new GlobusProvider();
-		this.globusProvider.setKey(inProperties.getGlobusOAuthKey());
-		this.globusProvider.setSecret(inProperties.getGlobusOAuthSecret());
-		this.globusProvider.setCallbackUrl(inProperties.getUrl() + "registrationoauthglobuscallback");
-	}
+public class ScribeExtGlobusProvider extends AbstractOAuthProvider<GlobusProvider> {
 
-	@Override
-	public GlobusProvider get() {
-		return this.globusProvider;
-	}    
+    @Inject
+    public ScribeExtGlobusProvider(UserWebappProperties inProperties) {
+        super(inProperties, new GlobusProvider(), "registrationoauthglobuscallback");
+    }
+
 }

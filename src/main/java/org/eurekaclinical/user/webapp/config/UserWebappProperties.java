@@ -27,98 +27,86 @@ import org.eurekaclinical.standardapis.props.CasEurekaClinicalProperties;
  */
 public class UserWebappProperties extends CasEurekaClinicalProperties {
 
-	public UserWebappProperties() {
-		super("/etc/ec-user");
-	}
-	
-	public String getUserServiceUrl() {
-		return this.getValue("eurekaclinical.userservice.url");
-	}
+    public UserWebappProperties() {
+        super("/etc/ec-user");
+    }
 
-	public String getEurekaWebappUrl() {
-		return this.getValue("eureka.webapp.url");
-	}
+    public String getUserServiceUrl() {
+        return this.getValue("eurekaclinical.userservice.url");
+    }
 
-	public String getEurekaServicesUrl() {
-		return this.getValue("eureka.services.url");
-	}
+    public String getEurekaWebappUrl() {
+        return this.getValue("eureka.webapp.url");
+    }
 
-	public boolean isEphiProhibited() {
-		return Boolean.parseBoolean(getValue("eurekaclinical.userwebapp.ephiprohibited"));
-	}
+    public String getEurekaServicesUrl() {
+        return this.getValue("eureka.services.url");
+    }
 
-	public boolean isDemoMode() {
-		return Boolean.parseBoolean(getValue("eurekaclinical.userwebapp.demomode"));
-	}
+    public boolean isEphiProhibited() {
+        return Boolean.parseBoolean(getValue("eurekaclinical.userwebapp.ephiprohibited"));
+    }
 
-	@Override
-	public String getProxyCallbackServer() {
-		return this.getValue("eurekaclinical.userwebapp.callbackserver");
-	}
+    public boolean isDemoMode() {
+        return Boolean.parseBoolean(getValue("eurekaclinical.userwebapp.demomode"));
+    }
 
-	public boolean isOAuthRegistrationEnabled() {
-		return isGoogleOAuthRegistrationEnabled() || isGitHubOAuthRegistrationEnabled() || isTwitterOAuthRegistrationEnabled() || isGlobusOAuthRegistrationEnabled();
-	}
+    @Override
+    public String getProxyCallbackServer() {
+        return this.getValue("eurekaclinical.userwebapp.callbackserver");
+    }
 
-	public boolean isGoogleOAuthRegistrationEnabled() {
-		return getGoogleOAuthKey() != null && getGoogleOAuthSecret() != null;
-	}
+    public boolean isOAuthRegistrationEnabled() {
+        return isGoogleOAuthRegistrationEnabled() || isGitHubOAuthRegistrationEnabled() || isGlobusOAuthRegistrationEnabled();
+    }
 
-	public boolean isGitHubOAuthRegistrationEnabled() {
-		return getGitHubOAuthKey() != null && getGitHubOAuthSecret() != null;
-	}
+    public boolean isGoogleOAuthRegistrationEnabled() {
+        return getGoogleOAuthKey() != null && getGoogleOAuthSecret() != null;
+    }
 
-	public boolean isTwitterOAuthRegistrationEnabled() {
-		return getTwitterOAuthKey() != null && getTwitterOAuthSecret() != null;
-	}
+    public boolean isGitHubOAuthRegistrationEnabled() {
+        return getGitHubOAuthKey() != null && getGitHubOAuthSecret() != null;
+    }
 
-	public boolean isGlobusOAuthRegistrationEnabled() {
-		return getGlobusOAuthKey() != null && getGlobusOAuthSecret() != null;
-	}
+    public boolean isGlobusOAuthRegistrationEnabled() {
+        return getGlobusOAuthKey() != null && getGlobusOAuthSecret() != null;
+    }
 
-	public boolean isLocalAccountRegistrationEnabled() {
-		return Boolean.parseBoolean(getValue("eurekaclinical.userwebapp.localregistrationenabled"));
-	}
+    public boolean isLocalAccountRegistrationEnabled() {
+        return Boolean.parseBoolean(getValue("eurekaclinical.userwebapp.localregistrationenabled"));
+    }
 
-	public boolean isRegistrationEnabled() {
-		return isLocalAccountRegistrationEnabled() || isOAuthRegistrationEnabled();
-	}
+    public boolean isRegistrationEnabled() {
+        return isLocalAccountRegistrationEnabled() || isOAuthRegistrationEnabled();
+    }
 
-	public String getGitHubOAuthKey() {
-		return getValue("eurekaclinical.userwebapp.githuboauthkey");
-	}
+    public String getGitHubOAuthKey() {
+        return getValue("eurekaclinical.userwebapp.githuboauthkey");
+    }
 
-	public String getGitHubOAuthSecret() {
-		return getValue("eurekaclinical.userwebapp.githuboauthsecret");
-	}
+    public String getGitHubOAuthSecret() {
+        return getValue("eurekaclinical.userwebapp.githuboauthsecret");
+    }
 
-	public String getGlobusOAuthKey() {
-		return getValue("eurekaclinical.userwebapp.globusoauthkey");
-	}
+    public String getGlobusOAuthKey() {
+        return getValue("eurekaclinical.userwebapp.globusoauthkey");
+    }
 
-	public String getGlobusOAuthSecret() {
-		return getValue("eurekaclinical.userwebapp.globusoauthsecret");
-	}
+    public String getGlobusOAuthSecret() {
+        return getValue("eurekaclinical.userwebapp.globusoauthsecret");
+    }
 
-	public String getGoogleOAuthKey() {
-		return getValue("eurekaclinical.userwebapp.googleoauthkey");
-	}
+    public String getGoogleOAuthKey() {
+        return getValue("eurekaclinical.userwebapp.googleoauthkey");
+    }
 
-	public String getGoogleOAuthSecret() {
-		return getValue("eurekaclinical.userwebapp.googleoauthsecret");
-	}
+    public String getGoogleOAuthSecret() {
+        return getValue("eurekaclinical.userwebapp.googleoauthsecret");
+    }
 
-	public String getTwitterOAuthKey() {
-		return getValue("eurekaclinical.userwebapp.twitteroauthkey");
-	}
-
-	public String getTwitterOAuthSecret() {
-		return getValue("eurekaclinical.userwebapp.twitteroauthsecret");
-	}
-
-	@Override
-	public String getUrl() {
-		return getValue("eurekaclinical.userwebapp.url");
-	}
+    @Override
+    public String getUrl() {
+        return getValue("eurekaclinical.userwebapp.url");
+    }
 
 }

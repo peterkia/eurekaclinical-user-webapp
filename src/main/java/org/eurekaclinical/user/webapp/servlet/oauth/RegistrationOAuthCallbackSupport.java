@@ -32,72 +32,73 @@ import org.scribe.up.session.HttpUserSession;
 import org.eurekaclinical.scribeupext.profile.EurekaProfile;
 
 import org.eurekaclinical.user.client.comm.authentication.AuthenticationMethod;
+
 /**
  *
  * @author miaoai
  */
 class RegistrationOAuthCallbackSupport<E extends EurekaProfile> {
 
-	private final OAuthProvider provider;
+    private final OAuthProvider provider;
 
-	RegistrationOAuthCallbackSupport(OAuthProvider provider) {
-		assert provider != null : "provider cannot be null";
-		this.provider = provider;
-	}
+    RegistrationOAuthCallbackSupport(OAuthProvider provider) {
+        assert provider != null : "provider cannot be null";
+        this.provider = provider;
+    }
 
-	E getProfile(HttpServletRequest req) {
-		assert req != null : "request cannot be null";
-		OAuthCredential credential
-				= this.provider.getCredential(
-						new HttpUserSession(req.getSession()),
-						req.getParameterMap());
-		if (credential != null) {
-			return (E) this.provider.getUserProfile(credential);
-		} else {
-			/* User rejected authorization request. */
-			return null;
-		}
-	}
+    E getProfile(HttpServletRequest req) {
+        assert req != null : "request cannot be null";
+        OAuthCredential credential
+                = this.provider.getCredential(
+                        new HttpUserSession(req.getSession()),
+                        req.getParameterMap());
+        if (credential != null) {
+            return (E) this.provider.getUserProfile(credential);
+        } else {
+            /* User rejected authorization request. */
+            return null;
+        }
+    }
 
-	boolean setEurekaAttributeFromProfile(HttpServletRequest req) {
-		assert req != null : "request cannot be null";
-		E userProfile = getProfile(req);
-		if (userProfile != null) {
-			req.setAttribute("accountTypeDisplayName", userProfile.getType());
-			req.setAttribute("authenticationMethod", 
-					AuthenticationMethod.OAUTH.name());
-			req.setAttribute("oauthProvider", this.provider.getType());
-			String fullName = userProfile.getDisplayName();
-			req.setAttribute("fullName", fullName);
-			String firstName = userProfile.getFirstName();
-			String lastName = userProfile.getFamilyName();
+    boolean setEurekaAttributeFromProfile(HttpServletRequest req) {
+        assert req != null : "request cannot be null";
+        E userProfile = getProfile(req);
+        if (userProfile != null) {
+            req.setAttribute("accountTypeDisplayName", userProfile.getType());
+            req.setAttribute("authenticationMethod",
+                    AuthenticationMethod.OAUTH.name());
+            req.setAttribute("oauthProvider", this.provider.getType());
+            String fullName = userProfile.getDisplayName();
+            req.setAttribute("fullName", fullName);
+            String firstName = userProfile.getFirstName();
+            String lastName = userProfile.getFamilyName();
 
-			if ((firstName == null || lastName == null) && fullName != null) {
-				PersonNameSplitter splitter
-						= new PersonNameSplitter(fullName);
-				if (firstName == null) {
-					firstName = splitter.getFirstName();
-				}
-				if (lastName == null) {
-					lastName = splitter.getLastName();
-				}
-			}
-			req.setAttribute("firstName", firstName);
-			req.setAttribute("lastName", lastName);
-			req.setAttribute("email", userProfile.getEmail());
-			req.setAttribute("username", userProfile.getTypedId());
-			req.setAttribute("providerUsername", userProfile.getUsername());
-			return true;
-		} else {
-			return false;
-		}
-	}
+            if ((firstName == null || lastName == null) && fullName != null) {
+                PersonNameSplitter splitter
+                        = new PersonNameSplitter(fullName);
+                if (firstName == null) {
+                    firstName = splitter.getFirstName();
+                }
+                if (lastName == null) {
+                    lastName = splitter.getLastName();
+                }
+            }
+            req.setAttribute("firstName", firstName);
+            req.setAttribute("lastName", lastName);
+            req.setAttribute("email", userProfile.getEmail());
+            req.setAttribute("username", userProfile.getTypedId());
+            req.setAttribute("providerUsername", userProfile.getUsername());
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-	void forwardProfileToRegisterPage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		if (setEurekaAttributeFromProfile(req)) {
-			req.getRequestDispatcher("/register.jsp").forward(req, resp);
-		} else {
-			resp.sendRedirect(req.getContextPath() + "/chooseaccounttype");
-		}
-	}
+    void forwardProfileToRegisterPage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (setEurekaAttributeFromProfile(req)) {
+            req.getRequestDispatcher("/register.jsp").forward(req, resp);
+        } else {
+            resp.sendRedirect(req.getContextPath() + "/chooseaccounttype");
+        }
+    }
 }

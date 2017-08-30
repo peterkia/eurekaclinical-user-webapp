@@ -22,15 +22,16 @@ package org.eurekaclinical.user.webapp.taglib;
 import java.io.IOException;
 import javax.servlet.jsp.tagext.TagSupport;
 import org.codehaus.jackson.map.ObjectMapper;
+
 /**
  *
  * @author miaoai
  */
 public class JsonTag extends TagSupport {
 
-	private static final ObjectMapper objectMapper = new ObjectMapper();
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
-	public static String toJson(Object obj) throws IOException {
-		return objectMapper.writeValueAsString(obj).replace("\"", "&quot;");
-	}
+    public static String toJson(Object obj) throws IOException {
+        return objectMapper.writeValueAsString(obj).replace("\"", "&quot;");
+    }
 }

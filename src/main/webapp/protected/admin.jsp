@@ -24,93 +24,93 @@
 
 <template:insert template="/templates/eureka_main.jsp">
 
-	<template:content name="content">
-		<h1>Administration</h1>
-		<p>
-			Click on a user's name to edit his/her role(s) and
-			other information
-		</p>
-		<table class="table table-responsive">
-			<tr>
-				<th>Username</th>
-				<th>Name</th>
-				<th>Last Login</th>
-				<th>Role</th>
-				<th>Email</th>
-				<th>Organization</th>
-				<th>Status</th>
-				<th>Title</th>
-				<th>Department</th>
-			</tr>
-			<c:forEach items="${users}" var="user">
-				<tr>
-					<td>
-						<c:set var="is_admin" value="false"/>
-						<c:set var="is_inactive" value="false"/>
-						<c:forEach var="role" items="${user.roles}">
-							<c:if test="${roles[role].name == 'admin'}">
-								<c:set var="is_admin" value="true"/>
-							</c:if>
-						</c:forEach>
-						<c:if test="${user.active == false}">
-							<c:set var="is_inactive" value="true"/>
-						</c:if>
-						<c:choose>
-							<c:when test="${is_inactive == true}">
-								<img src="${pageContext.request.contextPath}/assets/images/New_User.gif"/>
-							</c:when>
+    <template:content name="content">
+        <h1>Administration</h1>
+        <p>
+            Click on a user's name to edit his/her role(s) and
+            other information
+        </p>
+        <table class="table table-responsive">
+            <tr>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Last Login</th>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Organization</th>
+                <th>Status</th>
+                <th>Title</th>
+                <th>Department</th>
+            </tr>
+            <c:forEach items="${users}" var="user">
+                <tr>
+                    <td>
+                        <c:set var="is_admin" value="false"/>
+                        <c:set var="is_inactive" value="false"/>
+                        <c:forEach var="role" items="${user.roles}">
+                            <c:if test="${roles[role].name == 'admin'}">
+                                <c:set var="is_admin" value="true"/>
+                            </c:if>
+                        </c:forEach>
+                        <c:if test="${user.active == false}">
+                            <c:set var="is_inactive" value="true"/>
+                        </c:if>
+                        <c:choose>
+                            <c:when test="${is_inactive == true}">
+                                <img src="${pageContext.request.contextPath}/assets/images/New_User.gif"/>
+                            </c:when>
 
-							<c:otherwise>
-								<c:choose>
-									<c:when test="${is_admin == true}">
-										<img src="${pageContext.request.contextPath}/assets/images/Role_Admin.gif"/>
-									</c:when>
-									<c:otherwise>
-										<img src="${pageContext.request.contextPath}/assets/images/Role_Researcher.gif"/>
-									</c:otherwise>
-								</c:choose>
+                            <c:otherwise>
+                                <c:choose>
+                                    <c:when test="${is_admin == true}">
+                                        <img src="${pageContext.request.contextPath}/assets/images/Role_Admin.gif"/>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <img src="${pageContext.request.contextPath}/assets/images/Role_Researcher.gif"/>
+                                    </c:otherwise>
+                                </c:choose>
 
-							</c:otherwise>
-						</c:choose>
+                            </c:otherwise>
+                        </c:choose>
 
-						<a href="${pageContext.request.contextPath}/protected/admin?id=${user.id}&action=edit">${user.username}</a>
-					</td>
-					<td>
-						<c:choose>
-							<c:when test="${not empty user.fullName}">
-								${user.fullName}
-							</c:when>
-							<c:otherwise>
-								${user.firstName} ${user.lastName}
-							</c:otherwise>
-						</c:choose>
-					</td>
-					<td>
-						<fmt:formatDate value="${user.lastLogin}"
-										type="both" dateStyle="short"
-										timeStyle="short"/>
-					</td>
-					<td>
-						<c:forEach var="role" items="${user.roles}">
-							${roles[role].name}
-						</c:forEach>
-					</td>
-					<td>${user.email}</td>
-					<td>${user.organization}</td>
-					<td>
-						<c:choose>
-							<c:when test="${user.active == true}">
-								Active
-							</c:when>
-							<c:otherwise>
-								Inactive
-							</c:otherwise>
-						</c:choose>
-					</td>
-					<td>${user.title}</td>
-					<td>${user.department}</td>
-				</tr>
-			</c:forEach>
-		</table>
-	</template:content>
+                        <a href="${pageContext.request.contextPath}/protected/admin?id=${user.id}&action=edit">${user.username}</a>
+                    </td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${not empty user.fullName}">
+                                ${user.fullName}
+                            </c:when>
+                            <c:otherwise>
+                                ${user.firstName} ${user.lastName}
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                    <td>
+                        <fmt:formatDate value="${user.lastLogin}"
+                                        type="both" dateStyle="short"
+                                        timeStyle="short"/>
+                    </td>
+                    <td>
+                        <c:forEach var="role" items="${user.roles}">
+                            ${roles[role].name}
+                        </c:forEach>
+                    </td>
+                    <td>${user.email}</td>
+                    <td>${user.organization}</td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${user.active == true}">
+                                Active
+                            </c:when>
+                            <c:otherwise>
+                                Inactive
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                    <td>${user.title}</td>
+                    <td>${user.department}</td>
+                </tr>
+            </c:forEach>
+        </table>
+    </template:content>
 </template:insert>

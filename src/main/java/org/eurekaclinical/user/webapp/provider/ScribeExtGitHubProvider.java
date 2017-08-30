@@ -20,28 +20,20 @@
 package org.eurekaclinical.user.webapp.provider;
 
 import com.google.inject.Inject;
-import com.google.inject.Provider;
 
 import org.eurekaclinical.scribeupext.provider.GitHubProvider;
 
 import org.eurekaclinical.user.webapp.config.UserWebappProperties;
+
 /**
  *
  * @author miaoai
  */
-public class ScribeExtGitHubProvider implements Provider<GitHubProvider> {
-	private final GitHubProvider gitHubProvider;
-	
-	@Inject
-	public ScribeExtGitHubProvider(UserWebappProperties inProperties) {
-		this.gitHubProvider = new GitHubProvider();
-		this.gitHubProvider.setKey(inProperties.getGitHubOAuthKey());
-		this.gitHubProvider.setSecret(inProperties.getGitHubOAuthSecret());
-		this.gitHubProvider.setCallbackUrl(inProperties.getUrl() + "registrationoauthgithubcallback");
-	}
+public class ScribeExtGitHubProvider extends AbstractOAuthProvider<GitHubProvider> {
 
-	@Override
-	public GitHubProvider get() {
-		return this.gitHubProvider;
-	}    
+    @Inject
+    public ScribeExtGitHubProvider(UserWebappProperties inProperties) {
+        super(inProperties, new GitHubProvider(), "registrationoauthgithubcallback");
+    }
+
 }

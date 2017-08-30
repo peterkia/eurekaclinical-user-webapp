@@ -29,21 +29,22 @@ import javax.servlet.http.HttpServletResponse;
 import org.scribe.up.provider.OAuthProvider;
 
 import org.eurekaclinical.scribeupext.profile.EurekaProfile;
+
 /**
  *
  * @author miaoai
  */
 public class AbstractOAuthRegistrationCallbackServlet<E extends EurekaProfile> extends HttpServlet {
-	private final RegistrationOAuthCallbackSupport<E> callbackSupport;
 
-	public AbstractOAuthRegistrationCallbackServlet(OAuthProvider oauthProvider) {
-		this.callbackSupport = new RegistrationOAuthCallbackSupport<>(oauthProvider);
-	}
+    private final RegistrationOAuthCallbackSupport<E> callbackSupport;
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		this.callbackSupport.forwardProfileToRegisterPage(req, resp);
-	}
-	
-	
+    public AbstractOAuthRegistrationCallbackServlet(OAuthProvider oauthProvider) {
+        this.callbackSupport = new RegistrationOAuthCallbackSupport<>(oauthProvider);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        this.callbackSupport.forwardProfileToRegisterPage(req, resp);
+    }
+
 }

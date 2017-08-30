@@ -24,14 +24,13 @@ import javax.servlet.http.HttpServletRequest;
 
 public class Util {
 
+    public static boolean contains(Collection<?> coll, Object o) {
 
-	public static boolean contains(Collection<?> coll, Object o) {
+        return coll.contains(o);
 
-		return coll.contains(o);
+    }
 
-	}
-
-	public static boolean isUserInRole(HttpServletRequest request, String role) {
-		return request.isUserInRole(role);
-	}
+    public static boolean isUserInRole(HttpServletRequest request, String role) {
+        return request.isUserInRole(role);
+    }
 }

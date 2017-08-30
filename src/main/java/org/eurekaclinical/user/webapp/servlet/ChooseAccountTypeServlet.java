@@ -36,7 +36,6 @@ import org.scribe.up.session.HttpUserSession;
 import org.eurekaclinical.scribeupext.provider.GitHubProvider;
 import org.eurekaclinical.scribeupext.provider.GlobusProvider;
 import org.eurekaclinical.scribeupext.provider.Google2Provider;
-import org.eurekaclinical.scribeupext.provider.SSLTwitterProvider;
 
 import org.eurekaclinical.user.webapp.config.UserWebappProperties;
 /**
@@ -49,7 +48,6 @@ public class ChooseAccountTypeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final UserWebappProperties properties;
 	private final Google2Provider googleProvider;
-	private final SSLTwitterProvider twitterProvider;
 	private final GlobusProvider globusProvider;
 	private final GitHubProvider gitHubProvider;
 
@@ -57,11 +55,9 @@ public class ChooseAccountTypeServlet extends HttpServlet {
 	public ChooseAccountTypeServlet(UserWebappProperties inProperties, 
 			Google2Provider inGoogleProvider, 
 			GitHubProvider inGitHubProvider, 
-			SSLTwitterProvider inTwitterProvider, 
 			GlobusProvider inGlobusProvider) {
 		this.properties = inProperties;
 		this.googleProvider = inGoogleProvider;
-		this.twitterProvider = inTwitterProvider;
 		this.globusProvider = inGlobusProvider;
 		this.gitHubProvider = inGitHubProvider;
 	}
@@ -92,14 +88,6 @@ public class ChooseAccountTypeServlet extends HttpServlet {
 			if (gitHubAuthEnabled) {
 				authorizationUrl = gitHubProvider.getAuthorizationUrl(userSession);
 				req.setAttribute("GitHubProviderUrl", authorizationUrl);
-				countEnabled++;
-			}
-			
-			boolean twitterAuthEnabled = this.properties.isTwitterOAuthRegistrationEnabled();
-			req.setAttribute("twitterAuthEnabled", twitterAuthEnabled);
-			if (twitterAuthEnabled) {
-				authorizationUrl = twitterProvider.getAuthorizationUrl(userSession);
-				req.setAttribute("SSLTwitterProviderUrl", authorizationUrl);
 				countEnabled++;
 			}
 			

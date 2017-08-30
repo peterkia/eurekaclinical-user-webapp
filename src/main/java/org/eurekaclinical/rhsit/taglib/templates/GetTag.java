@@ -27,48 +27,51 @@ import static javax.servlet.jsp.tagext.Tag.SKIP_BODY;
 import javax.servlet.jsp.tagext.TagSupport;
 
 /**
- * 
+ *
  * GetTag from java documentation examples
  *
  */
 public class GetTag extends TagSupport {
-	private String name = null;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    private String name = null;
 
-	public int doStartTag() throws JspException {
-		Stack stack = (Stack) pageContext.getAttribute("template-stack",
-				PageContext.REQUEST_SCOPE);
+    public void setName(String name) {
+        this.name = name;
+    }
 
-		if (stack == null)
-			throw new JspException("GetTag.doStartTag(): " + "NO STACK");
+    public int doStartTag() throws JspException {
+        Stack stack = (Stack) pageContext.getAttribute("template-stack",
+                PageContext.REQUEST_SCOPE);
 
-		Hashtable params = (Hashtable) stack.peek();
+        if (stack == null) {
+            throw new JspException("GetTag.doStartTag(): " + "NO STACK");
+        }
 
-		if (params == null)
-			throw new JspException("GetTag.doStartTag(): " + "NO HASHTABLE");
+        Hashtable params = (Hashtable) stack.peek();
 
-		PageParameter param = (PageParameter) params.get(name);
+        if (params == null) {
+            throw new JspException("GetTag.doStartTag(): " + "NO HASHTABLE");
+        }
 
-		if (param != null) {
-			String content = param.getContent();
-			if (param.isDirect()) {
-				try {
-					pageContext.getOut().print(content);
-				} catch (java.io.IOException ex) {
-					throw new JspException(ex.getMessage());
-				}
-			} else {
-				try {
-					pageContext.getOut().flush();
-					pageContext.include(content);
-				} catch (Exception ex) {
-					throw new JspException(ex.getMessage());
-				}
-			}
-		}
-		return SKIP_BODY;
-	}
+        PageParameter param = (PageParameter) params.get(name);
+
+        if (param != null) {
+            String content = param.getContent();
+            if (param.isDirect()) {
+                try {
+                    pageContext.getOut().print(content);
+                } catch (java.io.IOException ex) {
+                    throw new JspException(ex.getMessage());
+                }
+            } else {
+                try {
+                    pageContext.getOut().flush();
+                    pageContext.include(content);
+                } catch (Exception ex) {
+                    throw new JspException(ex.getMessage());
+                }
+            }
+        }
+        return SKIP_BODY;
+    }
 }

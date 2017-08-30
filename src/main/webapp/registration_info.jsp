@@ -21,22 +21,22 @@
 <%@ taglib uri="/WEB-INF/tlds/template.tld" prefix="template" %>
 
 <template:insert template="/templates/eureka_main.jsp">
-	<template:content name="content">
-		<c:choose>
-			<c:when test="${requestScope.error}">
-				<h1>Registration not verified!</h1>
-				<div class="alert alert-danger" role="alert">
-					<strong>Verification failed!</strong> ${error}
-				</div>
-			</c:when>
-			<c:otherwise>
-				<h1>Registration verified!</h1>
-				<div class="alert alert-success" role="alert">
-					<string>Thank you for verifying your registration!</strong> Your account will be activated within the next 3 business days. You will be notified by e-mail when activation has occurred.
-				</div>
-			</c:otherwise>
-		</c:choose>
-	</template:content>
+    <template:content name="content">
+        <c:choose>
+            <c:when test="${requestScope.error}">
+                <h1>Registration not verified!</h1>
+                <div class="alert alert-danger" role="alert">
+                    <strong>Verification failed!</strong> ${error}
+                </div>
+            </c:when>
+            <c:otherwise>
+                <h1>Registration verified!</h1>
+                <div class="alert alert-success" role="alert">
+                    <string>Thank you for verifying your registration!</strong> Your account will be activated within the next 3 business days. You will be notified by e-mail when activation has occurred.
+                </div>
+            </c:otherwise>
+        </c:choose>
+    </template:content>
 </template:insert>
 
 

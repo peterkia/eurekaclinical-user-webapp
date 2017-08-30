@@ -37,71 +37,67 @@ import org.eurekaclinical.user.webapp.servlet.AdminManagerServlet;
 import org.eurekaclinical.user.webapp.servlet.oauth.GitHubRegistrationOAuthCallbackServlet;
 import org.eurekaclinical.user.webapp.servlet.oauth.GlobusRegistrationOAuthCallbackServlet;
 import org.eurekaclinical.user.webapp.servlet.oauth.GoogleRegistrationOAuthCallbackServlet;
-import org.eurekaclinical.user.webapp.servlet.oauth.TwitterRegistrationOAuthCallbackServlet;
+
 /**
  *
  * @author miaoai
  */
 class ServletModule extends AbstractAuthorizingServletModule {
 
-	private static final String LOGOUT_PATH = "/logout";
+    private static final String LOGOUT_PATH = "/logout";
 
-	private final UserWebappProperties properties;
+    private final UserWebappProperties properties;
 
-	public ServletModule(UserWebappProperties inProperties) {
-		super(inProperties);
-		this.properties = inProperties;
-	}
-        
-	@Override
-	protected void setupServlets() {
-                bind(LogoutServlet.class).in(Singleton.class);
-		serve(LOGOUT_PATH).with(LogoutServlet.class);  
-                
-		serve("/proxy-resource/*").with(ProxyServlet.class);
-                
-		serve("/destroy-session").with(DestroySessionServlet.class);                
-                
-		bind(ChooseAccountTypeServlet.class).in(Singleton.class);
-		serve("/chooseaccounttype").with(ChooseAccountTypeServlet.class);   
-                
-		bind(RegisterUserServlet.class).in(Singleton.class);
-		serve("/register").with(RegisterUserServlet.class); 
+    public ServletModule(UserWebappProperties inProperties) {
+        super(inProperties);
+        this.properties = inProperties;
+    }
 
-		bind(UserAcctManagerServlet.class).in(Singleton.class);
-		serve("/protected/user_acct").with(UserAcctManagerServlet.class);    
-                
-		bind(VerifyUserServlet.class).in(Singleton.class);
-		serve("/verify").with(VerifyUserServlet.class);              
-                
-		bind(AdminManagerServlet.class).in(Singleton.class);
-		serve("/protected/admin").with(AdminManagerServlet.class);
-                
-		bind(GitHubRegistrationOAuthCallbackServlet.class).in(Singleton.class);
-		serve("/registrationoauthgithubcallback").with(
-				GitHubRegistrationOAuthCallbackServlet.class);
+    @Override
+    protected void setupServlets() {
+        bind(LogoutServlet.class).in(Singleton.class);
+        serve(LOGOUT_PATH).with(LogoutServlet.class);
 
-		bind(GoogleRegistrationOAuthCallbackServlet.class).in(Singleton.class);
-		serve("/registrationoauthgooglecallback").with(
-				GoogleRegistrationOAuthCallbackServlet.class);
+        serve("/proxy-resource/*").with(ProxyServlet.class);
 
-		bind(TwitterRegistrationOAuthCallbackServlet.class).in(Singleton.class);
-		serve("/registrationoauthtwittercallback").with(
-				TwitterRegistrationOAuthCallbackServlet.class);
+        serve("/destroy-session").with(DestroySessionServlet.class);
 
-		bind(GlobusRegistrationOAuthCallbackServlet.class).in(Singleton.class);
-		serve("/registrationoauthglobuscallback").with(
-				GlobusRegistrationOAuthCallbackServlet.class);  
-                
-        }
+        bind(ChooseAccountTypeServlet.class).in(Singleton.class);
+        serve("/chooseaccounttype").with(ChooseAccountTypeServlet.class);
 
-	@Override
-	protected Map<String, String> getCasValidationFilterInitParams() {
-		Map<String, String> params = new HashMap<>();
-		params.put("casServerUrlPrefix", this.properties.getCasUrl());
-		params.put("serverName", this.properties.getProxyCallbackServer());
-		params.put("proxyCallbackUrl", getCasProxyCallbackUrl());
-		params.put("proxyReceptorUrl", getCasProxyCallbackPath());
-		return params;
-	}
+        bind(RegisterUserServlet.class).in(Singleton.class);
+        serve("/register").with(RegisterUserServlet.class);
+
+        bind(UserAcctManagerServlet.class).in(Singleton.class);
+        serve("/protected/user_acct").with(UserAcctManagerServlet.class);
+
+        bind(VerifyUserServlet.class).in(Singleton.class);
+        serve("/verify").with(VerifyUserServlet.class);
+
+        bind(AdminManagerServlet.class).in(Singleton.class);
+        serve("/protected/admin").with(AdminManagerServlet.class);
+
+        bind(GitHubRegistrationOAuthCallbackServlet.class).in(Singleton.class);
+        serve("/registrationoauthgithubcallback").with(
+                GitHubRegistrationOAuthCallbackServlet.class);
+
+        bind(GoogleRegistrationOAuthCallbackServlet.class).in(Singleton.class);
+        serve("/registrationoauthgooglecallback").with(
+                GoogleRegistrationOAuthCallbackServlet.class);
+
+        bind(GlobusRegistrationOAuthCallbackServlet.class).in(Singleton.class);
+        serve("/registrationoauthglobuscallback").with(
+                GlobusRegistrationOAuthCallbackServlet.class);
+
+    }
+
+    @Override
+    protected Map<String, String> getCasValidationFilterInitParams() {
+        Map<String, String> params = new HashMap<>();
+        params.put("casServerUrlPrefix", this.properties.getCasUrl());
+        params.put("serverName", this.properties.getProxyCallbackServer());
+        params.put("proxyCallbackUrl", getCasProxyCallbackUrl());
+        params.put("proxyReceptorUrl", getCasProxyCallbackPath());
+        return params;
+    }
 }

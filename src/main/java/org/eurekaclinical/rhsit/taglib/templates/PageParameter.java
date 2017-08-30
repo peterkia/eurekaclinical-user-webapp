@@ -20,21 +20,32 @@
 package org.eurekaclinical.rhsit.taglib.templates;
 
 /**
- * 
+ *
  * Page Parameter from java documentation examples
  *
  */
 public class PageParameter {
-	private String content, direct;
 
-	public void setContent(String s) {content = s; }
-	public void setDirect(String s) { direct = s; }
+    private String content, direct;
 
-	public String getContent() { return content;}
-	public boolean isDirect() { return Boolean.valueOf(direct).booleanValue(); }
+    public void setContent(String s) {
+        content = s;
+    }
 
-	public PageParameter(String content, String direct) {
-		this.content = content;
-		this.direct = direct;
-	}
+    public void setDirect(String s) {
+        direct = s;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public boolean isDirect() {
+        return Boolean.valueOf(direct).booleanValue();
+    }
+
+    public PageParameter(String content, String direct) {
+        this.content = content;
+        this.direct = direct;
+    }
 }

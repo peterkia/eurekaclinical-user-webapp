@@ -23,15 +23,16 @@ import com.google.inject.Inject;
 
 import org.eurekaclinical.scribeupext.profile.GlobusProfile;
 import org.eurekaclinical.scribeupext.provider.GlobusProvider;
+
 /**
  *
  * @author miaoai
  */
 public class GlobusRegistrationOAuthCallbackServlet extends AbstractOAuthRegistrationCallbackServlet<GlobusProfile> {
 
-	@Inject
-	public GlobusRegistrationOAuthCallbackServlet(GlobusProvider inProvider) {
-		super(inProvider);
-	}
-	
+    @Inject
+    public GlobusRegistrationOAuthCallbackServlet(GlobusProvider inProvider) {
+        super(inProvider);
+    }
+
 }
