@@ -39,7 +39,6 @@ window.eureka.registration = new function () {
 
     self.validator = $("#signupForm").validate({
         errorElement: 'span',
-        errorClass: null,
         rules: {
             firstName: "required",
             lastName: "required",
