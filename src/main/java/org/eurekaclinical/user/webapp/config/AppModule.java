@@ -28,6 +28,7 @@ import com.google.inject.servlet.SessionScoped;
 import org.eurekaclinical.common.comm.clients.AuthorizingEurekaClinicalClient;
 
 import org.eurekaclinical.common.comm.clients.RouterTable;
+import org.eurekaclinical.registry.client.EurekaClinicalRegistryClient;
 import org.eurekaclinical.user.webapp.clients.ServiceClientRouterTable;
 
 import org.eurekaclinical.scribeupext.provider.GitHubProvider;
@@ -49,6 +50,7 @@ public class AppModule extends AbstractModule {
 
     private final UserWebappProperties userWebappProperties;
     private final EurekaClinicalUserClientProvider clientProvider;
+    private final EurekaClinicalRegistryClientProvider registryClientProvider;
 
     /**
      * Inject userServiceUrl to EurekaclinicalUserClient
@@ -57,6 +59,8 @@ public class AppModule extends AbstractModule {
         this.userWebappProperties = userWebappProperties;
         this.clientProvider = new EurekaClinicalUserClientProvider(
                 userWebappProperties.getUserServiceUrl());
+        this.registryClientProvider = new EurekaClinicalRegistryClientProvider(
+                userWebappProperties.getRegistryServiceUrl());
     }
 
     @Override
@@ -64,6 +68,7 @@ public class AppModule extends AbstractModule {
         bind(RouterTable.class).to(ServiceClientRouterTable.class);
         bind(AuthorizingEurekaClinicalClient.class).toProvider(this.clientProvider).in(SessionScoped.class);
         bind(EurekaClinicalUserClient.class).toProvider(this.clientProvider).in(SessionScoped.class);
+        bind(EurekaClinicalRegistryClient.class).toProvider(this.registryClientProvider).in(SessionScoped.class);
         bind(UserWebappProperties.class).toInstance(this.userWebappProperties);
         bind(CasEurekaClinicalProperties.class).toInstance(this.userWebappProperties);
 

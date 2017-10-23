@@ -25,7 +25,13 @@
     <Resource name="jdbc/UserService" auth="Container"
             type="javax.sql.DataSource" driverClassName="org.h2.Driver"
             factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
-            url="jdbc:h2:file:${basedir}/../eurekaclinical-user-service/target/eurekaclinical-user-service-db/eurekaclinical-user-service"
+            url="jdbc:h2:file:${basedir}/target/db/db"
+            initialSize="3" maxActive="20" maxIdle="1" minIdle="1"
+            maxWait="-1"/>
+    <Resource name="jdbc/EurekaClinicalRegistryService" auth="Container"
+            type="javax.sql.DataSource" driverClassName="org.h2.Driver"
+            factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+            url="jdbc:h2:file:${basedir}/target/db/ec-registry-service-db"
             initialSize="3" maxActive="20" maxIdle="1" minIdle="1"
             maxWait="-1"/>   
 </Context>

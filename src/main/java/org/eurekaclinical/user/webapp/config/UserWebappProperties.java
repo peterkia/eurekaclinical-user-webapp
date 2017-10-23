@@ -115,4 +115,8 @@ public class UserWebappProperties extends CasEurekaClinicalProperties {
         return getValue("eurekaclinical.userwebapp.url");
     }
 
+    public String getRegistryServiceUrl() {
+        return getValue("eurekaclinical.registryservice.url");
+    }
+
 }
