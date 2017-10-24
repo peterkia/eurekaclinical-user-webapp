@@ -27,6 +27,7 @@ import javax.servlet.ServletContextEvent;
 import org.eurekaclinical.common.config.ClientSessionListener;
 
 import org.eurekaclinical.common.config.InjectorSupport;
+import org.eurekaclinical.registry.client.EurekaClinicalRegistryClient;
 import org.eurekaclinical.user.client.EurekaClinicalUserClient;
 
 /**
@@ -47,6 +48,8 @@ public class UserWebappListener extends GuiceServletContextListener {
         super.contextInitialized(servletContextEvent);
         servletContextEvent.getServletContext().addListener(
                 new ClientSessionListener(EurekaClinicalUserClient.class));
+        servletContextEvent.getServletContext().addListener(
+                new ClientSessionListener(EurekaClinicalRegistryClient.class));
         servletContextEvent.getServletContext().setAttribute(
                 "userWebAppProperties", this.userWebAppProperties);
     }
