@@ -26,8 +26,8 @@
         <ec-user-client-version>1.0-Alpha-26</ec-user-client-version>
         <ec-user-service-version>1.0-Alpha-26</ec-user-service-version>
         <ec-common-version>2.0-Alpha-30</ec-common-version>
-        <ec-registry-client-version>1.0-Alpha-3</ec-registry-client-version>
-        <ec-registry-service-version>1.0-Alpha-6</ec-registry-service-version>
+        <ec-registry-client-version>1.0-Alpha-4</ec-registry-client-version>
+        <ec-registry-service-version>1.0-Alpha-7</ec-registry-service-version>
     </properties>
 
     <scm>
