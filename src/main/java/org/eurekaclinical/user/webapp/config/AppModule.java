@@ -65,7 +65,7 @@ public class AppModule extends AbstractModule {
 
     @Override
     protected void configure() {
-        bind(RouterTable.class).to(ServiceClientRouterTable.class);
+        bind(RouterTable.class).to(ServiceClientRouterTable.class).in(SessionScoped.class);
         bind(AuthorizingEurekaClinicalClient.class).toProvider(this.clientProvider).in(SessionScoped.class);
         bind(EurekaClinicalUserClient.class).toProvider(this.clientProvider).in(SessionScoped.class);
         bind(EurekaClinicalRegistryClient.class).toProvider(this.registryClientProvider).in(SessionScoped.class);

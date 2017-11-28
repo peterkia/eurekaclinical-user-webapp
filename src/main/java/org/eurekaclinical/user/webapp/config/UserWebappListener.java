@@ -47,9 +47,7 @@ public class UserWebappListener extends GuiceServletContextListener {
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         super.contextInitialized(servletContextEvent);
         servletContextEvent.getServletContext().addListener(
-                new ClientSessionListener(EurekaClinicalUserClient.class));
-        servletContextEvent.getServletContext().addListener(
-                new ClientSessionListener(EurekaClinicalRegistryClient.class));
+                new ClientSessionListener());
         servletContextEvent.getServletContext().setAttribute(
                 "userWebAppProperties", this.userWebAppProperties);
     }
