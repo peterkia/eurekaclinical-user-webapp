@@ -27,8 +27,6 @@ import javax.servlet.ServletContextEvent;
 import org.eurekaclinical.common.config.ClientSessionListener;
 
 import org.eurekaclinical.common.config.InjectorSupport;
-import org.eurekaclinical.registry.client.EurekaClinicalRegistryClient;
-import org.eurekaclinical.user.client.EurekaClinicalUserClient;
 
 /**
  *
