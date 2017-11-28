@@ -19,7 +19,6 @@
  */
 package org.eurekaclinical.user.webapp.config;
 
-import java.net.URI;
 import org.eurekaclinical.standardapis.props.CasEurekaClinicalProperties;
 
 /**
