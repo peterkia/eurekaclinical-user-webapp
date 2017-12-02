@@ -117,12 +117,6 @@
                             </c:when>
                             <c:otherwise>
                                 <li><a href="${eurekaWebappUrl}">Eureka!</a></li>
-                                <li>
-                                    <a href="${eurekaWebappUrl}/protected/login">
-                                        <i class="fa fa-sign-in"></i>
-                                        Login
-                                    </a>
-                                </li>
                             </c:otherwise>
                         </c:choose>
                     </ul>

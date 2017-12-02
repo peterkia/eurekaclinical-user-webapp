@@ -245,7 +245,6 @@
                 src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
                 <script type="text/javascript"
                 src="${pageContext.request.contextPath}/assets/js/eureka.registration${initParam['ec-build-timestamp']}.js"></script>
-                <script>var ctx = "${eurekaWebappURL}/protected/login"</script>                
                 <script type="text/javascript">
                     $(document).ready(function () {
                         eureka.registration.setup($('#signupForm'), $('#agreementAnchor'), $('#agreementModal'));

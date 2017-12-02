@@ -156,7 +156,7 @@ window.eureka.registration = new function () {
                 error: function (xhr, err) {
                     $('#passwordChangeFailure').show();
                     if (xhr.status == "409") {
-                        $('#passwordErrorMessage').html("Account already exists! You may go ahead and <a href='" + ctx + "'>login</a>.");
+                        $('#passwordErrorMessage').html("Account already exists!");
                     } else if (xhr.status == "400") {
                         $('#passwordErrorMessage').html("Please review your profile and complete all required fields.");
                     } else {
