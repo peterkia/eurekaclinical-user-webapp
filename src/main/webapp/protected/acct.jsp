@@ -29,7 +29,7 @@
             <%=request.getAttribute("passwordExpiration")%>
             <br>
         </div>
-        <form id="userInfoForm" action="#" method="POST" role="form">                 
+        <form id="userInfoForm" method="POST" role="form">                 
             <input type="hidden" name="fullName" id="fullName" value="${user.fullName}" />
             <input type="hidden" name="username" id="username" value="${user.username}" />                        
             <div class="row">
@@ -171,7 +171,7 @@
         </c:if>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/eureka.account${initParam['ec-build-timestamp']}.js"></script>
-        <script>var ctx = "${eurekaWebappUrl}/#/index"</script>
+        <script>var ctx = "${eurekaWebappUrl}"</script>
         <script type="text/javascript">
             $(document).ready(function () {
 

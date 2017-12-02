@@ -57,7 +57,6 @@ window.eureka.account = new function () {
 
     self.validator = $("#userInfoForm").validate({
         errorElement: 'span',
-        errorClass: null,
         rules: {
             firstName: "required",
             lastName: "required",
