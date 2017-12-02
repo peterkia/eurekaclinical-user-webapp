@@ -92,6 +92,12 @@ class ServletModule extends AbstractAuthorizingServletModule {
     }
 
     @Override
+    protected void setupFilters() {
+        super.setupFilters();
+        filterRegex("^/(?!proxy-resource).*").through(AttributeFilter.class);
+    }
+
+    @Override
     protected Map<String, String> getCasValidationFilterInitParams() {
         Map<String, String> params = new HashMap<>();
         params.put("casServerUrlPrefix", this.properties.getCasUrl());

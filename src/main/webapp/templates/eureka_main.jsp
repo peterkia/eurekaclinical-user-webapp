@@ -63,8 +63,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="${eurekaWebappURL}" class="navbar-brand">
-                        <span class="brand-text">Eureka!</span>
+                    <a href="" class="navbar-brand">
+                        <span class="brand-text">User Accounts</span>
                     </a>
                 </div>
                 <div class="navbar-collapse collapse">
@@ -106,6 +106,7 @@
                                                 </a>
                                             </li>
                                         </c:if>
+                                        <li><a href="${eurekaWebappUrl}">Eureka!</a></li>
                                         <li><a href="${pageContext.request.contextPath}/logout" class="idletimeout-logout">
                                                 <i class="fa fa-sign-out"></i>
                                                 Logout
@@ -115,8 +116,9 @@
                                 </li>
                             </c:when>
                             <c:otherwise>
+                                <li><a href="${eurekaWebappUrl}">Eureka!</a></li>
                                 <li>
-                                    <a href="${eurekaWebappURL}/protected/login">
+                                    <a href="${eurekaWebappUrl}/protected/login">
                                         <i class="fa fa-sign-in"></i>
                                         Login
                                     </a>
