@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eurekaclinical.common.config.AbstractAuthorizingServletModule;
+import org.eurekaclinical.common.config.WebappServletModule;
 
 import org.eurekaclinical.common.servlet.DestroySessionServlet;
 import org.eurekaclinical.common.servlet.LogoutServlet;
@@ -41,20 +42,15 @@ import org.eurekaclinical.user.webapp.servlet.oauth.GoogleRegistrationOAuthCallb
  *
  * @author miaoai
  */
-class ServletModule extends AbstractAuthorizingServletModule {
-
-    private final UserWebappProperties properties;
+public class ServletModule extends WebappServletModule {
 
     public ServletModule(UserWebappProperties inProperties) {
         super(inProperties);
-        this.properties = inProperties;
     }
 
     @Override
     protected void setupServlets() {
-        serve("/logout").with(LogoutServlet.class);
-        serve("/proxy-resource/*").with(ProxyServlet.class);
-        serve("/destroy-session").with(DestroySessionServlet.class);
+        super.setupServlets();
         serve("/chooseaccounttype").with(ChooseAccountTypeServlet.class);
         serve("/register").with(RegisterUserServlet.class);
         serve("/protected/user_acct").with(UserAcctManagerServlet.class);
@@ -75,13 +71,4 @@ class ServletModule extends AbstractAuthorizingServletModule {
         filterRegex("^/(?!proxy-resource).*").through(AttributeFilter.class);
     }
 
-    @Override
-    protected Map<String, String> getCasValidationFilterInitParams() {
-        Map<String, String> params = new HashMap<>();
-        params.put("casServerUrlPrefix", this.properties.getCasUrl());
-        params.put("serverName", this.properties.getProxyCallbackServer());
-        params.put("proxyCallbackUrl", getCasProxyCallbackUrl());
-        params.put("proxyReceptorUrl", getCasProxyCallbackPath());
-        return params;
-    }
 }
