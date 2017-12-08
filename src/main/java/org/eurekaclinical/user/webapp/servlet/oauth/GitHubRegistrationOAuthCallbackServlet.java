@@ -20,6 +20,7 @@
 package org.eurekaclinical.user.webapp.servlet.oauth;
 
 import com.google.inject.Inject;
+import javax.inject.Singleton;
 
 import org.eurekaclinical.scribeupext.profile.GitHubProfile;
 import org.eurekaclinical.scribeupext.provider.GitHubProvider;
@@ -28,7 +29,10 @@ import org.eurekaclinical.scribeupext.provider.GitHubProvider;
  *
  * @author miaoai
  */
+@Singleton
 public class GitHubRegistrationOAuthCallbackServlet extends AbstractOAuthRegistrationCallbackServlet<GitHubProfile> {
+
+    private static final long serialVersionUID = 1L;
 
     @Inject
     public GitHubRegistrationOAuthCallbackServlet(GitHubProvider inProvider) {

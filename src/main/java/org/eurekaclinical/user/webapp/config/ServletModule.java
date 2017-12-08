@@ -22,7 +22,6 @@ package org.eurekaclinical.user.webapp.config;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.google.inject.Singleton;
 import org.eurekaclinical.common.config.AbstractAuthorizingServletModule;
 
 import org.eurekaclinical.common.servlet.DestroySessionServlet;
@@ -44,8 +43,6 @@ import org.eurekaclinical.user.webapp.servlet.oauth.GoogleRegistrationOAuthCallb
  */
 class ServletModule extends AbstractAuthorizingServletModule {
 
-    private static final String LOGOUT_PATH = "/logout";
-
     private final UserWebappProperties properties;
 
     public ServletModule(UserWebappProperties inProperties) {
@@ -55,37 +52,18 @@ class ServletModule extends AbstractAuthorizingServletModule {
 
     @Override
     protected void setupServlets() {
-        bind(LogoutServlet.class).in(Singleton.class);
-        serve(LOGOUT_PATH).with(LogoutServlet.class);
-
+        serve("/logout").with(LogoutServlet.class);
         serve("/proxy-resource/*").with(ProxyServlet.class);
-
         serve("/destroy-session").with(DestroySessionServlet.class);
-
-        bind(ChooseAccountTypeServlet.class).in(Singleton.class);
         serve("/chooseaccounttype").with(ChooseAccountTypeServlet.class);
-
-        bind(RegisterUserServlet.class).in(Singleton.class);
         serve("/register").with(RegisterUserServlet.class);
-
-        bind(UserAcctManagerServlet.class).in(Singleton.class);
         serve("/protected/user_acct").with(UserAcctManagerServlet.class);
-
-        bind(VerifyUserServlet.class).in(Singleton.class);
         serve("/verify").with(VerifyUserServlet.class);
-
-        bind(AdminManagerServlet.class).in(Singleton.class);
         serve("/protected/admin").with(AdminManagerServlet.class);
-
-        bind(GitHubRegistrationOAuthCallbackServlet.class).in(Singleton.class);
         serve("/registrationoauthgithubcallback").with(
                 GitHubRegistrationOAuthCallbackServlet.class);
-
-        bind(GoogleRegistrationOAuthCallbackServlet.class).in(Singleton.class);
         serve("/registrationoauthgooglecallback").with(
                 GoogleRegistrationOAuthCallbackServlet.class);
-
-        bind(GlobusRegistrationOAuthCallbackServlet.class).in(Singleton.class);
         serve("/registrationoauthglobuscallback").with(
                 GlobusRegistrationOAuthCallbackServlet.class);
 
