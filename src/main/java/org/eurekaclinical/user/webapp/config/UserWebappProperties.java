@@ -19,6 +19,7 @@
  */
 package org.eurekaclinical.user.webapp.config;
 
+import java.util.List;
 import org.eurekaclinical.standardapis.props.CasEurekaClinicalProperties;
 
 /**
@@ -35,8 +36,8 @@ public class UserWebappProperties extends CasEurekaClinicalProperties {
         return this.getValue("eurekaclinical.userservice.url");
     }
 
-    public String getEurekaWebappUrl() {
-        return this.getValue("eureka.webapp.url");
+    public String getAnalyticsWebClientUrl() {
+        return this.getValue("eurekaclinical.analyticswebclient.url");
     }
 
     public String getEurekaServicesUrl() {
@@ -106,7 +107,7 @@ public class UserWebappProperties extends CasEurekaClinicalProperties {
 
     /**
      * Gets the service's base URL.
-     * 
+     *
      * @return the service's base URL.
      */
     @Override
@@ -116,6 +117,11 @@ public class UserWebappProperties extends CasEurekaClinicalProperties {
 
     public String getRegistryServiceUrl() {
         return getValue("eurekaclinical.registryservice.url");
+    }
+
+    @Override
+    public List<String> getAllowedWebClientUrls() {
+        return getStringListValue("eurekaclinical.userwebapp.allowedwebclients");
     }
 
 }

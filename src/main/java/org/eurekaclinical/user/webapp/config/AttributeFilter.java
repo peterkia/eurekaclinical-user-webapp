@@ -55,7 +55,7 @@ public class AttributeFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest sr, ServletResponse sr1, FilterChain fc) throws IOException, ServletException {
-        sr.setAttribute("eurekaWebappUrl", this.properties.getEurekaWebappUrl());
+        sr.setAttribute("eurekaWebappUrl", this.properties.getAnalyticsWebClientUrl());
         if (((HttpServletRequest) sr).getRemoteUser() != null) {
             try {
                 sr.setAttribute("user", this.clientProvider.get().getMe());
