@@ -278,7 +278,7 @@
                                 </configuration>
                             </execution>
                             <execution>
-                                <id>copy-sql-from-eurekaclinical-registry-service</id>
+                                <id>copy-sql-from-eurekaclinical-registry-service-1</id>
                                 <phase>generate-resources</phase>
                                 <goals>
                                     <goal>unpack</goal>
@@ -296,6 +296,101 @@
                                     <outputDirectory>${project.build.directory}/ec-registry-service-config</outputDirectory>
                                 </configuration>
                             </execution>
+                            <execution>
+                                <id>copy-sql-from-eurekaclinical-registry-service-2</id>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>unpack</goal>
+                                </goals>
+                                <configuration>
+                                    <artifactItems>
+                                        <artifactItem>
+                                            <groupId>org.eurekaclinical</groupId>
+                                            <artifactId>eurekaclinical-registry-service</artifactId>
+                                            <version>${ec-registry-service-version}</version>
+                                            <type>war</type>
+                                        </artifactItem>
+                                    </artifactItems>
+                                    <includes>WEB-INF/classes/dbmigration/registry-changelog-ec-cas-server-config.xml</includes>
+                                    <outputDirectory>${project.build.directory}/ec-registry-service-config</outputDirectory>
+                                </configuration>
+                            </execution>    
+                            <execution>
+                                <id>copy-sql-from-eurekaclinical-registry-service-3</id>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>unpack</goal>
+                                </goals>
+                                <configuration>
+                                    <artifactItems>
+                                        <artifactItem>
+                                            <groupId>org.eurekaclinical</groupId>
+                                            <artifactId>eurekaclinical-registry-service</artifactId>
+                                            <version>${ec-registry-service-version}</version>
+                                            <type>war</type>
+                                        </artifactItem>
+                                    </artifactItems>
+                                    <includes>WEB-INF/classes/dbmigration/registry-changelog-ec-i2b2-integration-config.xml</includes>
+                                    <outputDirectory>${project.build.directory}/ec-registry-service-config</outputDirectory>
+                                </configuration>
+                            </execution> 
+                            <execution>
+                                <id>copy-sql-from-eurekaclinical-registry-service-4</id>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>unpack</goal>
+                                </goals>
+                                <configuration>
+                                    <artifactItems>
+                                        <artifactItem>
+                                            <groupId>org.eurekaclinical</groupId>
+                                            <artifactId>eurekaclinical-registry-service</artifactId>
+                                            <version>${ec-registry-service-version}</version>
+                                            <type>war</type>
+                                        </artifactItem>
+                                    </artifactItems>
+                                    <includes>WEB-INF/classes/dbmigration/registry-changelog-ec-user-agreement-config.xml</includes>
+                                    <outputDirectory>${project.build.directory}/ec-registry-service-config</outputDirectory>
+                                </configuration>
+                            </execution>         
+                            <execution>
+                                <id>copy-sql-from-eurekaclinical-registry-service-5</id>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>unpack</goal>
+                                </goals>
+                                <configuration>
+                                    <artifactItems>
+                                        <artifactItem>
+                                            <groupId>org.eurekaclinical</groupId>
+                                            <artifactId>eurekaclinical-registry-service</artifactId>
+                                            <version>${ec-registry-service-version}</version>
+                                            <type>war</type>
+                                        </artifactItem>
+                                    </artifactItems>
+                                    <includes>WEB-INF/classes/dbmigration/registry-changelog-ec-user-config.xml</includes>
+                                    <outputDirectory>${project.build.directory}/ec-registry-service-config</outputDirectory>
+                                </configuration>
+                            </execution>                                
+                            <execution>
+                                <id>copy-sql-from-eurekaclinical-registry-service-6</id>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>unpack</goal>
+                                </goals>
+                                <configuration>
+                                    <artifactItems>
+                                        <artifactItem>
+                                            <groupId>org.eurekaclinical</groupId>
+                                            <artifactId>eurekaclinical-registry-service</artifactId>
+                                            <version>${ec-registry-service-version}</version>
+                                            <type>war</type>
+                                        </artifactItem>
+                                    </artifactItems>
+                                    <includes>WEB-INF/classes/dbmigration/registry-changelog-eureka-config.xml</includes>
+                                    <outputDirectory>${project.build.directory}/ec-registry-service-config</outputDirectory>
+                                </configuration>
+                            </execution>                                                                                                                                                                                      
                         </executions>
                     </plugin>
                     <plugin>
@@ -303,7 +398,7 @@
                         <artifactId>liquibase-maven-plugin</artifactId>
                         <executions>
                             <execution>
-                                <id>liquibase-populate-db</id>
+                                <id>liquibase-populate-ec-user-service-db</id>
                                 <phase>process-resources</phase>
                                 <goals>
                                     <goal>update</goal>
@@ -314,7 +409,7 @@
                                 </configuration>
                             </execution>
                             <execution>
-                                <id>liquibase-populate-ec-registry-service-db</id>
+                                <id>liquibase-populate-ec-registry-service-db-1</id>
                                 <phase>process-resources</phase>
                                 <goals>
                                     <goal>update</goal>
@@ -324,6 +419,61 @@
                                     <url>jdbc:h2:file:${project.build.directory}/db/ec-registry-service-db</url>
                                 </configuration>
                             </execution>
+                            <execution>
+                                <id>liquibase-populate-ec-registry-service-db-2</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>update</goal>
+                                </goals>
+                                <configuration>
+                                    <changeLogFile>${project.build.directory}/ec-registry-service-config/WEB-INF/classes/dbmigration/registry-changelog-ec-cas-server-config.xml</changeLogFile>
+                                    <url>jdbc:h2:file:${project.build.directory}/db/ec-registry-service-db</url>
+                                </configuration>
+                            </execution>        
+                            <execution>
+                                <id>liquibase-populate-ec-registry-service-db-3</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>update</goal>
+                                </goals>
+                                <configuration>
+                                    <changeLogFile>${project.build.directory}/ec-registry-service-config/WEB-INF/classes/dbmigration/registry-changelog-ec-i2b2-integration-config.xml</changeLogFile>
+                                    <url>jdbc:h2:file:${project.build.directory}/db/ec-registry-service-db</url>
+                                </configuration>
+                            </execution>       
+                            <execution>
+                                <id>liquibase-populate-ec-registry-service-db-4</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>update</goal>
+                                </goals>
+                                <configuration>
+                                    <changeLogFile>${project.build.directory}/ec-registry-service-config/WEB-INF/classes/dbmigration/registry-changelog-ec-user-agreement-config.xml</changeLogFile>
+                                    <url>jdbc:h2:file:${project.build.directory}/db/ec-registry-service-db</url>
+                                </configuration>
+                            </execution>    
+                            <execution>
+                                <id>liquibase-populate-ec-registry-service-db-5</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>update</goal>
+                                </goals>
+                                <configuration>
+                                    <changeLogFile>${project.build.directory}/ec-registry-service-config/WEB-INF/classes/dbmigration/registry-changelog-ec-user-config.xml</changeLogFile>
+                                    <url>jdbc:h2:file:${project.build.directory}/db/ec-registry-service-db</url>
+                                </configuration>
+                            </execution>  
+                            <execution>
+                                <id>liquibase-populate-ec-registry-service-db-6</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>update</goal>
+                                </goals>
+                                <configuration>
+                                    <changeLogFile>${project.build.directory}/ec-registry-service-config/WEB-INF/classes/dbmigration/registry-changelog-eureka-config.xml</changeLogFile>
+                                    <url>jdbc:h2:file:${project.build.directory}/db/ec-registry-service-db</url>
+                                </configuration>
+                            </execution>                                                                                                                           
                         </executions>
                     </plugin>
                 </plugins>
