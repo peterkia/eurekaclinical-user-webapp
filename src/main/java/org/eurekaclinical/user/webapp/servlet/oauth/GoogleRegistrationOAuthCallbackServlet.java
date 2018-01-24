@@ -20,6 +20,7 @@
 package org.eurekaclinical.user.webapp.servlet.oauth;
 
 import com.google.inject.Inject;
+import javax.inject.Singleton;
 
 import org.eurekaclinical.scribeupext.profile.GoogleProfile;
 import org.eurekaclinical.scribeupext.provider.Google2Provider;
@@ -28,7 +29,10 @@ import org.eurekaclinical.scribeupext.provider.Google2Provider;
  *
  * @author miaoai
  */
+@Singleton
 public class GoogleRegistrationOAuthCallbackServlet extends AbstractOAuthRegistrationCallbackServlet<GoogleProfile> {
+
+    private static final long serialVersionUID = 1L;
 
     @Inject
     public GoogleRegistrationOAuthCallbackServlet(Google2Provider inProvider) {

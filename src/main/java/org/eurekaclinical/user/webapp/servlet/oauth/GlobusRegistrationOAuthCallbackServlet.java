@@ -20,6 +20,7 @@
 package org.eurekaclinical.user.webapp.servlet.oauth;
 
 import com.google.inject.Inject;
+import javax.inject.Singleton;
 
 import org.eurekaclinical.scribeupext.profile.GlobusProfile;
 import org.eurekaclinical.scribeupext.provider.GlobusProvider;
@@ -28,7 +29,10 @@ import org.eurekaclinical.scribeupext.provider.GlobusProvider;
  *
  * @author miaoai
  */
+@Singleton
 public class GlobusRegistrationOAuthCallbackServlet extends AbstractOAuthRegistrationCallbackServlet<GlobusProfile> {
+
+    private static final long serialVersionUID = 1L;
 
     @Inject
     public GlobusRegistrationOAuthCallbackServlet(GlobusProvider inProvider) {
