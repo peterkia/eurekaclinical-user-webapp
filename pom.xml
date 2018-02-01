@@ -295,102 +295,36 @@
                                     <includes>WEB-INF/classes/dbmigration/changelog-master.xml</includes>
                                     <outputDirectory>${project.build.directory}/ec-registry-service-config</outputDirectory>
                                 </configuration>
-                            </execution>
+                            </execution>                  
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <executions>
                             <execution>
                                 <id>copy-sql-from-eurekaclinical-registry-service-2</id>
                                 <phase>generate-resources</phase>
                                 <goals>
-                                    <goal>unpack</goal>
+                                    <goal>copy-resources</goal>
                                 </goals>
                                 <configuration>
-                                    <artifactItems>
-                                        <artifactItem>
-                                            <groupId>org.eurekaclinical</groupId>
-                                            <artifactId>eurekaclinical-registry-service</artifactId>
-                                            <version>${ec-registry-service-version}</version>
-                                            <type>war</type>
-                                        </artifactItem>
-                                    </artifactItems>
-                                    <includes>WEB-INF/classes/dbmigration/registry-changelog-ec-cas-server-config.xml</includes>
-                                    <outputDirectory>${project.build.directory}/ec-registry-service-config</outputDirectory>
+                                    <outputDirectory>${project.build.directory}/ec-registry-service-config/WEB-INF/classes/dbmigration</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>${basedir}/src/main/resources/tomcat-eureka-config/dbmigration</directory>
+                                            <includes>
+                                                <include>registry-changelog-ec-cas-server-config.xml</include>
+                                                <include>registry-changelog-ec-i2b2-integration-config.xml</include>
+                                                <include>registry-changelog-ec-user-agreement-config.xml</include>
+                                                <include>registry-changelog-ec-user-config.xml</include>
+                                                <include>registry-changelog-eureka-config.xml</include>
+                                            </includes>
+                                            <filtering>true</filtering>
+                                        </resource>
+                                    </resources>
                                 </configuration>
-                            </execution>    
-                            <execution>
-                                <id>copy-sql-from-eurekaclinical-registry-service-3</id>
-                                <phase>generate-resources</phase>
-                                <goals>
-                                    <goal>unpack</goal>
-                                </goals>
-                                <configuration>
-                                    <artifactItems>
-                                        <artifactItem>
-                                            <groupId>org.eurekaclinical</groupId>
-                                            <artifactId>eurekaclinical-registry-service</artifactId>
-                                            <version>${ec-registry-service-version}</version>
-                                            <type>war</type>
-                                        </artifactItem>
-                                    </artifactItems>
-                                    <includes>WEB-INF/classes/dbmigration/registry-changelog-ec-i2b2-integration-config.xml</includes>
-                                    <outputDirectory>${project.build.directory}/ec-registry-service-config</outputDirectory>
-                                </configuration>
-                            </execution> 
-                            <execution>
-                                <id>copy-sql-from-eurekaclinical-registry-service-4</id>
-                                <phase>generate-resources</phase>
-                                <goals>
-                                    <goal>unpack</goal>
-                                </goals>
-                                <configuration>
-                                    <artifactItems>
-                                        <artifactItem>
-                                            <groupId>org.eurekaclinical</groupId>
-                                            <artifactId>eurekaclinical-registry-service</artifactId>
-                                            <version>${ec-registry-service-version}</version>
-                                            <type>war</type>
-                                        </artifactItem>
-                                    </artifactItems>
-                                    <includes>WEB-INF/classes/dbmigration/registry-changelog-ec-user-agreement-config.xml</includes>
-                                    <outputDirectory>${project.build.directory}/ec-registry-service-config</outputDirectory>
-                                </configuration>
-                            </execution>         
-                            <execution>
-                                <id>copy-sql-from-eurekaclinical-registry-service-5</id>
-                                <phase>generate-resources</phase>
-                                <goals>
-                                    <goal>unpack</goal>
-                                </goals>
-                                <configuration>
-                                    <artifactItems>
-                                        <artifactItem>
-                                            <groupId>org.eurekaclinical</groupId>
-                                            <artifactId>eurekaclinical-registry-service</artifactId>
-                                            <version>${ec-registry-service-version}</version>
-                                            <type>war</type>
-                                        </artifactItem>
-                                    </artifactItems>
-                                    <includes>WEB-INF/classes/dbmigration/registry-changelog-ec-user-config.xml</includes>
-                                    <outputDirectory>${project.build.directory}/ec-registry-service-config</outputDirectory>
-                                </configuration>
-                            </execution>                                
-                            <execution>
-                                <id>copy-sql-from-eurekaclinical-registry-service-6</id>
-                                <phase>generate-resources</phase>
-                                <goals>
-                                    <goal>unpack</goal>
-                                </goals>
-                                <configuration>
-                                    <artifactItems>
-                                        <artifactItem>
-                                            <groupId>org.eurekaclinical</groupId>
-                                            <artifactId>eurekaclinical-registry-service</artifactId>
-                                            <version>${ec-registry-service-version}</version>
-                                            <type>war</type>
-                                        </artifactItem>
-                                    </artifactItems>
-                                    <includes>WEB-INF/classes/dbmigration/registry-changelog-eureka-config.xml</includes>
-                                    <outputDirectory>${project.build.directory}/ec-registry-service-config</outputDirectory>
-                                </configuration>
-                            </execution>                                                                                                                                                                                      
+                            </execution>
                         </executions>
                     </plugin>
                     <plugin>
