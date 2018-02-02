@@ -74,5 +74,11 @@
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='WEBAPP')"/>
 	</insert>
     </changeSet>   
+    <changeSet author="mai" id="EC-ANALYTICS-WEBCLIENT-1">
+    	<update tableName="COMPONENTS">
+            <column name="icon" value='{"small":"eureka-analytics-s.png"}'/>
+            <where>Name = 'Eureka! Clinical Analytics'</where>              
+	</update>
+    </changeSet>
     <!--{% endif %}-->                             
 </databaseChangeLog>
