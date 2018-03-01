@@ -27,8 +27,8 @@
         <ec-user-service-version>1.0.1</ec-user-service-version>
         <ec-common-version>2.0</ec-common-version>
         <ec-standard-apis-version>2.0</ec-standard-apis-version>
-        <ec-registry-client-version>1.0</ec-registry-client-version>
-        <ec-registry-service-version>1.0</ec-registry-service-version>
+        <ec-registry-client-version>1.1-Beta-1</ec-registry-client-version>
+        <ec-registry-service-version>1.2-Beta-1</ec-registry-service-version>
         <scribe-up-ext-version>2.0</scribe-up-ext-version>
     </properties>
 
