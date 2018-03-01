@@ -63,15 +63,7 @@
 	    <column name="DESCRIPTION" value="i2b2 user account, project, and domain administration"/>
 	    <column name="URL" value="{{i2b2_adminclient_public_url}}"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='EXTERNAL')"/>
-	</insert>
+            <column name="ICON" value='{"small":"i2b2-s.png"}'/>
+        </insert>
     </changeSet>
-    
-        
-    <changeSet author="mai" id="EC-I2B2-1">
-	<update tableName="COMPONENTS">
-            <column name="icon" value='{"small":"i2b2-s.png"}'/>
-            <where>Name = 'i2b2 admin client'</where>              
-	</update>
-    </changeSet>
-    
 </databaseChangeLog>
