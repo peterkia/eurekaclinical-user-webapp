@@ -67,7 +67,7 @@
     </changeSet>
     
         
-    <changeSet author="mai" id="EC-I2B2-1-icon">
+    <changeSet author="mai" id="EC-I2B2-1">
 	<update tableName="COMPONENTS">
             <column name="icon" value='{"small":"i2b2-s.png"}'/>
             <where>Name = 'i2b2 admin client'</where>              

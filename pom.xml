@@ -28,7 +28,7 @@
         <ec-common-version>2.0-Alpha-40</ec-common-version>
         <ec-standard-apis-version>2.0-Alpha-19</ec-standard-apis-version>
         <ec-registry-client-version>1.0-Alpha-4</ec-registry-client-version>
-        <ec-registry-service-version>1.0-Alpha-11</ec-registry-service-version>
+        <ec-registry-service-version>1.0-Alpha-10</ec-registry-service-version>
         <scribe-up-ext-version>2.0-Beta-2</scribe-up-ext-version>
     </properties>
 

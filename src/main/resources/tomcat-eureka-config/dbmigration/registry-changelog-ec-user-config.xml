@@ -53,4 +53,11 @@
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='WEBAPP')"/>
 	</insert>
     </changeSet>
+    
+    <changeSet author="mai" id="EC-USER-1">
+	<update tableName="COMPONENTS">
+            <column name="icon" value='{"small":"eureka-user-portal-s.png"}'/>
+            <where>Name = 'Eureka! Clinical Portal'</where>              
+	</update>        
+    </changeSet>    
 </databaseChangeLog>
