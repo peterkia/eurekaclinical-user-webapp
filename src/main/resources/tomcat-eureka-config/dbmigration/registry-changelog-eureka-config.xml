@@ -65,7 +65,7 @@
 	    <column name="DESCRIPTION" value="Clinical phenotyping and ETL system"/>
 	    <column name="URL" value="{{ec_analytics_webclient_base_url}}"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='WEBAPP')"/>
-            <column name="icon" value='{"small":"eureka-analytics-s.png"}'/>
+            <column name="ICON" value='{"small":"eureka-analytics-s.png"}'/>
 	</insert>
     </changeSet>
 </databaseChangeLog>
