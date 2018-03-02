@@ -33,7 +33,7 @@
 	    <column name="NAME" value="Eureka! Clinical User Service"/>
 	    <column name="DISPLAYNAME" value="User Service"/>
 	    <column name="DESCRIPTION" value="User portal and profile management"/>
-	    <column name="URL" value="{{ec_user_service_base_url}}"/>
+	    <column name="URL" value="https://localhost:4200/eurekaclinical-user-service"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='SERVICE')"/>
 	</insert>
 	<insert tableName="COMPONENTS">
@@ -41,7 +41,7 @@
 	    <column name="NAME" value="Eureka! Clinical User Webapp"/>
 	    <column name="DISPLAYNAME" value="User Webapp"/>
 	    <column name="DESCRIPTION" value="API gateway for the Portal"/>
-	    <column name="URL" value="{{ec_user_webapp_base_url}}"/>
+	    <column name="URL" value="https://localhost:4200/eurekaclinical-user-webapp"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='APIGATEWAY')"/>
 	</insert>
 	<insert tableName="COMPONENTS">
@@ -49,7 +49,7 @@
 	    <column name="NAME" value="Eureka! Clinical Portal"/>
 	    <column name="DISPLAYNAME" value="Portal"/>
 	    <column name="DESCRIPTION" value="User portal and profile management"/>
-	    <column name="URL" value="{{ec_user_webapp_base_url}}"/>
+	    <column name="URL" value="https://localhost:4200"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='WEBAPP')"/>
 	</insert>
     </changeSet>

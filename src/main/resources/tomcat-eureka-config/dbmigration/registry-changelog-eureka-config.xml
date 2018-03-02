@@ -34,7 +34,7 @@
 	    <column name="NAME" value="Eureka! Clinical Analytics Webapp"/>
 	    <column name="DISPLAYNAME" value="Analytics Webapp"/>
 	    <column name="DESCRIPTION" value="API gateway for Eureka! Clinical Analytics"/>
-	    <column name="URL" value="{{eureka_webapp_server_base_url}}"/>
+	    <column name="URL" value="https://localhost:4200/eureka-webapp"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='APIGATEWAY')"/>
 	</insert>
     </changeSet>
@@ -46,7 +46,7 @@
 	    <column name="NAME" value="Eureka! Clinical Analytics Service"/>
 	    <column name="DISPLAYNAME" value="Analytics Service"/>
 	    <column name="DESCRIPTION" value="REST APIs for Eureka! Clinical Analytics"/>
-	    <column name="URL" value="{{eureka_services_base_url}}"/>
+	    <column name="URL" value="https://localhost:4200/eureka-service"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='SERVICE')"/>
 	</insert>
     </changeSet>
@@ -58,7 +58,7 @@
 	    <column name="NAME" value="Eureka! Clinical ETL Service"/>
 	    <column name="DISPLAYNAME" value="ETL Service"/>
 	    <column name="DESCRIPTION" value="ETL REST APIs"/>
-	    <column name="URL" value="{{eureka_backend_base_url}}"/>
+	    <column name="URL" value="https://localhost:4200/eureka-protempa-etl"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='SERVICE')"/>
 	</insert>
     </changeSet>
@@ -70,7 +70,7 @@
 	    <column name="NAME" value="Eureka! Clinical Analytics"/>
 	    <column name="DISPLAYNAME" value="Analytics"/>
 	    <column name="DESCRIPTION" value="Clinical phenotyping and ETL system"/>
-	    <column name="URL" value="{{ec_analytics_webclient_base_url}}"/>
+	    <column name="URL" value="https://localhost:4200/"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='WEBAPP')"/>
 	</insert>
     </changeSet>   
