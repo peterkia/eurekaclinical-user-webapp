@@ -3,7 +3,7 @@
     <groupId>org.eurekaclinical</groupId>    
     <artifactId>eurekaclinical-user-webapp</artifactId>
     <packaging>war</packaging>
-    <version>1.0-Alpha-48-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <name>Eureka! Clinical User Webapp</name>
     <description>Eureka! Clinical User Webapp is the implementation of Eureka! Clinical User 
         web interface that is used by Eureka! Clinical multiple projects
@@ -13,7 +13,7 @@
     <parent>
         <groupId>org.eurekaclinical</groupId>
         <artifactId>eurekaclinical-parent-standard-deps</artifactId>
-        <version>2-Beta-4</version>
+        <version>2</version>
     </parent>        
         
     <properties>
@@ -23,13 +23,13 @@
         <ec.build.timestamp>${maven.build.timestamp}</ec.build.timestamp>
         <jstl-version>1.2</jstl-version>
         <jsp-api-version>2.0</jsp-api-version>
-        <ec-user-client-version>1.0-Alpha-26</ec-user-client-version>
-        <ec-user-service-version>1.0-Alpha-33</ec-user-service-version>
-        <ec-common-version>2.0-Alpha-40</ec-common-version>
-        <ec-standard-apis-version>2.0-Alpha-19</ec-standard-apis-version>
-        <ec-registry-client-version>1.0-Alpha-4</ec-registry-client-version>
-        <ec-registry-service-version>1.0-Alpha-11</ec-registry-service-version>
-        <scribe-up-ext-version>2.0-Beta-2</scribe-up-ext-version>
+        <ec-user-client-version>1.0</ec-user-client-version>
+        <ec-user-service-version>1.0.1</ec-user-service-version>
+        <ec-common-version>2.0</ec-common-version>
+        <ec-standard-apis-version>2.0</ec-standard-apis-version>
+        <ec-registry-client-version>1.1-Beta-1</ec-registry-client-version>
+        <ec-registry-service-version>1.2-Beta-1</ec-registry-service-version>
+        <scribe-up-ext-version>2.0</scribe-up-ext-version>
     </properties>
 
     <scm>
@@ -111,8 +111,8 @@
         <profile>
             <id>tomcat</id>
             <properties>
-                <cas-mock-version>1.0</cas-mock-version>
                 <cas-server-version>3.0-Alpha-26</cas-server-version>
+                <cas-mock-version>2.0</cas-mock-version>
                 <tomcat.httpsPort>8443</tomcat.httpsPort>
             </properties>
             <build>
@@ -190,6 +190,29 @@
                                     <resources>
                                         <resource>
                                             <directory>${basedir}/src/main/resources/tomcat-eureka-config/eureka</directory>
+                                            <filtering>true</filtering>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>copy-sql-from-eurekaclinical-registry-service-2</id>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${project.build.directory}/ec-registry-service-config/WEB-INF/classes/dbmigration</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>${basedir}/src/main/resources/tomcat-eureka-config/dbmigration</directory>
+                                            <includes>
+                                                <include>registry-changelog-ec-cas-server-config.xml</include>
+                                                <include>registry-changelog-ec-i2b2-integration-config.xml</include>
+                                                <include>registry-changelog-ec-user-agreement-config.xml</include>
+                                                <include>registry-changelog-ec-user-config.xml</include>
+                                                <include>registry-changelog-eureka-config.xml</include>
+                                            </includes>
                                             <filtering>true</filtering>
                                         </resource>
                                     </resources>
