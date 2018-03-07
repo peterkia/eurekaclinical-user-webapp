@@ -35,6 +35,7 @@
 	    <column name="DESCRIPTION" value="Authentication for Eureka! Clinical"/>
 	    <column name="URL" value="https://localhost:4200/cas-server"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='WEBPAGE')"/>
+            <column name="ICON" value='{"small":"eureka-s.png","medium":"eureka-m.png","large":"eureka-l.png"}'/>
 	</insert>
     </changeSet>
 </databaseChangeLog>

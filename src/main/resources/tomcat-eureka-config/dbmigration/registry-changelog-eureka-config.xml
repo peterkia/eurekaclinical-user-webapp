@@ -36,6 +36,7 @@
 	    <column name="DESCRIPTION" value="API gateway for Eureka! Clinical Analytics"/>
 	    <column name="URL" value="https://localhost:4200/eureka-webapp"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='APIGATEWAY')"/>
+            <column name="ICON" value='{"small":"eureka-s.png","medium":"eureka-m.png","large":"eureka-l.png"}'/>
 	</insert>
     </changeSet>
     <!--{% endif %}
@@ -48,6 +49,7 @@
 	    <column name="DESCRIPTION" value="REST APIs for Eureka! Clinical Analytics"/>
 	    <column name="URL" value="https://localhost:4200/eureka-service"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='SERVICE')"/>
+            <column name="ICON" value='{"small":"eureka-s.png","medium":"eureka-m.png","large":"eureka-l.png"}'/>
 	</insert>
     </changeSet>
     <!--{% endif %}
@@ -60,6 +62,7 @@
 	    <column name="DESCRIPTION" value="ETL REST APIs"/>
 	    <column name="URL" value="https://localhost:4200/eureka-protempa-etl"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='SERVICE')"/>
+            <column name="ICON" value='{"small":"eureka-s.png","medium":"eureka-m.png","large":"eureka-l.png"}'/>
 	</insert>
     </changeSet>
     <!--{% endif %}
@@ -72,13 +75,8 @@
 	    <column name="DESCRIPTION" value="Clinical phenotyping and ETL system"/>
 	    <column name="URL" value="https://localhost:4200/"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='WEBAPP')"/>
+            <column name="ICON" value='{"small":"eureka-s.png","medium":"eureka-m.png","large":"eureka-l.png"}'/>
 	</insert>
     </changeSet>   
-    <changeSet author="mai" id="EC-ANALYTICS-WEBCLIENT-1">
-    	<update tableName="COMPONENTS">
-            <column name="icon" value='{"small":"eureka-analytics-s.png"}'/>
-            <where>Name = 'Eureka! Clinical Analytics'</where>              
-	</update>
-    </changeSet>
     <!--{% endif %}-->                             
 </databaseChangeLog>
