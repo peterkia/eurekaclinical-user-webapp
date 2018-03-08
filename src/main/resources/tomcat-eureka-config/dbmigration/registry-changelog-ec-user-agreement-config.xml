@@ -33,24 +33,27 @@
 	    <column name="NAME" value="Eureka! Clinical User Agreement Service"/>
 	    <column name="DISPLAYNAME" value="User Agreement Service"/>
 	    <column name="DESCRIPTION" value="User agreement management"/>
-	    <column name="URL" value="{{ec_user_agreement_service_base_url}}"/>
+	    <column name="URL" value="https://localhost:4200/eurekaclinical-user-agreement-service"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='SERVICE')"/>
+            <column name="ICON" value='{"small":"eureka-s.png","medium":"eureka-m.png","large":"eureka-l.png"}'/>
 	</insert>
 	<insert tableName="COMPONENTS">
 	    <column name="ID" valueSequenceNext="COMPONENT_SEQ"/>
 	    <column name="NAME" value="Eureka! Clinical User Agreement Webapp"/>
 	    <column name="DISPLAYNAME" value="User Agreement Webapp"/>
 	    <column name="DESCRIPTION" value="API gateway for user agreement management"/>
-	    <column name="URL" value="{{ec_user_agreement_webapp_base_url}}"/>
+	    <column name="URL" value="https://localhost:4200/eurekaclinical-user-agreement-webapp"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='APIGATEWAY')"/>
+            <column name="ICON" value='{"small":"eureka-s.png","medium":"eureka-m.png","large":"eureka-l.png"}'/>
 	</insert>
 	<insert tableName="COMPONENTS">
 	    <column name="ID" valueSequenceNext="COMPONENT_SEQ"/>
 	    <column name="NAME" value="Eureka! Clinical User Agreement Page"/>
 	    <column name="DISPLAYNAME" value="User Agreement Page"/>
 	    <column name="DESCRIPTION" value="Allows signing a user agreement"/>
-	    <column name="URL" value="{{ec_user_agreement_webapp_base_url}}"/>
+	    <column name="URL" value="https://localhost:4200/eurekaclinical-user-agreement-webapp"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='WEBPAGE')"/>
+            <column name="ICON" value='{"small":"eureka-s.png","medium":"eureka-m.png","large":"eureka-l.png"}'/>
 	</insert>
     </changeSet>
 </databaseChangeLog>
