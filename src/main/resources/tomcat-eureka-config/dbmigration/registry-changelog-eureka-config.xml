@@ -27,7 +27,6 @@
                          http://www.liquibase.org/xml/ns/dbchangelog
                          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd"
 		   logicalFilePath="changelog-master.xml">
-    <!--{% if eureka_webapp_installed is defined and eureka_webapp_installed %}-->
     <changeSet author="arpost" id="EC-ANALYTICS-WEBAPP-1">
 	<insert tableName="COMPONENTS">
 	    <column name="ID" valueSequenceNext="COMPONENT_SEQ"/>
@@ -39,8 +38,6 @@
             <column name="ICON" value='{"small":"eureka-s.png","medium":"eureka-m.png","large":"eureka-l.png"}'/>
 	</insert>
     </changeSet>
-    <!--{% endif %}
-    {% if eureka_services_installed is defined and eureka_services_installed %}-->   
     <changeSet author="arpost" id="EC-ANALYTICS-SERVICE-1">
 	<insert tableName="COMPONENTS">
 	    <column name="ID" valueSequenceNext="COMPONENT_SEQ"/>
@@ -52,8 +49,6 @@
             <column name="ICON" value='{"small":"eureka-s.png","medium":"eureka-m.png","large":"eureka-l.png"}'/>
 	</insert>
     </changeSet>
-    <!--{% endif %}
-    {% if eureka_backend_installed is defined and eureka_backend_installed %}-->  
     <changeSet author="arpost" id="EC-ETL-SERVICE-1">
 	<insert tableName="COMPONENTS">
 	    <column name="ID" valueSequenceNext="COMPONENT_SEQ"/>
@@ -65,8 +60,6 @@
             <column name="ICON" value='{"small":"eureka-s.png","medium":"eureka-m.png","large":"eureka-l.png"}'/>
 	</insert>
     </changeSet>
-    <!--{% endif %}
-    {% if ec_analytics_webclient_installed is defined and ec_analytics_webclient_installed %}-->    
     <changeSet author="arpost" id="EC-ANALYTICS-WEBCLIENT-1">
 	<insert tableName="COMPONENTS">
 	    <column name="ID" valueSequenceNext="COMPONENT_SEQ"/>
@@ -78,5 +71,4 @@
             <column name="ICON" value='{"small":"eureka-s.png","medium":"eureka-m.png","large":"eureka-l.png"}'/>
 	</insert>
     </changeSet>   
-    <!--{% endif %}-->                             
 </databaseChangeLog>
