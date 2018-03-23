@@ -35,7 +35,9 @@
 	    <column name="DESCRIPTION" value="Management of i2b2 user accounts, domains and projects"/>
 	    <column name="URL" value="https://localhost:4200/eurekaclinical-i2b2-integration-webapp"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='SERVICE')"/>
-            <column name="ICON" value='{"small":"i2b2-s.png","medium":"i2b2-m.png","large":"i2b2-l.png"}'/>
+            <column name="SMALLICON" value="eureka-s.png"/>
+            <column name="MEDIUMICON" value="eureka-m.png"/>
+            <column name="LARGEICON" value="eureka-l.png"/>
 	</insert>
 	<insert tableName="COMPONENTS">
 	    <column name="ID" valueSequenceNext="COMPONENT_SEQ"/>
@@ -44,7 +46,9 @@
 	    <column name="DESCRIPTION" value="API gateway for i2b2 Integration"/>
 	    <column name="URL" value="https://localhost:4200/eurekaclinical-i2b2-integration-webapp"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='APIGATEWAY')"/>
-            <column name="ICON" value='{"small":"i2b2-s.png","medium":"i2b2-m.png","large":"i2b2-l.png"}'/>
+            <column name="SMALLICON" value="eureka-s.png"/>
+            <column name="MEDIUMICON" value="eureka-m.png"/>
+            <column name="LARGEICON" value="eureka-l.png"/>
 	</insert>
     </changeSet>
     <changeSet author="arpost" id="EC-I2B2-1">
@@ -55,7 +59,9 @@
 	    <column name="DESCRIPTION" value="Clinical data query tool"/>
 	    <column name="URL" value="https://localhost:4200/i2b2_webclient"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='EXTERNAL')"/>
-            <column name="ICON" value='{"small":"i2b2-s.png","medium":"i2b2-m.png","large":"i2b2-l.png"}'/>
+            <column name="SMALLICON" value="eureka-s.png"/>
+            <column name="MEDIUMICON" value="eureka-m.png"/>
+            <column name="LARGEICON" value="eureka-l.png"/>
 	</insert>
     </changeSet>
     <changeSet author="arpost" id="EC-I2B2-2">
@@ -66,7 +72,9 @@
 	    <column name="DESCRIPTION" value="i2b2 user account, project, and domain administration"/>
 	    <column name="URL" value="https://localhost:4200/i2b2_adminclient"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='EXTERNAL')"/>
-            <column name="ICON" value='{"small":"i2b2-s.png","medium":"i2b2-m.png","large":"i2b2-l.png"}'/>
+            <column name="SMALLICON" value="i2b2-s.png"/>
+            <column name="MEDIUMICON" value="i2b2-m.png"/>
+            <column name="LARGEICON" value="i2b2-l.png"/>
 	</insert>
     </changeSet>   
 </databaseChangeLog>
