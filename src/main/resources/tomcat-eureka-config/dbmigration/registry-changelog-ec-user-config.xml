@@ -35,7 +35,9 @@
 	    <column name="DESCRIPTION" value="User portal and profile management"/>
 	    <column name="URL" value="https://localhost:4200/eurekaclinical-user-service"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='SERVICE')"/>
-            <column name="ICON" value='{"small":"eureka-s.png","medium":"eureka-m.png","large":"eureka-l.png"}'/>
+            <column name="SMALLICON" value="eureka-s.png"/>
+            <column name="MEDIUMICON" value="eureka-m.png"/>
+            <column name="LARGEICON" value="eureka-l.png"/>
 	</insert>
 	<insert tableName="COMPONENTS">
 	    <column name="ID" valueSequenceNext="COMPONENT_SEQ"/>
@@ -44,7 +46,9 @@
 	    <column name="DESCRIPTION" value="API gateway for the Portal"/>
 	    <column name="URL" value="https://localhost:4200/eurekaclinical-user-webapp"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='APIGATEWAY')"/>
-            <column name="ICON" value='{"small":"eureka-user-webapp-s.png","medium":"eureka-user-webapp-m.png","large":"eureka-user-webapp-l.png"}'/>
+            <column name="SMALLICON" value="eureka-s.png"/>
+            <column name="MEDIUMICON" value="eureka-m.png"/>
+            <column name="LARGEICON" value="eureka-l.png"/>
 	</insert>
 	<insert tableName="COMPONENTS">
 	    <column name="ID" valueSequenceNext="COMPONENT_SEQ"/>
@@ -53,7 +57,9 @@
 	    <column name="DESCRIPTION" value="User portal and profile management"/>
 	    <column name="URL" value="https://localhost:4200"/>
 	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='WEBAPP')"/>
-            <column name="ICON" value='{"small":"eureka-s.png","medium":"eureka-m.png","large":"eureka-l.png"}'/>
-	</insert>
+            <column name="SMALLICON" value="eureka-s.png"/>
+            <column name="MEDIUMICON" value="eureka-m.png"/>
+            <column name="LARGEICON" value="eureka-l.png"/>
+        </insert>
     </changeSet>   
 </databaseChangeLog>
