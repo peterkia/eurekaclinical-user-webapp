@@ -323,35 +323,6 @@
                         </executions>
                     </plugin>
                     <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-resources-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>copy-sql-from-eurekaclinical-registry-service-2</id>
-                                <phase>generate-resources</phase>
-                                <goals>
-                                    <goal>copy-resources</goal>
-                                </goals>
-                                <configuration>
-                                    <outputDirectory>${project.build.directory}/ec-registry-service-config/WEB-INF/classes/dbmigration</outputDirectory>
-                                    <resources>
-                                        <resource>
-                                            <directory>${basedir}/src/main/resources/tomcat-eureka-config/dbmigration</directory>
-                                            <includes>
-                                                <include>registry-changelog-ec-cas-server-config.xml</include>
-                                                <include>registry-changelog-ec-i2b2-integration-config.xml</include>
-                                                <include>registry-changelog-ec-user-agreement-config.xml</include>
-                                                <include>registry-changelog-ec-user-config.xml</include>
-                                                <include>registry-changelog-eureka-config.xml</include>
-                                            </includes>
-                                            <filtering>true</filtering>
-                                        </resource>
-                                    </resources>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
                         <groupId>org.liquibase</groupId>
                         <artifactId>liquibase-maven-plugin</artifactId>
                         <executions>
