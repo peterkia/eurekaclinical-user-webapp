@@ -197,7 +197,7 @@
                             </execution>
                             <execution>
                                 <id>copy-sql-from-eurekaclinical-registry-service-2</id>
-                                <phase>generate-resources</phase>
+                                <phase>process-resources</phase>
                                 <goals>
                                     <goal>copy-resources</goal>
                                 </goals>
