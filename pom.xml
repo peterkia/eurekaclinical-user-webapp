@@ -13,7 +13,7 @@
     <parent>
         <groupId>org.eurekaclinical</groupId>
         <artifactId>eurekaclinical-parent-standard-deps</artifactId>
-        <version>3-Alpha-2-SNAPSHOT</version>
+        <version>3-Alpha-2</version>
     </parent>        
         
     <properties>
