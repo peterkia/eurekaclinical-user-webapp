@@ -30,6 +30,7 @@
         <ec-registry-client-version>1.1-Beta-2</ec-registry-client-version>
         <ec-registry-service-version>1.2-Beta-2</ec-registry-service-version>
         <scribe-up-ext-version>2.0</scribe-up-ext-version>
+        <cas-mock-version>2.0</cas-mock-version>
     </properties>
 
     <scm>
@@ -111,8 +112,6 @@
         <profile>
             <id>tomcat</id>
             <properties>
-                <cas-server-version>3.0-Alpha-26</cas-server-version>
-                <cas-mock-version>2.0</cas-mock-version>
                 <tomcat.httpsPort>8443</tomcat.httpsPort>
             </properties>
             <build>
@@ -219,63 +218,99 @@
                                 </configuration>
                             </execution>
                         </executions>
-                    </plugin>                            
+                    </plugin>
                     <plugin>
-                        <groupId>org.apache.tomcat.maven</groupId>
-                        <artifactId>tomcat7-maven-plugin</artifactId>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.jasig.cas.client</groupId>
-                                <artifactId>cas-client-core</artifactId>
-                                <version>${cas-client-version}</version>                                
-                                <exclusions>
-                                    <exclusion>
-                                        <groupId>javax.servlet</groupId>
-                                        <artifactId>servlet-api</artifactId>
-                                    </exclusion>
-                                </exclusions>                                
-                            </dependency>
-                        </dependencies>
+                        <groupId>org.codehaus.cargo</groupId>
+                        <artifactId>cargo-maven2-plugin</artifactId>
+                        <version>1.6.7</version>
                         <configuration>
-                            <warSourceDirectory>${project.build.directory}/${project.build.finalName}</warSourceDirectory>
-                            <port>${tomcat.port}</port>
-                            <httpsPort>${tomcat.httpsPort}</httpsPort>
-                            <keystorePass>changeit</keystorePass>
-                            <keystoreFile>conf/localhost.keystore</keystoreFile>
-                            <keystoreType>JKS</keystoreType>
-                            <additionalConfigFilesDir>${project.build.directory}/tomcat-config</additionalConfigFilesDir>
-                            <systemProperties>
-                                <org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH>true</org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH>
-                                <javax.net.ssl.trustStore>${project.build.directory}/tomcat/conf/localhost.truststore</javax.net.ssl.trustStore>
-                                <javax.net.ssl.trustStorePassword>changeit</javax.net.ssl.trustStorePassword>
-                                <eureka.config.dir>${project.build.directory}/eureka-config/eureka</eureka.config.dir>
-                                <java.util.logging.config.file>${project.build.directory}/eureka-config/logging.properties</java.util.logging.config.file>
-                            </systemProperties>
-                            <webapps>
-                                <webapp>
+                            <container>
+                                <containerId>tomcat7x</containerId>
+                                <zipUrlInstaller>
+                                    <url>http://repo1.maven.org/maven2/org/apache/tomcat/tomcat/7.0.53/tomcat-7.0.53.zip</url>
+                                </zipUrlInstaller>
+                                <dependencies>
+                                    <dependency>
+                                        <groupId>org.jasig.cas.client</groupId>
+                                        <artifactId>cas-client-core</artifactId>                                
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>commons-logging</groupId>
+                                        <artifactId>commons-logging</artifactId>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>com.sun.mail</groupId>
+                                        <artifactId>javax.mail</artifactId>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>log4j</groupId>
+                                        <artifactId>log4j</artifactId>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>com.h2database</groupId>
+                                        <artifactId>h2</artifactId>
+                                    </dependency>
+                                </dependencies>
+                                <systemProperties>
+                                    <org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH>true</org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH>
+                                    <eureka.config.dir>${project.build.directory}/eureka-config/eureka</eureka.config.dir>
+                                    <java.util.logging.config.file>${project.build.directory}/eureka-config/logging.properties</java.util.logging.config.file>
+                                    <javax.net.ssl.trustStore>conf/localhost.truststore</javax.net.ssl.trustStore>
+                                    <javax.net.ssl.trustStorePass>changeit</javax.net.ssl.trustStorePass>
+                                </systemProperties>
+                            </container>
+                            <configuration>
+                                <home>${project.build.directory}/catalina-base</home>
+                                <properties>
+                                    <cargo.servlet.port>${tomcat.httpsPort}</cargo.servlet.port>
+                                    <cargo.protocol>https</cargo.protocol>
+                                    <cargo.tomcat.connector.clientAuth>false</cargo.tomcat.connector.clientAuth>
+                                    <cargo.tomcat.connector.sslProtocol>TLS</cargo.tomcat.connector.sslProtocol>
+                                    <cargo.tomcat.connector.keystoreFile>conf/localhost.keystore</cargo.tomcat.connector.keystoreFile>
+                                    <cargo.tomcat.connector.keystorePass>changeit</cargo.tomcat.connector.keystorePass>
+                                    <cargo.tomcat.connector.keyAlias>tomcat</cargo.tomcat.connector.keyAlias>
+                                    <cargo.tomcat.httpSecure>true</cargo.tomcat.httpSecure>
+                                </properties>
+                                <configfiles>
+                                    <configfile>
+                                        <file>${project.build.directory}/tomcat-config/context.xml</file>
+                                        <todir>conf</todir>
+                                        <tofile>context.xml</tofile>
+                                    </configfile>
+                                </configfiles>
+                                <files>
+                                    <file>
+                                        <file>${project.build.directory}/tomcat-config/localhost.truststore</file>
+                                        <todir>conf</todir>
+                                        <tofile>localhost.truststore</tofile>
+                                    </file>
+                                    <file>
+                                        <file>${project.build.directory}/tomcat-config/localhost.keystore</file>
+                                        <todir>conf</todir>
+                                        <tofile>localhost.keystore</tofile>
+                                    </file>
+                                </files>
+                            </configuration>
+                            <deployables>
+                                <deployable>
+                                    <location>${project.build.directory}/${project.build.finalName}.${project.packaging}</location>
+                                </deployable>
+                                <deployable>
                                     <groupId>org.eurekaclinical</groupId>
                                     <artifactId>cas-mock</artifactId>
-                                    <version>${cas-mock-version}</version>
                                     <type>war</type>
-                                    <asWebapp>true</asWebapp>
-                                </webapp>
-                                <webapp>
+                                </deployable>
+                                <deployable>
                                     <groupId>org.eurekaclinical</groupId>
                                     <artifactId>eurekaclinical-user-service</artifactId>
-                                    <version>${ec-user-service-version}</version>
                                     <type>war</type>
-                                    <asWebapp>true</asWebapp>
-                                </webapp>
-                                <webapp>
+                                </deployable>
+                                <deployable>
                                     <groupId>org.eurekaclinical</groupId>
                                     <artifactId>eurekaclinical-registry-service</artifactId>
-                                    <version>${ec-registry-service-version}</version>
                                     <type>war</type>
-                                    <asWebapp>true</asWebapp>
-                                </webapp>
-                            </webapps>
-                            <addContextWarDependencies>true</addContextWarDependencies>
-                            <addWarDependenciesInClassloader>false</addWarDependenciesInClassloader>
+                                </deployable>
+                            </deployables>
                         </configuration>
                     </plugin>
                     <plugin>
@@ -407,33 +442,6 @@
                     </plugin>
                 </plugins>
             </build>
-            <!-- We need these dependencies to ensure that webapps are downloaded from their maven repos before
-            the tomcat plugin overwrites the javax.net.ssl.trustStore system property. Otherwise
-            attempts to download artifacts from repositories will fail with certificate validation
-            errors. -->
-            <dependencies>
-                <dependency>
-                    <groupId>org.eurekaclinical</groupId>
-                    <artifactId>cas-mock</artifactId>
-                    <version>${cas-mock-version}</version>
-                    <type>war</type>
-                    <scope>runtime</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.eurekaclinical</groupId>
-                    <artifactId>eurekaclinical-user-service</artifactId>
-                    <version>${ec-user-service-version}</version>
-                    <type>war</type>
-                    <scope>runtime</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.eurekaclinical</groupId>
-                    <artifactId>eurekaclinical-registry-service</artifactId>
-                    <version>${ec-registry-service-version}</version>
-                    <type>war</type>
-                    <scope>runtime</scope>
-                </dependency>
-            </dependencies>
         </profile>
     </profiles>
             
@@ -485,5 +493,60 @@
             <artifactId>eurekaclinical-registry-client</artifactId>
             <version>${ec-registry-client-version}</version>
         </dependency>
+        <dependency>
+                    <groupId>org.eurekaclinical</groupId>
+                    <artifactId>cas-mock</artifactId>
+                    <version>${cas-mock-version}</version>
+                    <type>war</type>
+                    <scope>runtime</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.eurekaclinical</groupId>
+                    <artifactId>eurekaclinical-user-service</artifactId>
+                    <version>${ec-user-service-version}</version>
+                    <type>war</type>
+                    <scope>runtime</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.eurekaclinical</groupId>
+                    <artifactId>eurekaclinical-registry-service</artifactId>
+                    <version>${ec-registry-service-version}</version>
+                    <type>war</type>
+                    <scope>runtime</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.jasig.cas.client</groupId>
+                    <artifactId>cas-client-core</artifactId>
+                    <version>${cas-client-version}</version>                          
+                    <exclusions>
+                        <exclusion>
+                            <groupId>javax.servlet</groupId>
+                            <artifactId>servlet-api</artifactId>
+                        </exclusion>
+                    </exclusions>         
+                    <scope>runtime</scope>                    
+                </dependency>
+                <dependency>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>com.sun.mail</groupId>
+                    <artifactId>javax.mail</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>com.h2database</groupId>
+                    <artifactId>h2</artifactId>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>javax.servlet</groupId>
+                            <artifactId>servlet-api</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
     </dependencies>        
 </project>
