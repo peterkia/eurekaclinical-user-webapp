@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!--
+  #%L
+  Eureka! Clinical Registry Service
+  %%
+  Copyright (C) 2017 - 2018 Emory University
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  #L%
+  -->
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                         http://www.liquibase.org/xml/ns/dbchangelog
+                         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd"
+		   logicalFilePath="changelog-master.xml">
+    <changeSet author="arpost" id="EC-I2B2-INTEGRATION-1">
+	<insert tableName="COMPONENTS">
+	    <column name="ID" valueSequenceNext="COMPONENT_SEQ"/>
+	    <column name="NAME" value="Eureka! Clinical i2b2 Integration Service"/>
+	    <column name="DISPLAYNAME" value="i2b2 Integration Service"/>
+	    <column name="DESCRIPTION" value="Management of i2b2 user accounts, domains and projects"/>
+	    <column name="URL" value="https://localhost:4200/eurekaclinical-i2b2-integration-webapp"/>
+	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='SERVICE')"/>
+            <column name="SMALLICON" value="eureka-s.png"/>
+            <column name="MEDIUMICON" value="eureka-m.png"/>
+            <column name="LARGEICON" value="eureka-l.png"/>
+	</insert>
+	<insert tableName="COMPONENTS">
+	    <column name="ID" valueSequenceNext="COMPONENT_SEQ"/>
+	    <column name="NAME" value="Eureka! i2b2 Integration Webapp"/>
+	    <column name="DISPLAYNAME" value="i2b2 Integration Webapp"/>
+	    <column name="DESCRIPTION" value="API gateway for i2b2 Integration"/>
+	    <column name="URL" value="https://localhost:4200/eurekaclinical-i2b2-integration-webapp"/>
+	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='APIGATEWAY')"/>
+            <column name="SMALLICON" value="eureka-s.png"/>
+            <column name="MEDIUMICON" value="eureka-m.png"/>
+            <column name="LARGEICON" value="eureka-l.png"/>
+	</insert>
+    </changeSet>
+    <changeSet author="arpost" id="EC-I2B2-1">
+	<insert tableName="COMPONENTS">
+	    <column name="ID" valueSequenceNext="COMPONENT_SEQ"/>
+	    <column name="NAME" value="i2b2"/>
+	    <column name="DISPLAYNAME" value="i2b2"/>
+	    <column name="DESCRIPTION" value="Clinical data query tool"/>
+	    <column name="URL" value="https://localhost:4200/i2b2_webclient"/>
+	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='EXTERNAL')"/>
+            <column name="SMALLICON" value="eureka-s.png"/>
+            <column name="MEDIUMICON" value="eureka-m.png"/>
+            <column name="LARGEICON" value="eureka-l.png"/>
+	</insert>
+    </changeSet>
+    <changeSet author="arpost" id="EC-I2B2-2">
+	<insert tableName="COMPONENTS">
+	    <column name="ID" valueSequenceNext="COMPONENT_SEQ"/>
+	    <column name="NAME" value="i2b2 admin client"/>
+	    <column name="DISPLAYNAME" value="i2b2 admin client"/>
+	    <column name="DESCRIPTION" value="i2b2 user account, project, and domain administration"/>
+	    <column name="URL" value="https://localhost:4200/i2b2_adminclient"/>
+	    <column name="TYPE_ID" valueComputed="(SELECT ID FROM COMPONENT_TYPES WHERE NAME='EXTERNAL')"/>
+            <column name="SMALLICON" value="i2b2-s.png"/>
+            <column name="MEDIUMICON" value="i2b2-m.png"/>
+            <column name="LARGEICON" value="i2b2-l.png"/>
+	</insert>
+    </changeSet>   
+</databaseChangeLog>
