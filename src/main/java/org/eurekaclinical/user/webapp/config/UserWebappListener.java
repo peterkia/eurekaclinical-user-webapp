@@ -47,15 +47,6 @@ public class UserWebappListener extends GuiceServletContextListener {
         super.contextInitialized(servletContextEvent);
         servletContextEvent.getServletContext().addListener(
                 new ClientSessionListener());
-        servletContextEvent.getServletContext().setAttribute(
-                "userWebAppProperties", this.userWebAppProperties);
-    }
-
-    @Override
-    public void contextDestroyed(ServletContextEvent servletContextEvent) {
-        super.contextDestroyed(servletContextEvent);
-        servletContextEvent.getServletContext().removeAttribute(
-                "userWebAppProperties");
     }
 
     @Override
