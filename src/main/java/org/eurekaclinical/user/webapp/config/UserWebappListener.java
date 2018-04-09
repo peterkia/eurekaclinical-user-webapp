@@ -24,6 +24,7 @@ import com.google.inject.Module;
 import com.google.inject.servlet.GuiceServletContextListener;
 
 import javax.servlet.ServletContextEvent;
+import org.eurekaclinical.common.config.ApiGatewayServletModule;
 import org.eurekaclinical.common.config.ClientSessionListener;
 
 import org.eurekaclinical.common.config.InjectorSupport;
@@ -46,15 +47,6 @@ public class UserWebappListener extends GuiceServletContextListener {
         super.contextInitialized(servletContextEvent);
         servletContextEvent.getServletContext().addListener(
                 new ClientSessionListener());
-        servletContextEvent.getServletContext().setAttribute(
-                "userWebAppProperties", this.userWebAppProperties);
-    }
-
-    @Override
-    public void contextDestroyed(ServletContextEvent servletContextEvent) {
-        super.contextDestroyed(servletContextEvent);
-        servletContextEvent.getServletContext().removeAttribute(
-                "userWebAppProperties");
     }
 
     @Override
@@ -62,7 +54,7 @@ public class UserWebappListener extends GuiceServletContextListener {
         this.injector = new InjectorSupport(
                 new Module[]{
                     new AppModule(this.userWebAppProperties),
-                    new ServletModule(this.userWebAppProperties)
+                    new ApiGatewayServletModule(this.userWebAppProperties)
                 },
                 this.userWebAppProperties).getInjector();
         return this.injector;
