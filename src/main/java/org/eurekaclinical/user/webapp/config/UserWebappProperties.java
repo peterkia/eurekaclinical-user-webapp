@@ -36,14 +36,6 @@ public class UserWebappProperties extends CasEurekaClinicalProperties {
         return this.getValue("eurekaclinical.userservice.url");
     }
 
-    public String getAnalyticsWebClientUrl() {
-        return this.getValue("eurekaclinical.analyticswebclient.url");
-    }
-
-    public String getEurekaServicesUrl() {
-        return this.getValue("eureka.services.url");
-    }
-
     public boolean isEphiProhibited() {
         return Boolean.parseBoolean(getValue("eurekaclinical.userwebapp.ephiprohibited"));
     }
