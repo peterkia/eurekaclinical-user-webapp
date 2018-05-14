@@ -49,54 +49,6 @@ public class UserWebappProperties extends CasEurekaClinicalProperties {
         return this.getValue("eurekaclinical.userwebapp.callbackserver");
     }
 
-    public boolean isOAuthRegistrationEnabled() {
-        return isGoogleOAuthRegistrationEnabled() || isGitHubOAuthRegistrationEnabled() || isGlobusOAuthRegistrationEnabled();
-    }
-
-    public boolean isGoogleOAuthRegistrationEnabled() {
-        return getGoogleOAuthKey() != null && getGoogleOAuthSecret() != null;
-    }
-
-    public boolean isGitHubOAuthRegistrationEnabled() {
-        return getGitHubOAuthKey() != null && getGitHubOAuthSecret() != null;
-    }
-
-    public boolean isGlobusOAuthRegistrationEnabled() {
-        return getGlobusOAuthKey() != null && getGlobusOAuthSecret() != null;
-    }
-
-    public boolean isLocalAccountRegistrationEnabled() {
-        return Boolean.parseBoolean(getValue("eurekaclinical.userwebapp.localregistrationenabled"));
-    }
-
-    public boolean isRegistrationEnabled() {
-        return isLocalAccountRegistrationEnabled() || isOAuthRegistrationEnabled();
-    }
-
-    public String getGitHubOAuthKey() {
-        return getValue("eurekaclinical.userwebapp.githuboauthkey");
-    }
-
-    public String getGitHubOAuthSecret() {
-        return getValue("eurekaclinical.userwebapp.githuboauthsecret");
-    }
-
-    public String getGlobusOAuthKey() {
-        return getValue("eurekaclinical.userwebapp.globusoauthkey");
-    }
-
-    public String getGlobusOAuthSecret() {
-        return getValue("eurekaclinical.userwebapp.globusoauthsecret");
-    }
-
-    public String getGoogleOAuthKey() {
-        return getValue("eurekaclinical.userwebapp.googleoauthkey");
-    }
-
-    public String getGoogleOAuthSecret() {
-        return getValue("eurekaclinical.userwebapp.googleoauthsecret");
-    }
-
     /**
      * Gets the service's base URL.
      *

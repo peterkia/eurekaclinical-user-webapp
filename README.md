@@ -39,13 +39,6 @@ This webapp is configured using a properties file located at `/etc/ec-user/appli
 * `eurekaclinical.userwebapp.url`: https://hostname:port/eurekaclinical-user-webapp
 * `eurekaclinical.userservice.url`: https://hostname.of.userservice:port/eurekaclinical-user-service
 * `cas.url`: https://hostname.of.casserver:port/cas-server
-* `eurekaclinical.userwebapp.localregistrationenabled`: true or false to enable/disable registering for an account managed by this project; default is true.
-* `eurekaclinical.userwebapp.githuboauthkey`: the key for registering using a GitHub OAuth account.
-* `eurekaclinical.userwebapp.githuboauthsecret`:  the secret for registering using a GitHub OAuth account.
-* `eurekaclinical.userwebapp.globusoauthkey`:  the key for registering using a GitHub OAuth account.
-* `eurekaclinical.userwebapp.globusoauthsecret`:  the secret for registering using a Globus OAuth account.
-* `eurekaclinical.userwebapp.googleoauthkey`:  the key for registering using a Google OAuth account.
-* `eurekaclinical.userwebapp.googleoauthsecret`:  the secret for registering using a Google OAuth account.
 * `eurekaclinical.userwebapp.demomode`: true or false depending on whether to act like a demonstration; default is false.
 * `eurekaclinical.userwebapp.ephiprohibited`: true or false depending on whether to display that managing ePHI is prohibited; default is true.
 
