@@ -37,10 +37,6 @@ import org.eurekaclinical.scribeupext.provider.Google2Provider;
 import org.eurekaclinical.standardapis.props.CasEurekaClinicalProperties;
 import org.eurekaclinical.user.client.EurekaClinicalUserClient;
 
-import org.eurekaclinical.user.webapp.provider.ScribeExtGitHubProvider;
-import org.eurekaclinical.user.webapp.provider.ScribeExtGlobusProvider;
-import org.eurekaclinical.user.webapp.provider.ScribeExtGoogleProvider;
-
 /**
  * Configure all the web related binding for Guice and Jersey.
  *
@@ -71,9 +67,5 @@ public class AppModule extends AbstractModule {
         bind(EurekaClinicalRegistryClient.class).toProvider(this.registryClientProvider).in(SessionScoped.class);
         bind(UserWebappProperties.class).toInstance(this.userWebappProperties);
         bind(CasEurekaClinicalProperties.class).toInstance(this.userWebappProperties);
-
-        bind(GitHubProvider.class).toProvider(ScribeExtGitHubProvider.class);
-        bind(GlobusProvider.class).toProvider(ScribeExtGlobusProvider.class);
-        bind(Google2Provider.class).toProvider(ScribeExtGoogleProvider.class);
     }
 }
