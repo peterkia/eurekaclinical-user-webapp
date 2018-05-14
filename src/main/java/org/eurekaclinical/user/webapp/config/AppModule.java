@@ -31,9 +31,6 @@ import org.eurekaclinical.common.comm.clients.RouterTable;
 import org.eurekaclinical.registry.client.EurekaClinicalRegistryClient;
 import org.eurekaclinical.user.webapp.clients.ServiceClientRouterTable;
 
-import org.eurekaclinical.scribeupext.provider.GitHubProvider;
-import org.eurekaclinical.scribeupext.provider.GlobusProvider;
-import org.eurekaclinical.scribeupext.provider.Google2Provider;
 import org.eurekaclinical.standardapis.props.CasEurekaClinicalProperties;
 import org.eurekaclinical.user.client.EurekaClinicalUserClient;
 
