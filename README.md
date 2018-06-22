@@ -4,10 +4,10 @@
 ## What does it do?
 It provides web pages for users to manage their user profiles and change their password. It also implements a proxy servlet and router for web clients to access the web services provided by eurekaclinical-user-service.
 
-## Version 2.0 development series
 Latest release: [![Latest release](https://maven-badges.herokuapp.com/maven-central/org.eurekaclinical/eurekaclinical-user-webapp/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.eurekaclinical/eurekaclinical-user-webapp)
 
-Version 2.0 will turn this project into a Eureka! Clinical API gateway.
+## Version 2.0
+Version 2.0 removes all of the servlets and turns this project into an API gateway for the Eureka! Clinical User Web Client.
 
 ## Version 1.0
 Initial release.
