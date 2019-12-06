@@ -19,12 +19,12 @@
     <properties>
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
         <ec.build.timestamp>${maven.build.timestamp}</ec.build.timestamp>
-        <ec-user-client-version>1.4</ec-user-client-version>
-        <ec-user-service-version>2.2</ec-user-service-version>
-        <ec-common-version>5.0-Alpha-6</ec-common-version>
-        <ec-standard-apis-version>4.0-Alpha-5</ec-standard-apis-version>
-        <ec-registry-client-version>1.4-Beta-5</ec-registry-client-version>
-        <ec-registry-service-version>1.4-Alpha-3</ec-registry-service-version>
+        <ec-user-client-version>[1.5,)</ec-user-client-version>
+        <ec-user-service-version>[2.3,)</ec-user-service-version>
+        <ec-common-version>[5.0,)</ec-common-version>
+        <ec-standard-apis-version>[4.0,)</ec-standard-apis-version>
+        <ec-registry-client-version>[1.5,)</ec-registry-client-version>
+        <ec-registry-service-version>[1.4,)</ec-registry-service-version>
         <cas-mock-version>2.3</cas-mock-version>
     </properties>
 
