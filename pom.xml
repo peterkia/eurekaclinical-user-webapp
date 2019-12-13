@@ -26,6 +26,7 @@
         <ec-registry-client-version>1.6-Alpha-1-SNAPSHOT</ec-registry-client-version>
         <ec-registry-service-version>1.5-Alpha-1-SNAPSHOT</ec-registry-service-version>
         <cas-mock-version>2.4-SNAPSHOT</cas-mock-version>
+        <maven.javadoc.skip>true</maven.javadoc.skip>
     </properties>
 
     <scm>
