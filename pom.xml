@@ -3,7 +3,7 @@
     <groupId>org.eurekaclinical</groupId>    
     <artifactId>eurekaclinical-user-webapp</artifactId>
     <packaging>war</packaging>
-    <version>2.5-SNAPSHOT</version>
+    <version>2.5</version>
     <name>Eureka! Clinical User Webapp</name>
     <description>Eureka! Clinical User Webapp is the implementation of Eureka! Clinical User 
         web interface that is used by Eureka! Clinical multiple projects
@@ -33,7 +33,7 @@
         <connection>scm:git:https://github.com/eurekaclinical/eurekaclinical-user-webapp.git</connection>
         <developerConnection>scm:git:https://github.com/eurekaclinical/eurekaclinical-user-webapp.git</developerConnection>
         <url>https://github.com/eurekaclinical/eurekaclinical-user-webapp.git</url>
-        <tag>HEAD</tag>
+        <tag>eurekaclinical-user-webapp-2.5</tag>
     </scm>
 
     <issueManagement>
